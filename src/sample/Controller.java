@@ -60,8 +60,6 @@ public class Controller {
     @FXML
     private TableColumn dateCol;
 
-    private String path = "D:\\Disk_D\\VTPart2\\DataBase\\";
-
     public void initialize(){
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductFile();

@@ -2,19 +2,26 @@ package sample.SCRUD;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.Entities.Dishes;
-import sample.Entities.Products;
+import sample.Entities.*;
 
 import java.io.*;
 
 public class EntitiesLoader {
     private Products product;
     private Dishes dish;
+    private DishesCategory dishesCategory;
+    private Order order;
+    private Recipe recipe;
+    private Staff staff;
 
     private String path = "D:\\Disk_D\\VTPart2\\DataBase\\";
 
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
     private ObservableList<Dishes> dishesList = FXCollections.observableArrayList();
+    private ObservableList<DishesCategory> dishesCategoryList = FXCollections.observableArrayList();
+    private ObservableList<Order> orderList = FXCollections.observableArrayList();
+    private ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
+    private ObservableList<Staff> staffList = FXCollections.observableArrayList();
 
     public ObservableList<Products> loadProductFile(){
         try{
@@ -62,4 +69,29 @@ public class EntitiesLoader {
         }
         return dishesList;
     }
+
+
+    public ObservableList<DishesCategory> loadDishesCategoryFile(){
+
+        return dishesCategoryList;
+    }
+
+
+    public ObservableList<Order> loadOrderFile(){
+
+        return orderList;
+    }
+
+
+    public ObservableList<Recipe> loadRecipeFile(){
+
+        return recipeList;
+    }
+
+
+    public ObservableList<Staff> loadStaffFile(){
+
+        return staffList;
+    }
+
 }
