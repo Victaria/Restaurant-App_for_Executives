@@ -4,15 +4,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import sample.Entities.Dishes;
 import sample.Entities.Products;
 import sample.SCRUD.EntitiesLoader;
+import sample.SCRUD.EntityEditor;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
@@ -92,5 +95,23 @@ public class Controller {
     }
 
     public void ordersShow(MouseEvent event) {
+    }
+
+    public void receiptsShow(MouseEvent event) {
+    }
+
+    public void staffShow(MouseEvent event) {
+    }
+
+  /*  public void propertySelect(MouseEvent event) {
+        table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    }*/
+
+    public void deleteProperty(MouseEvent event) {
+    }
+
+    public void editProperty(MouseEvent event) {
+        EntityEditor editor = new EntityEditor();
+        editor.startEdit(table.getSelectionModel().getSelectedCells());
     }
 }
