@@ -70,5 +70,6 @@
       <TextField fx:id="sumField" layoutX="880.0" layoutY="796.0" />
       <Label layoutX="729.0" layoutY="764.0" prefHeight="21.0" prefWidth="151.0" text="Markup" />
       <Label layoutX="729.0" layoutY="801.0" prefHeight="21.0" prefWidth="151.0" text="Sum" />
+      <Button fx:id="submitBtn" layoutX="951.0" layoutY="844.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" text="Submit" />
    </children>
 </AnchorPane>

@@ -13,6 +13,9 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.util.converter.DateStringConverter;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 import sample.Entities.Dishes;
 import sample.Entities.Products;
 import sample.SCRUD.EntitiesLoader;
@@ -27,15 +30,6 @@ import java.util.TreeSet;
 
 
 public class Controller {
-
-    @FXML
-    private TableColumn sumCol;
-
-    @FXML
-    private TableColumn markupCol;
-
-   // private Products product;
-  //  private Dishes dish;
 
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
     private ObservableList<Dishes> dishesList = FXCollections.observableArrayList();
@@ -64,14 +58,22 @@ public class Controller {
     @FXML
     private TableColumn dateCol;
 
+    @FXML
+    private TableColumn sumCol;
+
+    @FXML
+    private TableColumn markupCol;
+
     public void initialize(){
         table.setEditable(true);
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
-       // categoryCol.setCellFactory(TextFieldTableCell.forTableColumn());
-       // priceCol.setCellFactory(TextFieldTableCell.forTableColumn());
-       // amountCol.setCellFactory(TextFieldTableCell.forTableColumn());
-       // weightCol.setCellFactory(TextFieldTableCell.forTableColumn());
-       // dateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        categoryCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        amountCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        weightCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        dateCol.setCellFactory(TextFieldTableCell.forTableColumn(new DateStringConverter()));
+        sumCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        markupCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
 
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductFile();
