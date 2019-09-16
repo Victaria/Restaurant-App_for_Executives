@@ -8,6 +8,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
@@ -64,6 +65,14 @@ public class Controller {
     private TableColumn dateCol;
 
     public void initialize(){
+        table.setEditable(true);
+        nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+       // categoryCol.setCellFactory(TextFieldTableCell.forTableColumn());
+       // priceCol.setCellFactory(TextFieldTableCell.forTableColumn());
+       // amountCol.setCellFactory(TextFieldTableCell.forTableColumn());
+       // weightCol.setCellFactory(TextFieldTableCell.forTableColumn());
+       // dateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductFile();
 
@@ -108,10 +117,13 @@ public class Controller {
     }*/
 
     public void deleteProperty(MouseEvent event) {
+       // table.getSelectionModel().getSelectedCells().clear();
     }
 
     public void editProperty(MouseEvent event) {
         EntityEditor editor = new EntityEditor();
         editor.startEdit(table.getSelectionModel().getSelectedCells());
+       // table.getSelectionModel().getSelectedCells().
+
     }
 }
