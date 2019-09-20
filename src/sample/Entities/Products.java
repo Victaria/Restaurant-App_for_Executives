@@ -5,12 +5,17 @@ public class Products {
     private String Name;
     private double price;
     private int amount;
+    private Integer count = 0;
 
     public Products(int id, String name, double price, int amount) {
         this.id = id;
         Name = name;
         this.price = price;
         this.amount = amount;
+        count++;
+    }
+
+    public Products(Object o) {
     }
 
     public int getId() {
@@ -47,5 +52,10 @@ public class Products {
 
     public void printProduct(){
         System.out.println(this.getId() +" "+ this.getName() +" "+ this.getPrice() +" "+ this.getAmount());
+    }
+
+    public Integer getAmountOfProducts(){
+        System.out.println(getId());
+        return count;
     }
 }

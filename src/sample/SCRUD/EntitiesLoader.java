@@ -94,4 +94,17 @@ public class EntitiesLoader {
         return staffList;
     }
 
+    public void writeProductsFile(ObservableList<Products> product){
+        try(FileWriter writer = new FileWriter(path + "TestFile.txt", false)) {
+            for (Products products : product){
+                writer.write(products.getId() + ";" + products.getName() + ";" + products.getPrice() + ";" + products.getAmount() + "\n");
+            }
+          //  writer.write(String.valueOf(product.toString().split(";")));
+           // writer.write(product);
+           // writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
