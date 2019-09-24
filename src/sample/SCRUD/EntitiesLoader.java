@@ -99,9 +99,6 @@ public class EntitiesLoader {
             for (Products products : product){
                 writer.write(products.getId() + ";" + products.getName() + ";" + products.getPrice() + ";" + products.getAmount() + "\n");
             }
-          //  writer.write(String.valueOf(product.toString().split(";")));
-           // writer.write(product);
-           // writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

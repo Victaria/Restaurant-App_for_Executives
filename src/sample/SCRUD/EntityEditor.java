@@ -41,4 +41,15 @@ public class EntityEditor {
         sumField.setDisable(true);
         markupField.setDisable(true);
     }
+
+    public void fieldsClear(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField markupField, TextField sumField){
+        nameField.clear();
+        categoryField.clear();
+        priceField.clear();
+        amountField.clear();
+        weightField.clear();
+        dateField.clear();
+        sumField.clear();
+        markupField.clear();
+    }
 }

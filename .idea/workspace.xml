@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading optimization">
-      <change beforePath="$PROJECT_DIR$/DataBase/TestFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/TestFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Entities/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Entities/Products.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" afterDir="false" />
     </list>
@@ -66,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="276" column="54" lean-forward="true" selection-start-line="276" selection-start-column="54" selection-end-line="276" selection-end-column="54" />
+            <state relative-caret-position="380">
+              <caret line="306" column="123" selection-start-line="306" selection-start-column="123" selection-end-line="306" selection-end-column="123" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="383">
+              <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+            <state relative-caret-position="298">
+              <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,10 +149,10 @@
         <option value="$PROJECT_DIR$/parser.dtd" />
         <option value="$PROJECT_DIR$/src/sample/Entities/Dishes.java" />
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" />
         <option value="$PROJECT_DIR$/src/sample/Entities/Products.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" />
+        <option value="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
     </option>
   </component>
@@ -352,12 +350,12 @@
       <workItem from="1569175759035" duration="598000" />
       <workItem from="1569247143386" duration="8177000" />
       <workItem from="1569300565028" duration="590000" />
-      <workItem from="1569322860378" duration="4646000" />
+      <workItem from="1569322860378" duration="5551000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71185000" />
+    <option name="totallyTimeSpent" value="72090000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -516,26 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="276" column="54" lean-forward="true" selection-start-line="276" selection-start-column="54" selection-end-line="276" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Entities/Products.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -551,8 +529,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+        <state relative-caret-position="298">
+          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="306" column="123" selection-start-line="306" selection-start-column="123" selection-end-line="306" selection-end-column="123" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

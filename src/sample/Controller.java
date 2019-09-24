@@ -31,6 +31,7 @@ public class Controller {
 
     public Button deleteBtn;
     public Button addBtn;
+    public Button submitBtn;
     private int idEdit;
     public  EntitiesLoader loader = new EntitiesLoader();
 
@@ -127,11 +128,12 @@ public class Controller {
     @FXML
     private TableColumn markupCol;
 
+    EntityEditor editor = new EntityEditor();
+
     public void initialize(){
 
-        EntityEditor editor = new EntityEditor();
         editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
-
+        submitBtn.setDisable(true);
        // table.setEditable(true);
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         categoryCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -200,6 +202,7 @@ public class Controller {
     public void addProperty(MouseEvent event) {
         nameField.setDisable(false);
         eAFlag = 1;
+        submitBtn.setDisable(false);
 
         switch (flag) {
             case 1:
@@ -232,6 +235,7 @@ public class Controller {
         System.out.println(num);
         if (num >= 0){
             eAFlag = 2;
+            submitBtn.setDisable(false);
         switch (flag){
             case 1:
                 priceField.setDisable(false);
@@ -275,11 +279,11 @@ public class Controller {
                 Integer amount = Integer.valueOf(amountField.getText());
                 Double price = Double.valueOf(priceField.getText());
                 Integer id = Products.getLastId() + 1;
-                //генерация id
+
                 productsList.size();
                 Products pr = new Products(id, name,price, amount);
                 productsList.add(pr);
-                    //add to file
+
                 } else if (eAFlag == 2){
                     product.setName(nameField.getText());
                     product.setPrice(Double.valueOf(priceField.getText()));
@@ -303,5 +307,8 @@ public class Controller {
             default:
                 break;
     }
+        editor.fieldsClear(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
+        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
+        submitBtn.setDisable(true);
 }
 }

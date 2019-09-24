@@ -61,7 +61,8 @@ public class Products {
     }
 
     public static void setLastId(int id){
-        lastId = id;
+        if (lastId < id)
+            lastId = id;
     }
 
     public Integer getAmountOfProducts(){
