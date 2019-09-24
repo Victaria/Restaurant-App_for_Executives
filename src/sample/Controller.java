@@ -31,6 +31,7 @@ public class Controller {
 
     public Button deleteBtn;
     public Button addBtn;
+    private int idEdit;
     public  EntitiesLoader loader = new EntitiesLoader();
 
     private int flag = 0;
@@ -43,7 +44,13 @@ public class Controller {
     * 6 - staff
     */
 
+    private int eAFlag;
+    /*
+    * 1 - add
+    * 2 - edit
+    */
     Products product;
+    int num;
 
     @FXML
     public TextField nameField;
@@ -125,7 +132,7 @@ public class Controller {
         EntityEditor editor = new EntityEditor();
         editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
 
-        table.setEditable(true);
+       // table.setEditable(true);
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         categoryCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
@@ -187,6 +194,7 @@ public class Controller {
     public void deleteProperty(MouseEvent event) {
        // Products selectedProduct = (Products) table.getItems().get();
       //  productsList.remove(selectedProduct);
+        Products.decrCounter();
     }
 
     public void addProperty(MouseEvent event) {
@@ -213,16 +221,28 @@ public class Controller {
                 break;
 
         }
+        Products.incrCounter();
 
     }
 
     public void textChange(MouseEvent event) {
         EntityEditor editor = new EntityEditor();
-
+        num = table.getSelectionModel().getSelectedIndex();
+        System.out.println(num);
+        if (num >= 0){
+            eAFlag = 2;
         switch (flag){
             case 1:
-               // productsList.remove(0, productsList.size()-1);
-                editor.productListChanged(table, productsList);
+                priceField.setDisable(false);
+                amountField.setDisable(false);
+                nameField.setDisable(false);
+
+                product = (Products) table.getItems().get(num);
+                idEdit = ((Products) table.getItems().get(num)).getId();
+                nameField.setText(((Products)table.getItems().get(num)).getName());
+                priceField.setText(Double.toString(((Products) table.getItems().get(num)).getPrice()));
+                amountField.setText(Integer.toString(((Products) table.getItems().get(num)).getAmount()));
+                //editor.productListChanged(table, productsList, num);
                 break;
             case 2:
                 editor.dishesListChanged();
@@ -242,11 +262,14 @@ public class Controller {
             default:
                 break;
         }
+        }
     }
 
     public void submitAdding(ActionEvent actionEvent) {
+
         switch (flag){
             case 1:
+                if (eAFlag == 1){
                 String name = nameField.getText();
                 Integer amount = Integer.valueOf(amountField.getText());
                 Double price = Double.valueOf(priceField.getText());
@@ -255,9 +278,16 @@ public class Controller {
                 productsList.size();
                 Products pr = new Products(id, name,price, amount);
                 productsList.add(pr);
+                    //add to file
+                } else if (eAFlag == 2){
+                    product.setName(nameField.getText());
+                    product.setPrice(Double.valueOf(priceField.getText()));
+                    product.setAmount(Integer.valueOf(amountField.getText()));
+                    productsList.remove(num);
+                    productsList.add(product);
+                }
                 table.setItems(productsList);
                 loader.writeProductsFile(productsList);
-                //add to file
                 break;
             case 2:
                 break;

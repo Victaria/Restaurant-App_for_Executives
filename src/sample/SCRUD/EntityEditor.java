@@ -9,23 +9,33 @@ import sample.Entities.Products;
 import java.lang.reflect.Array;
 
 public class EntityEditor {
-    Products product;
+    private Products product;
 
-    public void productListChanged(TableView table, ObservableList<Products> productsList){
-        EntitiesLoader loader = new EntitiesLoader();
-       for (int row = 0; row < table.getItems().size(); row++){
-           // while (row < table.getSelectionModel().getSelectedItems().size()){
-           // product = (Products) table.getItems().get(row);
-           product = new Products(table.getItems().get(row));
-           table.getSelectionModel().select(row);
-           System.out.println(table.getSelectionModel().getSelectedIndex());
+    public void productListChanged(TableView table, ObservableList<Products> productsList, int num){
 
-            String string = String.join(";", product.toString());
-           // loader.writeProductsFile(string);
-          //  productsList.add((Products) table.getProperties().get(row));
+            //заменить на изменение через поля
+       // int trow = ((Products) table.getItems().get(num)).getId();
+       // String name = ((Products)table.getItems().get(num)).getName();
+       // double price = ((Products) table.getItems().get(num)).getPrice();
+      //  int amount = ((Products) table.getItems().get(num)).getAmount();
+
+            //System.out.println(trow + " " + name + " " + price + " " + amount);
+
+
+
+      /*for (int row = 0; row < Products.getCount(); row++){
+          int trow = ((Products) table.getItems().get(row)).getId();
+
+          // System.out.println("_____ " + trow.getId());
+         //  product = new Products(trow.getId(), trow.getName(), trow.getPrice(), trow.getAmount());
+         //  productsList.add(product);
+           //table.getSelectionModel().select(row);
+          System.out.println(trow);
+            //String string = String.join(";", product.toString());
         }
-        System.out.println();
-        //System.out.println();
+      //  System.out.println(productsList);
+      //  System.out.println(trow);
+        //System.out.println();*/
     }
 
     public void dishesListChanged(){

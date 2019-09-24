@@ -1,18 +1,18 @@
 package sample.Entities;
 
 public class Products {
+    private static int count;
     private int id;
     private String Name;
     private double price;
     private int amount;
-    private Integer count = 0;
 
     public Products(int id, String name, double price, int amount) {
         this.id = id;
         Name = name;
         this.price = price;
         this.amount = amount;
-        count++;
+        incrCounter();
     }
 
     public Products(Object o) {
@@ -56,6 +56,18 @@ public class Products {
 
     public Integer getAmountOfProducts(){
         System.out.println(getId());
+        return count;
+    }
+
+    public static void decrCounter(){
+        count--;
+    }
+
+    public static void incrCounter(){
+        count++;
+    }
+
+    public static Integer getCount(){
         return count;
     }
 }

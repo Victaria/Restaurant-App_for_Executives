@@ -22,7 +22,7 @@
             <Button fx:id="staffBtn" mnemonicParsing="false" onMouseClicked="#staffShow" prefHeight="20.0" prefWidth="80.0" text="Staff" />
         </items>
       </ToolBar>
-      <TableView fx:id="table" layoutX="14.0" layoutY="52.0" prefHeight="455.0" prefWidth="917.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="table" editable="true" layoutX="14.0" layoutY="52.0" onInputMethodTextChanged="#textChange" prefHeight="455.0" prefWidth="917.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="50.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="id" />
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="name" />
