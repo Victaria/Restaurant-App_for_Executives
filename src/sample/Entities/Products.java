@@ -17,6 +17,10 @@ public class Products {
         setLastId(id);
     }
 
+    public static void destroy(Products product) throws Throwable {
+        product.finalize();
+    }
+
     public Products(Object o) {
     }
 

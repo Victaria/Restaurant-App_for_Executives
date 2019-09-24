@@ -193,10 +193,15 @@ public class Controller {
         flag = 6;
     }
 
-    public void deleteProperty(MouseEvent event) {
-       // Products selectedProduct = (Products) table.getItems().get();
-      //  productsList.remove(selectedProduct);
-        Products.decrCounter();
+    public void deleteProperty(MouseEvent event) throws Throwable {
+        num = table.getSelectionModel().getSelectedIndex();
+        if (num >= 0){
+            product = (Products) table.getItems().get(num);
+            productsList.remove(num);
+            Products.destroy(product);
+            loader.writeProductsFile(productsList);
+            Products.decrCounter();
+        }
     }
 
     public void addProperty(MouseEvent event) {
@@ -230,7 +235,7 @@ public class Controller {
     }
 
     public void textChange(MouseEvent event) {
-        EntityEditor editor = new EntityEditor();
+        editor = new EntityEditor();
         num = table.getSelectionModel().getSelectedIndex();
         System.out.println(num);
         if (num >= 0){
