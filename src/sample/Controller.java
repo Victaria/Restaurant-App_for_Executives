@@ -199,6 +199,7 @@ public class Controller {
 
     public void addProperty(MouseEvent event) {
         nameField.setDisable(false);
+        eAFlag = 1;
 
         switch (flag) {
             case 1:
@@ -273,7 +274,7 @@ public class Controller {
                 String name = nameField.getText();
                 Integer amount = Integer.valueOf(amountField.getText());
                 Double price = Double.valueOf(priceField.getText());
-                Integer id = productsList.size() + 2;
+                Integer id = Products.getLastId() + 1;
                 //генерация id
                 productsList.size();
                 Products pr = new Products(id, name,price, amount);

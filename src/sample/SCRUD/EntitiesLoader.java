@@ -25,7 +25,7 @@ public class EntitiesLoader {
 
     public ObservableList<Products> loadProductFile(){
         try{
-            File file = new File(path + "Products.txt");
+            File file = new File(path + "TestFile.txt");
 
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);

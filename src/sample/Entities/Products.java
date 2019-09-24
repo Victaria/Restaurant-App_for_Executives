@@ -6,6 +6,7 @@ public class Products {
     private String Name;
     private double price;
     private int amount;
+    private static int lastId = 0;
 
     public Products(int id, String name, double price, int amount) {
         this.id = id;
@@ -13,6 +14,7 @@ public class Products {
         this.price = price;
         this.amount = amount;
         incrCounter();
+        setLastId(id);
     }
 
     public Products(Object o) {
@@ -52,6 +54,14 @@ public class Products {
 
     public void printProduct(){
         System.out.println(this.getId() +" "+ this.getName() +" "+ this.getPrice() +" "+ this.getAmount());
+    }
+
+    public static int getLastId(){
+        return lastId;
+    }
+
+    public static void setLastId(int id){
+        lastId = id;
     }
 
     public Integer getAmountOfProducts(){
