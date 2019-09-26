@@ -8,6 +8,8 @@ public class Dishes {
     private double markup;
     private double sum;
 
+    private static int lastId = 0;
+
     public Dishes(int id, String name, double price, double weight, double markup, double sum) {
         this.id = id;
         Name = name;
@@ -15,6 +17,8 @@ public class Dishes {
         this.weight = weight;
         this.markup = markup;
         this.sum = sum;
+
+        setLastId(id);
     }
 
     public int getId() {
@@ -63,5 +67,14 @@ public class Dishes {
 
     public void setSum(double sum) {
         this.sum = sum;
+    }
+
+    public static int getLastId(){
+        return lastId;
+    }
+
+    public static void setLastId(int id){
+        if (lastId < id)
+            lastId = id;
     }
 }

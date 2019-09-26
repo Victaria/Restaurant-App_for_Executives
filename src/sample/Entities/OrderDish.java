@@ -1,4 +1,4 @@
 package sample.Entities;
 
-public class DishesCategory {
+public class OrderDish {
 }

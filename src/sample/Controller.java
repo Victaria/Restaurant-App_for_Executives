@@ -14,18 +14,9 @@ import javafx.stage.FileChooser;
 import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
-import sample.Entities.Dishes;
-import sample.Entities.Products;
+import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
-
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.*;
-import java.text.StringCharacterIterator;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
-
 
 public class Controller {
 
@@ -50,8 +41,14 @@ public class Controller {
     * 1 - add
     * 2 - edit
     */
-    Products product;
-    int num;
+    private Products product;
+    private Dishes dish;
+    private Recipe recipe;
+    private Order order;
+    private Staff staff;
+    private OrderDish orderDish;
+
+    private int num;
 
     @FXML
     public TextField nameField;
@@ -97,6 +94,10 @@ public class Controller {
 
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
     private ObservableList<Dishes> dishesList = FXCollections.observableArrayList();
+    private ObservableList<Order> orderList = FXCollections.observableArrayList();
+    private ObservableList<OrderDish> orderDishList = FXCollections.observableArrayList();
+    private ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
+    private ObservableList<Staff> staffList = FXCollections.observableArrayList();
 
     @FXML
     private TableView table;
@@ -128,7 +129,9 @@ public class Controller {
     @FXML
     private TableColumn markupCol;
 
-    EntityEditor editor = new EntityEditor();
+    private EntityEditor editor = new EntityEditor();
+    private double weight;
+    private double sum;
 
     public void initialize(){
 
@@ -196,11 +199,32 @@ public class Controller {
     public void deleteProperty(MouseEvent event) throws Throwable {
         num = table.getSelectionModel().getSelectedIndex();
         if (num >= 0){
-            product = (Products) table.getItems().get(num);
-            productsList.remove(num);
-            Products.destroy(product);
-            loader.writeProductsFile(productsList);
-            Products.decrCounter();
+            switch (flag){
+                case 1:
+                    product = (Products) table.getItems().get(num);
+                    productsList.remove(num);
+                    Products.destroy(product);
+                    loader.writeProductsFile(productsList);
+                    Products.decrCounter();
+                    break;
+                case 2:
+                    dish = (Dishes) table.getItems().get(num);
+                    dishesList.remove(num);
+                    //
+                    //
+                    loader.writeDishesFile(dishesList);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -221,6 +245,7 @@ public class Controller {
                 weightField.setDisable(false);
                 break;
             case 3:
+
                 break;
             case 4:
                 break;
@@ -255,7 +280,21 @@ public class Controller {
                 //editor.productListChanged(table, productsList, num);
                 break;
             case 2:
-                editor.dishesListChanged();
+                priceField.setDisable(false);
+                nameField.setDisable(false);
+                markupField.setDisable(false);
+                weightField.setDisable(false);
+                sumField.setDisable(false);
+
+                dish = (Dishes) table.getItems().get(num);
+                idEdit = ( ((Dishes) table.getItems().get(num)).getId());
+                nameField.setText(((Dishes)table.getItems().get(num)).getName());
+                priceField.setText(Double.toString(((Dishes) table.getItems().get(num)).getPrice()));
+                markupField.setText(Double.toString(((Dishes) table.getItems().get(num)).getMarkup()));
+                weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
+                sumField.setText(Double.toString(((Dishes) table.getItems().get(num)).getSum()));
+
+               // editor.dishesListChanged();
                 break;
             case 3:
                 editor.categoryListChanged();
@@ -300,6 +339,30 @@ public class Controller {
                 loader.writeProductsFile(productsList);
                 break;
             case 2:
+                if (eAFlag == 1){
+                    String name = nameField.getText();
+                    Double markup = Double.valueOf(markupField.getText());
+                    Double price = Double.valueOf(priceField.getText());
+                    Integer id = Dishes.getLastId() + 1;
+                    Double weight = Double.valueOf(weightField.getText());
+                    Double sum = Double.valueOf(sumField.getText());
+
+                    dishesList.size();
+                    Dishes dish = new Dishes(id, name,price, weight, markup, sum);
+                    dishesList.add(dish);
+
+                } else if (eAFlag == 2){
+                    //markup don't have to be edit
+                    dish.setName(nameField.getText());
+                    dish.setPrice(Double.valueOf(priceField.getText()));
+                    dish.setWeight(Double.valueOf(weightField.getText()));
+                    dish.setSum(Double.valueOf(sumField.getText()));
+
+                    dishesList.remove(num);
+                    dishesList.add(dish);
+                }
+                table.setItems(dishesList);
+                loader.writeDishesFile(dishesList);
                 break;
             case 3:
                 break;
