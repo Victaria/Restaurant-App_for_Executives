@@ -1,12 +1,15 @@
 package sample.Entities;
 
-public class Products {
+import java.util.Comparator;
+
+public class Products implements Comparator{
     private static int count;
     private int id;
     private String Name;
     private double price;
     private int amount;
     private static int lastId = 0;
+
 
     public Products(int id, String name, double price, int amount) {
         this.id = id;
@@ -69,11 +72,6 @@ public class Products {
             lastId = id;
     }
 
-    public Integer getAmountOfProducts(){
-        System.out.println(getId());
-        return count;
-    }
-
     public static void decrCounter(){
         count--;
     }
@@ -84,5 +82,13 @@ public class Products {
 
     public static Integer getCount(){
         return count;
+    }
+
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        if (o1.equals(o2))
+        return 0;
+        else return -1;
     }
 }

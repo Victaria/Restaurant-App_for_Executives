@@ -18,29 +18,32 @@ import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 
+import java.io.IOException;
+
 public class Controller {
 
     public Button deleteBtn;
     public Button addBtn;
     public Button submitBtn;
+    public TextField searchField;
     private int idEdit;
-    public  EntitiesLoader loader = new EntitiesLoader();
+    public EntitiesLoader loader = new EntitiesLoader();
 
     private int flag = 0;
     /*
-    * 1 - products
-    * 2 - dishes
-    * 3 - category
-    * 4 - orders
-    * 5 - receipts
-    * 6 - staff
-    */
+     * 1 - products
+     * 2 - dishes
+     * 3 - orderDish
+     * 4 - orders
+     * 5 - receipts
+     * 6 - staff
+     */
 
     private int eAFlag;
     /*
-    * 1 - add
-    * 2 - edit
-    */
+     * 1 - add
+     * 2 - edit
+     */
     private Products product;
     private Dishes dish;
     private Recipe recipe;
@@ -133,11 +136,11 @@ public class Controller {
     private double weight;
     private double sum;
 
-    public void initialize(){
+    public void initialize() {
 
         editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
         submitBtn.setDisable(true);
-       // table.setEditable(true);
+        // table.setEditable(true);
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         categoryCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
@@ -154,7 +157,7 @@ public class Controller {
         dishesList = loader1.loadDishesFile();
     }
 
-    public void productsShow(MouseEvent event){
+    public void productsShow(MouseEvent event) {
         idCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Products, String>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Products, Double>("price"));
@@ -168,7 +171,7 @@ public class Controller {
         idCol.setCellValueFactory(new PropertyValueFactory<Dishes, Integer>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Dishes, String>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("price"));
-        markupCol.setCellValueFactory(new PropertyValueFactory<Dishes,Double>("markup"));
+        markupCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("markup"));
         weightCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("weight"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("sum"));
 
@@ -176,7 +179,7 @@ public class Controller {
         flag = 2;
     }
 
-    public void categoriesShow(MouseEvent event) {
+    public void orderDishesShow(MouseEvent event) {
 
         flag = 3;
     }
@@ -198,8 +201,8 @@ public class Controller {
 
     public void deleteProperty(MouseEvent event) throws Throwable {
         num = table.getSelectionModel().getSelectedIndex();
-        if (num >= 0){
-            switch (flag){
+        if (num >= 0) {
+            switch (flag) {
                 case 1:
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
@@ -228,7 +231,7 @@ public class Controller {
         }
     }
 
-    public void addProperty(MouseEvent event) {
+    public void addProperty(MouseEvent event) throws IOException {
         nameField.setDisable(false);
         eAFlag = 1;
         submitBtn.setDisable(false);
@@ -243,6 +246,7 @@ public class Controller {
                 markupField.setDisable(false);
                 sumField.setDisable(false);
                 weightField.setDisable(false);
+                ModalWindow.newWindow("add Dish");
                 break;
             case 3:
 
@@ -259,76 +263,76 @@ public class Controller {
 
     }
 
-    public void textChange(MouseEvent event) {
+    public void textChange(MouseEvent event) throws IOException {
         editor = new EntityEditor();
         num = table.getSelectionModel().getSelectedIndex();
         System.out.println(num);
-        if (num >= 0){
+        if (num >= 0) {
             eAFlag = 2;
             submitBtn.setDisable(false);
-        switch (flag){
-            case 1:
-                priceField.setDisable(false);
-                amountField.setDisable(false);
-                nameField.setDisable(false);
+            switch (flag) {
+                case 1:
+                    priceField.setDisable(false);
+                    amountField.setDisable(false);
+                    nameField.setDisable(false);
 
-                product = (Products) table.getItems().get(num);
-                idEdit = ((Products) table.getItems().get(num)).getId();
-                nameField.setText(((Products)table.getItems().get(num)).getName());
-                priceField.setText(Double.toString(((Products) table.getItems().get(num)).getPrice()));
-                amountField.setText(Integer.toString(((Products) table.getItems().get(num)).getAmount()));
-                //editor.productListChanged(table, productsList, num);
-                break;
-            case 2:
-                priceField.setDisable(false);
-                nameField.setDisable(false);
-                markupField.setDisable(false);
-                weightField.setDisable(false);
-                sumField.setDisable(false);
+                    product = (Products) table.getItems().get(num);
+                    idEdit = ((Products) table.getItems().get(num)).getId();
+                    nameField.setText(((Products) table.getItems().get(num)).getName());
+                    priceField.setText(Double.toString(((Products) table.getItems().get(num)).getPrice()));
+                    amountField.setText(Integer.toString(((Products) table.getItems().get(num)).getAmount()));
+                    //editor.productListChanged(table, productsList, num);
+                    break;
+                case 2:
+                    priceField.setDisable(false);
+                    nameField.setDisable(false);
+                    markupField.setDisable(false);
+                    weightField.setDisable(false);
+                    sumField.setDisable(false);
 
-                dish = (Dishes) table.getItems().get(num);
-                idEdit = ( ((Dishes) table.getItems().get(num)).getId());
-                nameField.setText(((Dishes)table.getItems().get(num)).getName());
-                priceField.setText(Double.toString(((Dishes) table.getItems().get(num)).getPrice()));
-                markupField.setText(Double.toString(((Dishes) table.getItems().get(num)).getMarkup()));
-                weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
-                sumField.setText(Double.toString(((Dishes) table.getItems().get(num)).getSum()));
+                    dish = (Dishes) table.getItems().get(num);
+                    idEdit = (((Dishes) table.getItems().get(num)).getId());
+                    nameField.setText(((Dishes) table.getItems().get(num)).getName());
+                    priceField.setText(Double.toString(((Dishes) table.getItems().get(num)).getPrice()));
+                    markupField.setText(Double.toString(((Dishes) table.getItems().get(num)).getMarkup()));
+                    weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
+                    sumField.setText(Double.toString(((Dishes) table.getItems().get(num)).getSum()));
 
-               // editor.dishesListChanged();
-                break;
-            case 3:
-                editor.categoryListChanged();
-                break;
-            case 4:
-                editor.ordersListChanged();
-                break;
-            case 5:
-                editor.receiptsListChanged();
-                break;
-            case 6:
-                editor.staffListChanged();
-                break;
-            default:
-                break;
-        }
+                    ModalWindow.newWindow("edit dish");
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+                    editor.ordersListChanged();
+                    break;
+                case 5:
+                    editor.receiptsListChanged();
+                    break;
+                case 6:
+                    editor.staffListChanged();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
     public void submitAdding(ActionEvent actionEvent) {
 
-        switch (flag){
+        switch (flag) {
             case 1:
-                if (eAFlag == 1){
-                String name = nameField.getText();
-                Integer amount = Integer.valueOf(amountField.getText());
-                Double price = Double.valueOf(priceField.getText());
-                Integer id = Products.getLastId() + 1;
+                if (eAFlag == 1) {
+                    String name = nameField.getText();
+                    Integer amount = Integer.valueOf(amountField.getText());
+                    Double price = Double.valueOf(priceField.getText());
+                    Integer id = Products.getLastId() + 1;
 
-                productsList.size();
-                Products pr = new Products(id, name,price, amount);
-                productsList.add(pr);
+                    productsList.size();
+                    Products pr = new Products(id, name, price, amount);
+                    productsList.add(pr);
 
-                } else if (eAFlag == 2){
+                } else if (eAFlag == 2) {
                     product.setName(nameField.getText());
                     product.setPrice(Double.valueOf(priceField.getText()));
                     product.setAmount(Integer.valueOf(amountField.getText()));
@@ -339,7 +343,7 @@ public class Controller {
                 loader.writeProductsFile(productsList);
                 break;
             case 2:
-                if (eAFlag == 1){
+                if (eAFlag == 1) {
                     String name = nameField.getText();
                     Double markup = Double.valueOf(markupField.getText());
                     Double price = Double.valueOf(priceField.getText());
@@ -348,10 +352,10 @@ public class Controller {
                     Double sum = Double.valueOf(sumField.getText());
 
                     dishesList.size();
-                    Dishes dish = new Dishes(id, name,price, weight, markup, sum);
+                    Dishes dish = new Dishes(id, name, price, weight, markup, sum);
                     dishesList.add(dish);
 
-                } else if (eAFlag == 2){
+                } else if (eAFlag == 2) {
                     //markup don't have to be edit
                     dish.setName(nameField.getText());
                     dish.setPrice(Double.valueOf(priceField.getText()));
@@ -374,9 +378,75 @@ public class Controller {
                 break;
             default:
                 break;
-    }
+        }
         editor.fieldsClear(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
         editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
         submitBtn.setDisable(true);
+    }
+
+    public void searchProperties(ActionEvent event) {
+        int i = 0;  // 0 - int, double; 2 - string
+        int intStr = 0;
+        double doublStr = 0;
+        int equ = -1;
+        int equ1 = -1;
+        String strFromField = searchField.getText();
+        //проблемы с пустым полем
+        try {
+            intStr = Integer.parseInt(strFromField);
+            doublStr = Double.parseDouble(strFromField);
+            i = 0;
+        } catch (NumberFormatException ex) {
+            try {
+                doublStr = Double.parseDouble(strFromField);
+                i = 1;
+            } catch (NumberFormatException ex1) {
+                i = 2;
+            }
+            switch (flag) {
+                case 1:
+                    ObservableList<Products> res = FXCollections.observableArrayList();
+                    for (Products product : productsList) {
+                        equ = -1;
+                        equ1 = -1;
+                        switch (i) {
+                            case 0:
+                                equ = product.compare(product.getId(), intStr);
+                                equ1 = product.compare(product.getAmount(), intStr);
+                                break;
+                            case 1:
+                                equ = product.compare(product.getPrice(), doublStr);
+                                break;
+                            case 2:
+                                equ = product.compare(product.getName(), strFromField);
+                                break;
+                        }
+                        if ((equ == 0) || (equ1 == 0)){
+                            res.add(product);
+                        }
+                    }
+                    table.setItems(res);
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }
-}
+
+
