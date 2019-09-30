@@ -390,7 +390,9 @@ public class Controller {
         double doublStr = 0;
         int equ;
         int equ1;
+        int equ2;
         int equ3;
+        int equ4;
         String strFromField = searchField.getText();
         //проблемы с пустым полем
         try {
@@ -430,7 +432,32 @@ public class Controller {
                     table.setItems(res);
                     break;
                 case 2:
+                    ObservableList<Dishes> dRes = FXCollections.observableArrayList();
+                    for (Dishes dish : dishesList) {
+                        equ = -1;
+                        equ1 = -1;
+                        equ3 = -1;
+                        equ2 = -1;
+                        equ4 = -1;
+                        switch (i) {
+                            case 0:
+                                equ = dish.compare(dish.getId(), intStr);
+                            case 1:
+                                equ1 = dish.compare(dish.getPrice(), doublStr);
+                                equ3 = dish.compare(dish.getSum(), doublStr);
+                                equ2 = dish.compare(dish.getMarkup(), doublStr);
+                                equ4 = dish.compare(dish.getWeight(), doublStr);
+                                break;
+                            case 2:
+                                equ = dish.compare(dish.getName(), strFromField);
+                                break;
+                        }
+                        if ((equ == 0) || (equ1 == 0) || (equ3 == 0) || (equ2 == 0) || (equ4 == 0)) {
+                            dRes.add(dish);
+                        }
 
+                        table.setItems(dRes);
+                    }
                     break;
                 case 3:
 

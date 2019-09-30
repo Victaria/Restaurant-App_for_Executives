@@ -1,6 +1,8 @@
 package sample.Entities;
 
-public class Dishes {
+import java.util.Comparator;
+
+public class Dishes implements Comparator {
     private int id;
     private String Name;
     private double price;
@@ -76,5 +78,11 @@ public class Dishes {
     public static void setLastId(int id){
         if (lastId < id)
             lastId = id;
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        if (o1.equals(o2)) return 0;
+        else return -1;
     }
 }
