@@ -385,11 +385,12 @@ public class Controller {
     }
 
     public void searchProperties(ActionEvent event) {
-        int i = 0;  // 0 - int, double; 2 - string
+        int i;  // 0 - int, double; 2 - string
         int intStr = 0;
         double doublStr = 0;
-        int equ = -1;
-        int equ1 = -1;
+        int equ;
+        int equ1;
+        int equ3;
         String strFromField = searchField.getText();
         //проблемы с пустым полем
         try {
@@ -403,25 +404,26 @@ public class Controller {
             } catch (NumberFormatException ex1) {
                 i = 2;
             }
+        }
             switch (flag) {
                 case 1:
                     ObservableList<Products> res = FXCollections.observableArrayList();
                     for (Products product : productsList) {
                         equ = -1;
                         equ1 = -1;
+                        equ3 = -1;
                         switch (i) {
                             case 0:
                                 equ = product.compare(product.getId(), intStr);
                                 equ1 = product.compare(product.getAmount(), intStr);
-                                break;
                             case 1:
-                                equ = product.compare(product.getPrice(), doublStr);
+                                equ3 = product.compare(product.getPrice(), doublStr);
                                 break;
                             case 2:
                                 equ = product.compare(product.getName(), strFromField);
                                 break;
                         }
-                        if ((equ == 0) || (equ1 == 0)){
+                        if ((equ == 0) || (equ1 == 0) || (equ3 == 0)){
                             res.add(product);
                         }
                     }
@@ -447,6 +449,6 @@ public class Controller {
             }
         }
     }
-}
+
 
 
