@@ -1,30 +1,26 @@
 package sample.Entities;
 
-public class Order {
-    private static int count;
+import java.util.Comparator;
+import java.util.Date;
+
+public class Order implements Comparator {
 
     private int id;
-    private String Name;
-    private double price;
-    private int amount;
+    private int table;
+    private double sum;
+    private String date;
+    private int staffId;
 
     private static int lastId = 0;
 
-    public Order(int id, String name, double price, int amount) {
+    public Order(int id, int tbl, double sum, String date, int staffId) {
         this.id = id;
-        Name = name;
-        this.price = price;
-        this.amount = amount;
+        this.table = tbl;
+        this.sum = sum;
+        this.date = date;
+        this.staffId = staffId;
 
         setLastId(id);
-    }
-
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Order.count = count;
     }
 
     public int getId() {
@@ -35,28 +31,36 @@ public class Order {
         this.id = id;
     }
 
-    public String getName() {
-        return Name;
+    public int getTable() {
+        return table;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setTable(int table) {
+        this.table = table;
     }
 
-    public double getPrice() {
-        return price;
+    public double getSum() {
+        return sum;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setSum(double sum) {
+        this.sum = sum;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getDate() {
+        return date;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
 
     public static int getLastId() {
@@ -66,5 +70,11 @@ public class Order {
     public static void setLastId(int id){
         if (lastId < id)
             lastId = id;
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        if (o1.equals(o2)) return 0;
+        else return -1;
     }
 }

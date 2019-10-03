@@ -7,17 +7,15 @@ public class Dishes implements Comparator {
     private String Name;
     private double price;
     private double weight;
-    private double markup;
     private double sum;
 
     private static int lastId = 0;
 
-    public Dishes(int id, String name, double price, double weight, double markup, double sum) {
+    public Dishes(int id, String name, double price, double weight, double sum) {
         this.id = id;
         Name = name;
         this.price = price;
         this.weight = weight;
-        this.markup = markup;
         this.sum = sum;
 
         setLastId(id);
@@ -53,14 +51,6 @@ public class Dishes implements Comparator {
 
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    public double getMarkup() {
-        return markup;
-    }
-
-    public void setMarkup(double markup) {
-        this.markup = markup;
     }
 
     public double getSum() {

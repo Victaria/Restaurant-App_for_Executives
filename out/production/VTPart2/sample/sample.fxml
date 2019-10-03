@@ -28,13 +28,16 @@
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="id" />
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="name" />
-            <TableColumn fx:id="categoryCol" prefWidth="75.0" text="category" />
+            <TableColumn fx:id="tableCol" prefWidth="75.0" text="table" />
             <TableColumn fx:id="priceCol" prefWidth="75.0" text="price" />
             <TableColumn fx:id="amountCol" prefWidth="75.0" text="amount" />
             <TableColumn fx:id="weightCol" prefWidth="75.0" text="weight" />
             <TableColumn fx:id="dateCol" prefWidth="75.0" text="date" />
-            <TableColumn fx:id="markupCol" prefWidth="75.0" text="markup" />
+            <TableColumn fx:id="productNameCol" prefWidth="75.0" text="prod.name" />
             <TableColumn fx:id="sumCol" prefWidth="75.0" text="sum" />
+            <TableColumn fx:id="dishNameCol" prefWidth="75.0" text="dish.name" />
+            <TableColumn fx:id="orderIdCol" prefWidth="75.0" text="order.id" />
+            <TableColumn fx:id="staffNameCol" prefWidth="75.0" text="staff" />
         </columns>
       </TableView>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1130.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="50.0">

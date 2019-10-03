@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import sample.Entities.*;
 
 import java.io.*;
+import java.util.Date;
 
 public class EntitiesLoader {
     private Products product;
@@ -25,7 +26,7 @@ public class EntitiesLoader {
 
     public ObservableList<Products> loadProductFile(){
         try{
-            File file = new File(path + "TestFile.txt");
+            File file = new File(path + "Products.txt");
 
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
@@ -57,7 +58,7 @@ public class EntitiesLoader {
 
             while (line != null) {
                 String[] cols = line.split(";");
-                dish = new Dishes(Integer.parseInt(cols[0]),cols[1],Double.parseDouble(cols[2]),Double.parseDouble(cols[3]),Double.parseDouble(cols[4]),Double.parseDouble(cols[5]));
+                dish = new Dishes(Integer.parseInt(cols[0]),cols[1],Double.parseDouble(cols[2]),Double.parseDouble(cols[3]),Double.parseDouble(cols[4]));
                 dishesList.add(dish);
 
                 line = reader.readLine();
@@ -71,7 +72,7 @@ public class EntitiesLoader {
     }
 
 
-    public ObservableList<OrderDish> loadDOrderDishFile() {
+    public ObservableList<OrderDish> loadOrderDishFile() {
         try {
             File file = new File(path + "OrderDish.txt");
             FileReader fr = new FileReader(file);
@@ -80,7 +81,7 @@ public class EntitiesLoader {
 
             while (line != null) {
                 String[] cols = line.split(";");
-                orderDish = new OrderDish();
+                orderDish = new OrderDish(Integer.parseInt(cols[0]),Integer.parseInt(cols[1]), Integer.parseInt(cols[2]), Integer.parseInt(cols[3]));
                 orderDishList.add(orderDish);
 
                 line = reader.readLine();
@@ -103,7 +104,7 @@ public class EntitiesLoader {
 
                 while (line != null) {
                     String[] cols = line.split(";");
-                    order = new Order(Integer.parseInt(cols[0]), cols[1], Double.parseDouble(cols[2]), Integer.parseInt(cols[3]));
+                    order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), cols[3], Integer.parseInt(cols[4]));
                     orderList.add(order);
 
                     line = reader.readLine();
@@ -127,7 +128,7 @@ public class EntitiesLoader {
 
             while (line != null) {
                 String[] cols = line.split(";");
-                recipe = new Recipe();
+                recipe = new Recipe(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Integer.parseInt(cols[2]), Integer.parseInt(cols[3]));
                 recipeList.add(recipe);
 
                 line = reader.readLine();
@@ -150,7 +151,7 @@ public class EntitiesLoader {
 
             while (line != null) {
                 String[] cols = line.split(";");
-                staff = new Staff();
+                staff = new Staff(Integer.parseInt(cols[0]), cols[1]);
                 staffList.add(staff);
 
                 line = reader.readLine();
@@ -164,7 +165,7 @@ public class EntitiesLoader {
     }
 
     public void writeProductsFile(ObservableList<Products> product){
-        try(FileWriter writer = new FileWriter(path + "TestFile.txt", false)) {
+        try(FileWriter writer = new FileWriter(path + "Products.txt", false)) {
             for (Products products : product){
                 writer.write(products.getId() + ";" + products.getName() + ";" + products.getPrice() + ";" + products.getAmount() + "\n");
             }
@@ -176,7 +177,7 @@ public class EntitiesLoader {
     public void writeDishesFile(ObservableList<Dishes> dish){
         try(FileWriter writer = new FileWriter(path + "Dishes.txt", false)) {
             for (Dishes dishes : dish){
-                writer.write(dishes.getId() + ";" + dishes.getName() + ";" + dishes.getPrice() + ";" + dishes.getWeight() + ";" + dishes.getMarkup() + ";" + dishes.getSum() +"\n");
+                writer.write(dishes.getId() + ";" + dishes.getName() + ";" + dishes.getPrice() + ";" + dishes.getWeight() + ";"  + dishes.getSum() +"\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -184,19 +185,43 @@ public class EntitiesLoader {
     }
 
     public void writeOrderFile(ObservableList<Order> order){
-
+        try(FileWriter writer = new FileWriter(path + "Orders.txt", false)) {
+            for (Order orders : order){
+                writer.write(orders.getId() + ";" + orders.getTable() + ";" + orders.getSum() + ";" + orders.getDate() + ";" + orders.getStaffId() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void writeOrderDishFile(ObservableList<OrderDish> orderDish){
-
+    public void writeOrderDishFile(ObservableList<OrderDish> orderDishes){
+        try(FileWriter writer = new FileWriter(path + "OrderDish.txt", false)) {
+            for (OrderDish orderDish : orderDishes){
+                writer.write(orderDish.getId() + ";" + orderDish.getAmount() + ";" + orderDish.getDishName() + ";" + orderDish.getOrderId() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void writeRecipeFile(ObservableList<Recipe> recipe){
-
+    public void writeRecipeFile(ObservableList<Recipe> recipes){
+        try(FileWriter writer = new FileWriter(path + "Recipe.txt", false)) {
+            for (Recipe recipe : recipes){
+                writer.write(recipe.getId() + ";" + recipe.getDishName() + ";" + recipe.getProductName() + ";" + recipe.getAmount() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void writeStaffFile(ObservableList<Staff> staff){
-
+    public void writeStaffFile(ObservableList<Staff> staffs){
+        try(FileWriter writer = new FileWriter(path + "Staff.txt", false)) {
+            for (Staff staff : staffs){
+                writer.write(staff.getId() + ";" + staff.getName() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -9,15 +9,6 @@ import sample.Entities.Products;
 import java.lang.reflect.Array;
 
 public class EntityEditor {
-    private Products product;
-
-    public void dishesListChanged(){
-
-    }
-
-    public void categoryListChanged(){
-
-    }
 
     public void ordersListChanged(){
 

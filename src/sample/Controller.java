@@ -11,6 +11,7 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.util.StringConverter;
 import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
@@ -19,6 +20,7 @@ import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class Controller {
 
@@ -26,6 +28,10 @@ public class Controller {
     public Button addBtn;
     public Button submitBtn;
     public TextField searchField;
+    public TableColumn dishNameCol;
+    public TableColumn orderIdCol;
+    public TableColumn staffNameCol;
+
     private int idEdit;
     public EntitiesLoader loader = new EntitiesLoader();
 
@@ -112,7 +118,7 @@ public class Controller {
     private TableColumn nameCol;
 
     @FXML
-    private TableColumn categoryCol;
+    private TableColumn tableCol;
 
     @FXML
     private TableColumn priceCol;
@@ -130,7 +136,7 @@ public class Controller {
     private TableColumn sumCol;
 
     @FXML
-    private TableColumn markupCol;
+    private TableColumn productNameCol;
 
     private EntityEditor editor = new EntityEditor();
     private double weight;
@@ -142,19 +148,35 @@ public class Controller {
         submitBtn.setDisable(true);
         // table.setEditable(true);
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
-        categoryCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        tableCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         amountCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         weightCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        dateCol.setCellFactory(TextFieldTableCell.forTableColumn(new DateStringConverter()));
+        dateCol.setCellFactory(TextFieldTableCell.forTableColumn());
         sumCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        markupCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        productNameCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        dishNameCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        orderIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        staffNameCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
 
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductFile();
 
         EntitiesLoader loader1 = new EntitiesLoader();
         dishesList = loader1.loadDishesFile();
+
+        EntitiesLoader loader2 = new EntitiesLoader();
+        orderList = loader2.loadOrderFile();
+
+        EntitiesLoader loader3 = new EntitiesLoader();
+        orderDishList = loader3.loadOrderDishFile();
+
+        EntitiesLoader loader4 = new EntitiesLoader();
+        recipeList = loader4.loadRecipeFile();
+
+        EntitiesLoader loader5 = new EntitiesLoader();
+        staffList = loader5.loadStaffFile();
     }
 
     public void productsShow(MouseEvent event) {
@@ -171,7 +193,6 @@ public class Controller {
         idCol.setCellValueFactory(new PropertyValueFactory<Dishes, Integer>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Dishes, String>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("price"));
-        markupCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("markup"));
         weightCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("weight"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("sum"));
 
@@ -180,22 +201,41 @@ public class Controller {
     }
 
     public void orderDishesShow(MouseEvent event) {
+        idCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("id"));
+        amountCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("amount"));
+        dishNameCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("dishName"));
+        orderIdCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("orderId"));
 
+        table.setItems(orderDishList);
         flag = 3;
     }
 
     public void ordersShow(MouseEvent event) {
+        idCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
+        tableCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("table"));
+        sumCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("sum"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<Order, String>("date")); //into Date
+        staffNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("staffName"));
 
+        table.setItems(orderList);
         flag = 4;
     }
 
     public void receiptsShow(MouseEvent event) {
+        idCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("id"));
+        dishNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("dishName"));
+        productNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("productName"));
+        amountCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("amount"));
 
+        table.setItems(recipeList);
         flag = 5;
     }
 
     public void staffShow(MouseEvent event) {
+        idCol.setCellValueFactory(new PropertyValueFactory<Staff, Integer>("id"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<Staff, String>("name"));
 
+        table.setItems(staffList);
         flag = 6;
     }
 
@@ -206,24 +246,33 @@ public class Controller {
                 case 1:
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
-                    Products.destroy(product);
+                   // Products.destroy(product);
                     loader.writeProductsFile(productsList);
-                    Products.decrCounter();
                     break;
                 case 2:
                     dish = (Dishes) table.getItems().get(num);
                     dishesList.remove(num);
-                    //
-                    //
                     loader.writeDishesFile(dishesList);
                     break;
                 case 3:
+                    orderDish = (OrderDish) table.getItems().get(num);
+                    orderDishList.remove(num);
+                    loader.writeOrderDishFile(orderDishList);
                     break;
                 case 4:
+                    order = (Order) table.getItems().get(num);
+                    orderList.remove(num);
+                    loader.writeOrderFile(orderList);
                     break;
                 case 5:
+                    recipe = (Recipe) table.getItems().get(num);
+                    recipeList.remove(num);
+                    loader.writeRecipeFile(recipeList);
                     break;
                 case 6:
+                    staff = (Staff) table.getItems().get(num);
+                    staffList.remove(num);
+                    loader.writeStaffFile(staffList);
                     break;
                 default:
                     break;
@@ -232,21 +281,22 @@ public class Controller {
     }
 
     public void addProperty(MouseEvent event) throws IOException {
-        nameField.setDisable(false);
         eAFlag = 1;
         submitBtn.setDisable(false);
 
         switch (flag) {
             case 1:
+                nameField.setDisable(false);
                 priceField.setDisable(false);
                 amountField.setDisable(false);
                 break;
             case 2:
+                nameField.setDisable(false);
                 priceField.setDisable(false);
                 markupField.setDisable(false);
                 sumField.setDisable(false);
                 weightField.setDisable(false);
-                ModalWindow.newWindow("add Dish");
+                ModalWindow. newWindow("add Dish");
                 break;
             case 3:
 
@@ -256,10 +306,11 @@ public class Controller {
             case 5:
                 break;
             case 6:
+                nameField.setDisable(false);
+
                 break;
 
         }
-        Products.incrCounter();
 
     }
 
@@ -286,7 +337,6 @@ public class Controller {
                 case 2:
                     priceField.setDisable(false);
                     nameField.setDisable(false);
-                    markupField.setDisable(false);
                     weightField.setDisable(false);
                     sumField.setDisable(false);
 
@@ -294,7 +344,6 @@ public class Controller {
                     idEdit = (((Dishes) table.getItems().get(num)).getId());
                     nameField.setText(((Dishes) table.getItems().get(num)).getName());
                     priceField.setText(Double.toString(((Dishes) table.getItems().get(num)).getPrice()));
-                    markupField.setText(Double.toString(((Dishes) table.getItems().get(num)).getMarkup()));
                     weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
                     sumField.setText(Double.toString(((Dishes) table.getItems().get(num)).getSum()));
 
@@ -352,7 +401,7 @@ public class Controller {
                     Double sum = Double.valueOf(sumField.getText());
 
                     dishesList.size();
-                    Dishes dish = new Dishes(id, name, price, weight, markup, sum);
+                    Dishes dish = new Dishes(id, name, price, weight, sum);
                     dishesList.add(dish);
 
                 } else if (eAFlag == 2) {
@@ -407,6 +456,7 @@ public class Controller {
                 i = 2;
             }
         }
+
             switch (flag) {
                 case 1:
                     ObservableList<Products> res = FXCollections.observableArrayList();
@@ -437,7 +487,6 @@ public class Controller {
                         equ = -1;
                         equ1 = -1;
                         equ3 = -1;
-                        equ2 = -1;
                         equ4 = -1;
                         switch (i) {
                             case 0:
@@ -445,14 +494,13 @@ public class Controller {
                             case 1:
                                 equ1 = dish.compare(dish.getPrice(), doublStr);
                                 equ3 = dish.compare(dish.getSum(), doublStr);
-                                equ2 = dish.compare(dish.getMarkup(), doublStr);
                                 equ4 = dish.compare(dish.getWeight(), doublStr);
                                 break;
                             case 2:
                                 equ = dish.compare(dish.getName(), strFromField);
                                 break;
                         }
-                        if ((equ == 0) || (equ1 == 0) || (equ3 == 0) || (equ2 == 0) || (equ4 == 0)) {
+                        if ((equ == 0) || (equ1 == 0) || (equ3 == 0) || (equ4 == 0)) {
                             dRes.add(dish);
                         }
 
