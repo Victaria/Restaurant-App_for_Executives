@@ -4,13 +4,13 @@ import java.util.Comparator;
 
 public class Recipe implements Comparator {
     private int id;
-    private int dishName;
-    private int productName;
+    private String dishName;
+    private String productName;
     private int amount;
 
     private static int lastId = 0;
 
-    public Recipe(int id, int dishId, int productId, int amount) {
+    public Recipe(int id, String dishId, String productId, int amount) {
         this.id = id;
         this.dishName = dishId;
         this.productName = productId;
@@ -29,19 +29,19 @@ public class Recipe implements Comparator {
         this.id = id;
     }
 
-    public int getDishName() {
+    public String getDishName() {
         return dishName;
     }
 
-    public void setDishName(int dishId) {
+    public void setDishName(String dishId) {
         this.dishName = dishId;
     }
 
-    public int getProductName() {
+    public String getProductName() {
         return productName;
     }
 
-    public void setProductName(int productId) {
+    public void setProductName(String productId) {
         this.productName = productId;
     }
 

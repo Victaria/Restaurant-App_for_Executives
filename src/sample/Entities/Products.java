@@ -3,7 +3,6 @@ package sample.Entities;
 import java.util.Comparator;
 
 public class Products implements Comparator{
-    private static int count;
     private int id;
     private String Name;
     private double price;
@@ -16,7 +15,6 @@ public class Products implements Comparator{
         Name = name;
         this.price = price;
         this.amount = amount;
-        incrCounter();
         setLastId(id);
     }
 
@@ -71,19 +69,6 @@ public class Products implements Comparator{
         if (lastId < id)
             lastId = id;
     }
-
-    public static void decrCounter(){
-        count--;
-    }
-
-    public static void incrCounter(){
-        count++;
-    }
-
-    public static Integer getCount(){
-        return count;
-    }
-
 
     @Override
     public int compare(Object o1, Object o2) {

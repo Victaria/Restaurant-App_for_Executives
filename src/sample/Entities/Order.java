@@ -9,16 +9,16 @@ public class Order implements Comparator {
     private int table;
     private double sum;
     private String date;
-    private int staffId;
+    private String staffName;
 
     private static int lastId = 0;
 
-    public Order(int id, int tbl, double sum, String date, int staffId) {
+    public Order(int id, int tbl, double sum, String date, String staffId) {
         this.id = id;
         this.table = tbl;
         this.sum = sum;
         this.date = date;
-        this.staffId = staffId;
+        this.staffName = staffId;
 
         setLastId(id);
     }
@@ -55,12 +55,12 @@ public class Order implements Comparator {
         this.date = date;
     }
 
-    public int getStaffId() {
-        return staffId;
+    public String getStaffName() {
+        return staffName;
     }
 
-    public void setStaffId(int staffId) {
-        this.staffId = staffId;
+    public void setStaffName(String staffId) {
+        this.staffName = staffId;
     }
 
     public static int getLastId() {

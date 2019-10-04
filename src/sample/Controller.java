@@ -103,9 +103,13 @@ public class Controller {
 
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
     private ObservableList<Dishes> dishesList = FXCollections.observableArrayList();
+    private ObservableList<Dishes> dishes2List = FXCollections.observableArrayList();
     private ObservableList<Order> orderList = FXCollections.observableArrayList();
+    private ObservableList<Order> order2List = FXCollections.observableArrayList();
     private ObservableList<OrderDish> orderDishList = FXCollections.observableArrayList();
+    private ObservableList<OrderDish> orderDish2List = FXCollections.observableArrayList();
     private ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
+    private ObservableList<Recipe> recipe2List = FXCollections.observableArrayList();
     private ObservableList<Staff> staffList = FXCollections.observableArrayList();
 
     @FXML
@@ -154,29 +158,19 @@ public class Controller {
         weightCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         dateCol.setCellFactory(TextFieldTableCell.forTableColumn());
         sumCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        productNameCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        dishNameCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        productNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        dishNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         orderIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        staffNameCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        staffNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductFile();
-
-        EntitiesLoader loader1 = new EntitiesLoader();
-        dishesList = loader1.loadDishesFile();
-
-        EntitiesLoader loader2 = new EntitiesLoader();
-        orderList = loader2.loadOrderFile();
-
-        EntitiesLoader loader3 = new EntitiesLoader();
-        orderDishList = loader3.loadOrderDishFile();
-
-        EntitiesLoader loader4 = new EntitiesLoader();
-        recipeList = loader4.loadRecipeFile();
-
-        EntitiesLoader loader5 = new EntitiesLoader();
-        staffList = loader5.loadStaffFile();
+        dishesList = loader.loadDishesFile();
+        orderList = loader.loadOrderFile();
+        orderDishList = loader.loadOrderDishFile();
+        recipeList = loader.loadRecipeFile();
+        staffList = loader.loadStaffFile();
     }
 
     public void productsShow(MouseEvent event) {
@@ -195,18 +189,48 @@ public class Controller {
         priceCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("price"));
         weightCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("weight"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("sum"));
+        dishes2List.clear();
 
-        table.setItems(dishesList);
+        for (Dishes dish : dishesList){
+            dish.setPrice(0);
+            for (Recipe recipe : recipeList){
+                int i = recipe.compare(recipe.getDishName(), String.valueOf(dish.getId()));
+                int k = recipe.compare(recipe.getDishName(), dish.getName());
+                if ((i == 0) || (k == 0)){
+                    for (Products product : productsList){
+                        int j = product.compare(recipe.getProductName(), String.valueOf(product.getId()));
+                        int f = product.compare(recipe.getProductName(), product.getName());
+                        if ((j == 0) || (f == 0)){
+                           sum = product.getPrice() * recipe.getAmount();
+                           dish.setPrice(dish.getPrice() + sum);
+                        }
+                    }
+                }
+            }
+            dish.setSum(dish.getPrice()*1.7);
+            dishes2List.add(dish);
+        }
+
+        table.setItems(dishes2List);
         flag = 2;
     }
 
     public void orderDishesShow(MouseEvent event) {
         idCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("id"));
         amountCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("amount"));
-        dishNameCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("dishName"));
+        dishNameCol.setCellValueFactory(new PropertyValueFactory<OrderDish, String>("dishName"));
         orderIdCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("orderId"));
+        orderDish2List.clear();
 
-        table.setItems(orderDishList);
+        for (OrderDish orderDish : orderDishList){
+            for (Dishes dish : dishesList){
+                int i = dish.compare(String.valueOf(dish.getId()), orderDish.getDishName());
+                if (i == 0) orderDish.setDishName(dish.getName());
+            }
+            orderDish2List.add(orderDish);
+        }
+
+        table.setItems(orderDish2List);
         flag = 3;
     }
 
@@ -216,18 +240,53 @@ public class Controller {
         sumCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("sum"));
         dateCol.setCellValueFactory(new PropertyValueFactory<Order, String>("date")); //into Date
         staffNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("staffName"));
+        order2List.clear();
 
-        table.setItems(orderList);
+        for (Order order : orderList){
+            order.setSum(0);
+            for (Staff staff : staffList){
+                int i = order.compare(String.valueOf(order.getStaffName()), String.valueOf(staff.getId()));
+                if (i == 0) order.setStaffName(staff.getName());
+            }
+            for (OrderDish orderDish : orderDishList){
+                int i = orderDish.compare(order.getId(), orderDish.getOrderId());
+                if ((i == 0)){
+                    for (Dishes dish : dishesList) {
+                        int j = dish.compare(orderDish.getDishName(), dish.getName());
+                        if (j == 0) {
+                            sum = dish.getSum() * orderDish.getAmount();
+                            order.setSum(order.getSum() + sum);
+                        }
+                    }
+                }
+            }
+            order2List.add(order);
+        }
+
+        table.setItems(order2List);
         flag = 4;
     }
 
     public void receiptsShow(MouseEvent event) {
         idCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("id"));
-        dishNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("dishName"));
-        productNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("productName"));
+        dishNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, String>("dishName"));
+        productNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, String>("productName"));
         amountCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("amount"));
+        recipe2List.clear();
 
-        table.setItems(recipeList);
+        for (Recipe recipe : recipeList){
+            for (Dishes dish : dishesList){
+                int i = dish.compare(String.valueOf(dish.getId()), recipe.getDishName());
+                if (i == 0) recipe.setDishName(dish.getName());
+            }
+            for (Products product : productsList) {
+                int i = product.compare(String.valueOf(product.getId()), recipe.getProductName());
+                if (i == 0) recipe.setProductName(product.getName());
+            }
+            recipe2List.add(recipe);
+        }
+
+        table.setItems(recipe2List);
         flag = 5;
     }
 
@@ -332,7 +391,6 @@ public class Controller {
                     nameField.setText(((Products) table.getItems().get(num)).getName());
                     priceField.setText(Double.toString(((Products) table.getItems().get(num)).getPrice()));
                     amountField.setText(Integer.toString(((Products) table.getItems().get(num)).getAmount()));
-                    //editor.productListChanged(table, productsList, num);
                     break;
                 case 2:
                     priceField.setDisable(false);

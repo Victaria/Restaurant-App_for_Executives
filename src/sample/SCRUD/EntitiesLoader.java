@@ -81,7 +81,7 @@ public class EntitiesLoader {
 
             while (line != null) {
                 String[] cols = line.split(";");
-                orderDish = new OrderDish(Integer.parseInt(cols[0]),Integer.parseInt(cols[1]), Integer.parseInt(cols[2]), Integer.parseInt(cols[3]));
+                orderDish = new OrderDish(Integer.parseInt(cols[0]),Integer.parseInt(cols[1]), cols[2], Integer.parseInt(cols[3]));
                 orderDishList.add(orderDish);
 
                 line = reader.readLine();
@@ -104,7 +104,7 @@ public class EntitiesLoader {
 
                 while (line != null) {
                     String[] cols = line.split(";");
-                    order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), cols[3], Integer.parseInt(cols[4]));
+                    order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), cols[3], cols[4]);
                     orderList.add(order);
 
                     line = reader.readLine();
@@ -128,7 +128,7 @@ public class EntitiesLoader {
 
             while (line != null) {
                 String[] cols = line.split(";");
-                recipe = new Recipe(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Integer.parseInt(cols[2]), Integer.parseInt(cols[3]));
+                recipe = new Recipe(Integer.parseInt(cols[0]), cols[1], cols[2], Integer.parseInt(cols[3]));
                 recipeList.add(recipe);
 
                 line = reader.readLine();
@@ -187,7 +187,7 @@ public class EntitiesLoader {
     public void writeOrderFile(ObservableList<Order> order){
         try(FileWriter writer = new FileWriter(path + "Orders.txt", false)) {
             for (Order orders : order){
-                writer.write(orders.getId() + ";" + orders.getTable() + ";" + orders.getSum() + ";" + orders.getDate() + ";" + orders.getStaffId() + "\n");
+                writer.write(orders.getId() + ";" + orders.getTable() + ";" + orders.getSum() + ";" + orders.getDate() + ";" + orders.getStaffName() + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

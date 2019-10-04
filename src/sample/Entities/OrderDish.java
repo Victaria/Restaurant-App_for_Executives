@@ -5,12 +5,12 @@ import java.util.Comparator;
 public class OrderDish implements Comparator {
     private int id;
     private int amount;
-    private int dishName;
+    private String dishName;
     private int orderId;
 
     private static int lastId = 0;
 
-    public OrderDish(int id, int count, int dishId, int orderId) {
+    public OrderDish(int id, int count, String dishId, int orderId) {
         this.id = id;
         this.amount = count;
         this.dishName = dishId;
@@ -37,11 +37,11 @@ public class OrderDish implements Comparator {
         this.amount = count;
     }
 
-    public int getDishName() {
+    public String getDishName() {
         return dishName;
     }
 
-    public void setDishName(int dishId) {
+    public void setDishName(String dishId) {
         this.dishName = dishId;
     }
 
