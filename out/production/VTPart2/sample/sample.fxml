@@ -24,23 +24,23 @@
             <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#searchProperties" text="Search" />
         </items>
       </ToolBar>
-      <TableView fx:id="table" editable="true" layoutX="14.0" layoutY="52.0" onInputMethodTextChanged="#textChange" prefHeight="455.0" prefWidth="917.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="table" editable="true" layoutX="14.0" layoutY="52.0" onInputMethodTextChanged="#textChange" prefHeight="455.0" prefWidth="900.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="50.0">
         <columns>
-          <TableColumn fx:id="idCol" prefWidth="75.0" text="id" />
-          <TableColumn fx:id="nameCol" prefWidth="75.0" text="name" />
-            <TableColumn fx:id="tableCol" prefWidth="75.0" text="table" />
-            <TableColumn fx:id="priceCol" prefWidth="75.0" text="price" />
-            <TableColumn fx:id="amountCol" prefWidth="75.0" text="amount" />
+          <TableColumn fx:id="idCol" prefWidth="50.0" text="id" />
+          <TableColumn fx:id="nameCol" prefWidth="160.0" text="name" />
+            <TableColumn fx:id="tableCol" prefWidth="50.0" text="table" />
+            <TableColumn fx:id="priceCol" prefWidth="85.0" text="price" />
+            <TableColumn fx:id="amountCol" prefWidth="60.0" text="amount" />
             <TableColumn fx:id="weightCol" prefWidth="75.0" text="weight" />
-            <TableColumn fx:id="dateCol" prefWidth="75.0" text="date" />
-            <TableColumn fx:id="productNameCol" prefWidth="75.0" text="prod.name" />
-            <TableColumn fx:id="sumCol" prefWidth="75.0" text="sum" />
-            <TableColumn fx:id="dishNameCol" prefWidth="75.0" text="dish.name" />
-            <TableColumn fx:id="orderIdCol" prefWidth="75.0" text="order.id" />
-            <TableColumn fx:id="staffNameCol" prefWidth="75.0" text="staff" />
+            <TableColumn fx:id="dateCol" prefWidth="95.0" text="date" />
+            <TableColumn fx:id="productNameCol" prefWidth="90.0" text="prod.name" />
+            <TableColumn fx:id="sumCol" prefWidth="105.0" text="sum" />
+            <TableColumn fx:id="dishNameCol" prefWidth="100.0" text="dish.name" />
+            <TableColumn fx:id="orderIdCol" prefWidth="70.0" text="order.id" />
+            <TableColumn fx:id="staffNameCol" prefWidth="160.0" text="staff" />
         </columns>
       </TableView>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1130.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="50.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="1110.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="50.0">
          <children>
             <Button fx:id="deleteBtn" mnemonicParsing="false" onMouseClicked="#deleteProperty" pickOnBounds="false" prefWidth="100.0" text="Delete">
                <VBox.margin>
@@ -52,7 +52,7 @@
                   <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="editBtn" mnemonicParsing="false" onMouseClicked="#textChange" prefHeight="30.0" text="Edit Aprove">
+            <Button fx:id="editBtn" mnemonicParsing="false" onMouseClicked="#textChange" prefHeight="30.0" prefWidth="100.0" text="Edit">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin>

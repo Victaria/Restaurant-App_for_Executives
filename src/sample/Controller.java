@@ -566,16 +566,97 @@ public class Controller {
                     }
                     break;
                 case 3:
-
+                    ObservableList<OrderDish> oDRes = FXCollections.observableArrayList();
+                    for (OrderDish orderDish : orderDishList){
+                        equ = -1;
+                        equ1 = -1;
+                        equ2 = -1;
+                        switch (i){
+                            case 0:
+                                equ = orderDish.compare(orderDish.getId(), intStr);
+                                equ1 = orderDish.compare(orderDish.getAmount(), intStr);
+                                equ2 = orderDish.compare(orderDish.getOrderId(), intStr);
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                equ = orderDish.compare(orderDish.getDishName(), strFromField);
+                                break;
+                        }
+                        if ((equ == 0) || (equ1 == 0) || (equ2 == 0)) {
+                            oDRes.add(orderDish);
+                        }
+                        table.setItems(oDRes);
+                    }
                     break;
                 case 4:
-
+                    ObservableList<Order> oRes = FXCollections.observableArrayList();
+                    for (Order order : orderList){
+                        equ = -1;
+                        equ1 = -1;
+                        equ2 = -1;
+                        equ3 = -1;
+                        switch (i){
+                            case 0:
+                                equ = order.compare(order.getId(), intStr);
+                                equ1 = order.compare(order.getTable(), intStr);
+                            case 1:
+                                equ2 = order.compare(order.getSum(), doublStr);
+                                break;
+                            case 2:
+                                equ = order.compare(order.getDate(), strFromField);
+                                equ1 = order.compare(order.getStaffName(), strFromField);
+                                break;
+                        }
+                        if ((equ == 0) || (equ1 == 0) || (equ2 == 0)) {
+                            oRes.add(order);
+                        }
+                        table.setItems(oRes);
+                    }
                     break;
                 case 5:
-
+                    ObservableList<Recipe> rRes = FXCollections.observableArrayList();
+                    for (Recipe recipe : recipeList){
+                        equ = -1;
+                        equ1 = -1;
+                        equ2 = -1;
+                        switch (i){
+                            case 0:
+                                equ = recipe.compare(recipe.getId(), intStr);
+                                equ1 = recipe.compare(recipe.getAmount(), intStr);
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                equ = recipe.compare(recipe.getProductName(), strFromField);
+                                equ1 = recipe.compare(recipe.getDishName(), strFromField);
+                                break;
+                        }
+                        if ((equ == 0) || (equ1 == 0)) {
+                            rRes.add(recipe);
+                        }
+                        table.setItems(rRes);
+                    }
                     break;
                 case 6:
-
+                    ObservableList<Staff> sRes = FXCollections.observableArrayList();
+                    for (Staff staff : staffList){
+                        equ = -1;
+                        switch (i){
+                            case 0:
+                                equ = staff.compare(staff.getId(), intStr);
+                                break;
+                            case 1:
+                                break;
+                            case 2:
+                                equ = staff.compare(staff.getName(), strFromField);
+                                break;
+                        }
+                        if (equ == 0) {
+                            sRes.add(staff);
+                        }
+                        table.setItems(sRes);
+                    }
                     break;
                 default:
                     break;
