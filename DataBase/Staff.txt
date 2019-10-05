@@ -1,5 +1,8 @@
 1;Julia Kostromskaya
 2;Dzmitry Linnik
-3;Anastasya Bobkova
 4;Guilerme Velesko
 5;Andrey Pogorelov
+6;Anna Lesnova
+7;Nastya Bobkova
+8;Olga Stavrovich
+3;Lera Rykova

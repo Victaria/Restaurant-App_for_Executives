@@ -348,10 +348,7 @@ public class Controller {
                 break;
             case 2:
                 nameField.setDisable(false);
-               // priceField.setDisable(false);
-               // sumField.setDisable(false);
                 weightField.setDisable(false);
-              //  ModalWindow. newWindow("add Dish");
                 break;
             case 3:
 
@@ -362,7 +359,6 @@ public class Controller {
                 break;
             case 6:
                 nameField.setDisable(false);
-
                 break;
 
         }
@@ -378,9 +374,9 @@ public class Controller {
             submitBtn.setDisable(false);
             switch (flag) {
                 case 1:
+                    nameField.setDisable(false);
                     priceField.setDisable(false);
                     amountField.setDisable(false);
-                    nameField.setDisable(false);
 
                     product = (Products) table.getItems().get(num);
                     idEdit = ((Products) table.getItems().get(num)).getId();
@@ -391,7 +387,7 @@ public class Controller {
                 case 2:
                     nameField.setDisable(false);
                     weightField.setDisable(false);
-
+                    
                     dish = (Dishes) table.getItems().get(num);
                     idEdit = (((Dishes) table.getItems().get(num)).getId());
                     nameField.setText(((Dishes) table.getItems().get(num)).getName());
@@ -407,7 +403,11 @@ public class Controller {
                     editor.receiptsListChanged();
                     break;
                 case 6:
-                    editor.staffListChanged();
+                    nameField.setDisable(false);
+
+                    staff = (Staff) table.getItems().get(num);
+                    idEdit = ((Staff) table.getItems().get(num)).getId();
+                    nameField.setText(((Staff) table.getItems().get(num)).getName());
                     break;
                 default:
                     break;
@@ -468,6 +468,22 @@ public class Controller {
             case 5:
                 break;
             case 6:
+                System.out.println(eAFlag);
+                if (eAFlag == 1) {
+                    String name = nameField.getText();
+                    Integer id = Staff.getLastId() + 1;
+
+                    staffList.size();
+                    Staff st = new Staff(id, name);
+                    staffList.add(st);
+                } else if (eAFlag == 2) {
+                    staff.setName(nameField.getText());
+
+                    staffList.remove(num);
+                    staffList.add(staff);
+                }
+                table.setItems(staffList);
+                loader.writeStaffFile(staffList);
                 break;
             default:
                 break;
@@ -478,14 +494,16 @@ public class Controller {
     }
 
     public void searchProperties(ActionEvent event) {
-        int i;  // 0 - int, 1 - double; 2 - string
+        int i;
+        /* *0 - int,
+           *1 - double;
+           *2 - string */
         int intStr = 0;
         double doublStr = 0;
         int equ;
         int equ1;
         int equ2;
         int equ3;
-        int equ4;
         String strFromField = searchField.getText();
         //проблемы с пустым полем
         try {
@@ -531,20 +549,20 @@ public class Controller {
                         equ = -1;
                         equ1 = -1;
                         equ3 = -1;
-                        equ4 = -1;
+                        equ2 = -1;
                         switch (i) {
                             case 0:
                                 equ = dish.compare(dish.getId(), intStr);
                             case 1:
                                 equ1 = dish.compare(dish.getPrice(), doublStr);
                                 equ3 = dish.compare(dish.getSum(), doublStr);
-                                equ4 = dish.compare(dish.getWeight(), doublStr);
+                                equ2 = dish.compare(dish.getWeight(), doublStr);
                                 break;
                             case 2:
                                 equ = dish.compare(dish.getName(), strFromField);
                                 break;
                         }
-                        if ((equ == 0) || (equ1 == 0) || (equ3 == 0) || (equ4 == 0)) {
+                        if ((equ == 0) || (equ1 == 0) || (equ3 == 0) || (equ2 == 0)) {
                             dRes.add(dish);
                         }
 
@@ -605,7 +623,6 @@ public class Controller {
                     for (Recipe recipe : recipeList){
                         equ = -1;
                         equ1 = -1;
-                        equ2 = -1;
                         switch (i){
                             case 0:
                                 equ = recipe.compare(recipe.getId(), intStr);
