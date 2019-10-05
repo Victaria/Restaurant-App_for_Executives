@@ -78,9 +78,6 @@ public class Controller {
     public TextField dateField;
 
     @FXML
-    public TextField markupField;
-
-    @FXML
     public TextField sumField;
 
     @FXML
@@ -148,7 +145,7 @@ public class Controller {
 
     public void initialize() {
 
-        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
+        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField);
         submitBtn.setDisable(true);
         // table.setEditable(true);
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -351,11 +348,10 @@ public class Controller {
                 break;
             case 2:
                 nameField.setDisable(false);
-                priceField.setDisable(false);
-                markupField.setDisable(false);
-                sumField.setDisable(false);
+               // priceField.setDisable(false);
+               // sumField.setDisable(false);
                 weightField.setDisable(false);
-                ModalWindow. newWindow("add Dish");
+              //  ModalWindow. newWindow("add Dish");
                 break;
             case 3:
 
@@ -393,19 +389,13 @@ public class Controller {
                     amountField.setText(Integer.toString(((Products) table.getItems().get(num)).getAmount()));
                     break;
                 case 2:
-                    priceField.setDisable(false);
                     nameField.setDisable(false);
                     weightField.setDisable(false);
-                    sumField.setDisable(false);
 
                     dish = (Dishes) table.getItems().get(num);
                     idEdit = (((Dishes) table.getItems().get(num)).getId());
                     nameField.setText(((Dishes) table.getItems().get(num)).getName());
-                    priceField.setText(Double.toString(((Dishes) table.getItems().get(num)).getPrice()));
                     weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
-                    sumField.setText(Double.toString(((Dishes) table.getItems().get(num)).getSum()));
-
-                    ModalWindow.newWindow("edit dish");
                     break;
                 case 3:
 
@@ -452,22 +442,18 @@ public class Controller {
             case 2:
                 if (eAFlag == 1) {
                     String name = nameField.getText();
-                    Double markup = Double.valueOf(markupField.getText());
-                    Double price = Double.valueOf(priceField.getText());
                     Integer id = Dishes.getLastId() + 1;
                     Double weight = Double.valueOf(weightField.getText());
-                    Double sum = Double.valueOf(sumField.getText());
 
                     dishesList.size();
-                    Dishes dish = new Dishes(id, name, price, weight, sum);
+                    Dishes dish = new Dishes(id, name, 0, weight, 0);
                     dishesList.add(dish);
 
                 } else if (eAFlag == 2) {
-                    //markup don't have to be edit
                     dish.setName(nameField.getText());
-                    dish.setPrice(Double.valueOf(priceField.getText()));
+                    dish.setPrice(0);
                     dish.setWeight(Double.valueOf(weightField.getText()));
-                    dish.setSum(Double.valueOf(sumField.getText()));
+                    dish.setSum(0);
 
                     dishesList.remove(num);
                     dishesList.add(dish);
@@ -486,13 +472,13 @@ public class Controller {
             default:
                 break;
         }
-        editor.fieldsClear(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
-        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField, markupField);
+        editor.fieldsClear(nameField, categoryField, priceField, amountField, weightField, dateField, sumField);
+        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField);
         submitBtn.setDisable(true);
     }
 
     public void searchProperties(ActionEvent event) {
-        int i;  // 0 - int, double; 2 - string
+        int i;  // 0 - int, 1 - double; 2 - string
         int intStr = 0;
         double doublStr = 0;
         int equ;

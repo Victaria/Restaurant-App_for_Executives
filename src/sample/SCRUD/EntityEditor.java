@@ -22,7 +22,7 @@ public class EntityEditor {
 
     }
 
-    public void fieldsDisabled(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField markupField, TextField sumField){
+    public void fieldsDisabled(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField sumField){
         nameField.setDisable(true);
         categoryField.setDisable(true);
         priceField.setDisable(true);
@@ -30,10 +30,9 @@ public class EntityEditor {
         weightField.setDisable(true);
         dateField.setDisable(true);
         sumField.setDisable(true);
-        markupField.setDisable(true);
     }
 
-    public void fieldsClear(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField markupField, TextField sumField){
+    public void fieldsClear(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField sumField){
         nameField.clear();
         categoryField.clear();
         priceField.clear();
@@ -41,6 +40,5 @@ public class EntityEditor {
         weightField.clear();
         dateField.clear();
         sumField.clear();
-        markupField.clear();
     }
 }
