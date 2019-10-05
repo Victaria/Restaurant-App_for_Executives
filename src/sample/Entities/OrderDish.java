@@ -33,7 +33,7 @@ public class OrderDish implements Comparator {
         return amount;
     }
 
-    public void setAount(int count) {
+    public void setAmount(int count) {
         this.amount = count;
     }
 

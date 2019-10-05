@@ -1,6 +1,7 @@
 package sample.SCRUD;
 
 import javafx.collections.ObservableList;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,23 +23,18 @@ public class EntityEditor {
 
     }
 
-    public void fieldsDisabled(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField sumField){
+    public void fieldsDisabled(TextField nameField, TextField priceField, TextField amountField, TextField weightField, DatePicker dateChooser){
         nameField.setDisable(true);
-        categoryField.setDisable(true);
         priceField.setDisable(true);
         amountField.setDisable(true);
         weightField.setDisable(true);
-        dateField.setDisable(true);
-        sumField.setDisable(true);
+        dateChooser.setDisable(true);
     }
 
-    public void fieldsClear(TextField nameField, TextField categoryField, TextField priceField, TextField amountField, TextField weightField, TextField dateField, TextField sumField){
+    public void fieldsClear(TextField nameField, TextField priceField, TextField amountField, TextField weightField){
         nameField.clear();
-        categoryField.clear();
         priceField.clear();
         amountField.clear();
         weightField.clear();
-        dateField.clear();
-        sumField.clear();
     }
 }

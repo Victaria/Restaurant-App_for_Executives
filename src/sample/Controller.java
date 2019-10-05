@@ -20,6 +20,9 @@ import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Controller {
@@ -31,6 +34,9 @@ public class Controller {
     public TableColumn dishNameCol;
     public TableColumn orderIdCol;
     public TableColumn staffNameCol;
+    public DatePicker dataChooser;
+    public ChoiceBox dishNameChooser;
+    public ChoiceBox orderIdChooser;
 
     private int idEdit;
     public EntitiesLoader loader = new EntitiesLoader();
@@ -63,9 +69,6 @@ public class Controller {
     public TextField nameField;
 
     @FXML
-    public TextField categoryField;
-
-    @FXML
     public TextField priceField;
 
     @FXML
@@ -75,19 +78,10 @@ public class Controller {
     public TextField weightField;
 
     @FXML
-    public TextField dateField;
-
-    @FXML
-    public TextField sumField;
-
-    @FXML
     public Button productsBtn;
 
     @FXML
     public Button dishesBtn;
-
-    @FXML
-    public Button categoriesBtn;
 
     @FXML
     public Button ordersBtn;
@@ -145,9 +139,9 @@ public class Controller {
 
     public void initialize() {
 
-        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField);
+        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser);
         submitBtn.setDisable(true);
-        // table.setEditable(true);
+
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         tableCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
@@ -302,7 +296,6 @@ public class Controller {
                 case 1:
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
-                   // Products.destroy(product);
                     loader.writeProductsFile(productsList);
                     break;
                 case 2:
@@ -351,9 +344,13 @@ public class Controller {
                 weightField.setDisable(false);
                 break;
             case 3:
-
+                amountField.setDisable(false);
+                dishNameChooser.setDisable(false);
+                for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
+                for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
                 break;
             case 4:
+                dataChooser.setDisable(false);
                 break;
             case 5:
                 break;
@@ -387,14 +384,23 @@ public class Controller {
                 case 2:
                     nameField.setDisable(false);
                     weightField.setDisable(false);
-                    
+
                     dish = (Dishes) table.getItems().get(num);
                     idEdit = (((Dishes) table.getItems().get(num)).getId());
                     nameField.setText(((Dishes) table.getItems().get(num)).getName());
                     weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
                     break;
                 case 3:
+                    amountField.setDisable(false);
+                    dishNameChooser.setDisable(false);
+                    orderIdChooser.setDisable(false);
+                    for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
+                    for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
 
+                    amountField.setText(Integer.toString(((OrderDish) table.getItems().get(num)).getAmount()));
+                    /* add default-Values
+                    dishNameChooser.setValue(((OrderDish) table.getItems().get(num)).getOrderId());
+                    orderIdChooser.setValue(((OrderDish) table.getItems().get(num)).getDishName());*/
                     break;
                 case 4:
                     editor.ordersListChanged();
@@ -462,6 +468,30 @@ public class Controller {
                 loader.writeDishesFile(dishesList);
                 break;
             case 3:
+                Integer dName = 0;
+                if (eAFlag == 1) {
+                   Integer amount = Integer.valueOf(amountField.getText());
+                   String dishName = dishNameChooser.getSelectionModel().getSelectedItem().toString();
+                   Integer orderId = Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString());
+                   Integer id = OrderDish.getLastId() + 1;
+                   for (Dishes dish : dishesList){
+                       if (dish.compare(dishName, dish.getName()) == 0) dName = dish.getId();
+                   }
+
+                   OrderDish orderDish = new OrderDish(id, amount, dName.toString(), orderId);
+                   orderDishList.add(orderDish);
+                }else if (eAFlag == 2) {
+                    orderDish.setAmount(Integer.valueOf(amountField.getText()));
+                    for (Dishes dish : dishesList){
+                        if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dName = dish.getId();
+                    }
+                    orderDish.setDishName(dName.toString());
+                    orderDish.setOrderId(Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString()));
+                    orderDishList.remove(num);
+                    orderDishList.add(orderDish);
+                }
+                table.setItems(orderDishList);
+                loader.writeOrderDishFile(orderDishList);
                 break;
             case 4:
                 break;
@@ -488,8 +518,8 @@ public class Controller {
             default:
                 break;
         }
-        editor.fieldsClear(nameField, categoryField, priceField, amountField, weightField, dateField, sumField);
-        editor.fieldsDisabled(nameField, categoryField, priceField, amountField, weightField, dateField, sumField);
+        editor.fieldsClear(nameField, priceField, amountField, weightField);
+        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser);
         submitBtn.setDisable(true);
     }
 
