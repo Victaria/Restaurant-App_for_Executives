@@ -10,19 +10,7 @@ import java.lang.reflect.Array;
 
 public class EntityEditor {
 
-    public void ordersListChanged(){
-
-    }
-
-    public void receiptsListChanged(){
-
-    }
-
-    public void staffListChanged(){
-
-    }
-
-    public void fieldsDisabled(TextField nameField, TextField priceField, TextField amountField, TextField weightField, DatePicker dateChooser, ChoiceBox dishNameChooser, ChoiceBox orderIdChooser){
+    public void fieldsDisabled(TextField nameField, TextField priceField, TextField amountField, TextField weightField, DatePicker dateChooser, ChoiceBox dishNameChooser, ChoiceBox orderIdChooser, ChoiceBox tableChooser, ChoiceBox staffNameChooser, ChoiceBox productNameChooser){
         nameField.setDisable(true);
         priceField.setDisable(true);
         amountField.setDisable(true);
@@ -30,6 +18,9 @@ public class EntityEditor {
         dateChooser.setDisable(true);
         dishNameChooser.setDisable(true);
         orderIdChooser.setDisable(true);
+        tableChooser.setDisable(true);
+        staffNameChooser.setDisable(true);
+        productNameChooser.setDisable(true);
     }
 
     public void fieldsClear(TextField nameField, TextField priceField, TextField amountField, TextField weightField){

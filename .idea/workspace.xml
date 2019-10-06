@@ -4,15 +4,16 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading optimization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataBase/Dishes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/Dishes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/OrderDish.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/OrderDish.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/Orders.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/Orders.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataBase/Products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/Products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBase/Recipe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/Recipe.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/ModalWind.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/ModalWindow.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/SCRUD/EntityEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/SCRUD/EntityEditor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Entities/OrderDish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Entities/OrderDish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModalWind.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModalWindow.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-112">
-              <caret line="569" column="43" lean-forward="true" selection-start-line="569" selection-start-column="43" selection-end-line="569" selection-end-column="43" />
+            <state relative-caret-position="1522">
+              <caret line="669" column="35" selection-start-line="669" selection-start-column="35" selection-end-line="669" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="34" column="115" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
+            <state relative-caret-position="60">
+              <caret line="12" column="277" selection-start-line="12" selection-start-column="197" selection-end-line="12" selection-end-column="277" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,9 +161,9 @@
         <option value="$PROJECT_DIR$/src/sample/Entities/Order.java" />
         <option value="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" />
         <option value="$PROJECT_DIR$/src/sample/ModalWindow.java" />
-        <option value="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" />
         <option value="$PROJECT_DIR$/src/sample/Entities/OrderDish.java" />
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
       </list>
     </option>
@@ -375,18 +376,18 @@
       <workItem from="1570191199286" duration="14130000" />
       <workItem from="1570259517399" duration="6689000" />
       <workItem from="1570276508053" duration="10541000" />
-      <workItem from="1570345766705" duration="9191000" />
+      <workItem from="1570345766705" duration="10573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156398000" />
+    <option name="totallyTimeSpent" value="157780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27114093" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27114093" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -395,7 +396,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17705382" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17705382" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -575,16 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="34" column="115" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Entities/Recipe.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -592,10 +583,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="277" selection-start-line="12" selection-start-column="197" selection-end-line="12" selection-end-column="277" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="569" column="43" lean-forward="true" selection-start-line="569" selection-start-column="43" selection-end-line="569" selection-end-column="43" />
+        <state relative-caret-position="1522">
+          <caret line="669" column="35" selection-start-line="669" selection-start-column="35" selection-end-line="669" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,6 +1,5 @@
 package sample;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,12 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-import javafx.util.StringConverter;
-import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import sample.Entities.*;
@@ -21,11 +15,7 @@ import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Controller {
 
@@ -43,7 +33,6 @@ public class Controller {
     public ChoiceBox staffNameChooser;
     public ChoiceBox productNameChooser;
 
-    private int idEdit;
     public EntitiesLoader loader = new EntitiesLoader();
 
     private int flag = 0;
@@ -139,12 +128,9 @@ public class Controller {
     private TableColumn productNameCol;
 
     private EntityEditor editor = new EntityEditor();
-    private double weight;
-    private double sum;
 
     public void initialize() {
-
-        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser);
+        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         submitBtn.setDisable(true);
 
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -158,7 +144,6 @@ public class Controller {
         dishNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         orderIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         staffNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
-
 
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductFile();
@@ -186,6 +171,7 @@ public class Controller {
         weightCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("weight"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("sum"));
         dishes2List.clear();
+        double sum;
 
         for (Dishes dish : dishesList){
             dish.setPrice(0);
@@ -206,7 +192,6 @@ public class Controller {
             dish.setSum(dish.getPrice()*1.7);
             dishes2List.add(dish);
         }
-
         table.setItems(dishes2List);
         flag = 2;
     }
@@ -225,7 +210,6 @@ public class Controller {
             }
             orderDish2List.add(orderDish);
         }
-
         table.setItems(orderDish2List);
         flag = 3;
     }
@@ -237,6 +221,7 @@ public class Controller {
         dateCol.setCellValueFactory(new PropertyValueFactory<Order, String>("date")); //into Date
         staffNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("staffName"));
         order2List.clear();
+        double sum;
 
         for (Order order : orderList){
             order.setSum(0);
@@ -258,7 +243,6 @@ public class Controller {
             }
             order2List.add(order);
         }
-
         table.setItems(order2List);
         flag = 4;
     }
@@ -281,7 +265,6 @@ public class Controller {
             }
             recipe2List.add(recipe);
         }
-
         table.setItems(recipe2List);
         flag = 5;
     }
@@ -396,7 +379,6 @@ public class Controller {
                     amountField.setDisable(false);
 
                     product = (Products) table.getItems().get(num);
-                    idEdit = ((Products) table.getItems().get(num)).getId();
                     nameField.setText(((Products) table.getItems().get(num)).getName());
                     priceField.setText(Double.toString(((Products) table.getItems().get(num)).getPrice()));
                     amountField.setText(Integer.toString(((Products) table.getItems().get(num)).getAmount()));
@@ -406,7 +388,6 @@ public class Controller {
                     weightField.setDisable(false);
 
                     dish = (Dishes) table.getItems().get(num);
-                    idEdit = (((Dishes) table.getItems().get(num)).getId());
                     nameField.setText(((Dishes) table.getItems().get(num)).getName());
                     weightField.setText(Double.toString(((Dishes) table.getItems().get(num)).getWeight()));
                     break;
@@ -416,8 +397,6 @@ public class Controller {
                     orderIdChooser.setDisable(false);
 
                     orderDish = (OrderDish) table.getItems().get(num);
-                    dishNameChooser.getItems().removeAll();
-                    orderIdChooser.getItems().removeAll();
 
                     for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
                     for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
@@ -451,7 +430,6 @@ public class Controller {
                     nameField.setDisable(false);
 
                     staff = (Staff) table.getItems().get(num);
-                    idEdit = ((Staff) table.getItems().get(num)).getId();
                     nameField.setText(((Staff) table.getItems().get(num)).getName());
                     break;
                 default:
@@ -518,6 +496,7 @@ public class Controller {
 
                    OrderDish orderDish = new OrderDish(id, amount, dName.toString(), orderId);
                    orderDishList.add(orderDish);
+
                 }else if (eAFlag == 2) {
                     orderDish.setAmount(Integer.valueOf(amountField.getText()));
                     orderDish.setDishName(dName.toString());
@@ -533,9 +512,11 @@ public class Controller {
                 for (Staff staff : staffList){
                     if (staff.compare(staffNameChooser.getValue(), staff.getName()) == 0) stName = staff.getId();
                 }
+
                 if (eAFlag == 1) {
                     Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")), stName.toString());
                     orderList.add(order);
+
                 } else if (eAFlag == 2) {
                     order.setSum(0);
                     order.setStaffName(stName.toString());
@@ -560,6 +541,7 @@ public class Controller {
                 if (eAFlag == 1) {
                     Recipe recipe = new Recipe(Recipe.getLastId() + 1, String.valueOf(dishId), String.valueOf(prId), Integer.valueOf(amountField.getText()));
                     recipeList.add(recipe);
+
                 } else if (eAFlag == 2) {
                     recipe.setAmount(Integer.valueOf(amountField.getText()));
                     recipe.setProductName(String.valueOf(prId));
@@ -579,6 +561,7 @@ public class Controller {
                     staffList.size();
                     Staff st = new Staff(id, name);
                     staffList.add(st);
+
                 } else if (eAFlag == 2) {
                     staff.setName(nameField.getText());
 
@@ -592,7 +575,7 @@ public class Controller {
                 break;
         }
         editor.fieldsClear(nameField, priceField, amountField, weightField);
-        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser,  dishNameChooser, orderIdChooser);
+        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser,  dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         submitBtn.setDisable(true);
     }
 
@@ -685,7 +668,6 @@ public class Controller {
                                 equ2 = orderDish.compare(orderDish.getOrderId(), intStr);
                                 break;
                             case 1:
-                                break;
                             case 2:
                                 equ = orderDish.compare(orderDish.getDishName(), strFromField);
                                 break;
@@ -732,7 +714,6 @@ public class Controller {
                                 equ1 = recipe.compare(recipe.getAmount(), intStr);
                                 break;
                             case 1:
-                                break;
                             case 2:
                                 equ = recipe.compare(recipe.getProductName(), strFromField);
                                 equ1 = recipe.compare(recipe.getDishName(), strFromField);
@@ -753,7 +734,6 @@ public class Controller {
                                 equ = staff.compare(staff.getId(), intStr);
                                 break;
                             case 1:
-                                break;
                             case 2:
                                 equ = staff.compare(staff.getName(), strFromField);
                                 break;
