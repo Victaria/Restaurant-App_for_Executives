@@ -23,11 +23,15 @@ public class EntityEditor {
         productNameChooser.setDisable(true);
     }
 
-    public void fieldsClear(TextField nameField, TextField priceField, TextField amountField, TextField weightField){
+    public void fieldsClear(TextField nameField, TextField priceField, TextField amountField, TextField weightField, ChoiceBox dishNameChooser, ChoiceBox orderIdChooser, ChoiceBox tableChooser, ChoiceBox staffNameChooser, ChoiceBox productNameChooser){
         nameField.clear();
         priceField.clear();
         amountField.clear();
         weightField.clear();
-
+        tableChooser.getItems().removeAll(tableChooser.getItems());
+        staffNameChooser.getItems().removeAll(staffNameChooser.getItems());
+        dishNameChooser.getItems().removeAll(dishNameChooser.getItems());
+        orderIdChooser.getItems().removeAll(orderIdChooser.getItems());
+        productNameChooser.getItems().removeAll(productNameChooser.getItems());
     }
 }

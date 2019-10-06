@@ -340,8 +340,6 @@ public class Controller {
                 amountField.setDisable(false);
                 dishNameChooser.setDisable(false);
                 orderIdChooser.setDisable(false);
-                dishNameChooser.getItems().removeAll();
-                orderIdChooser.getItems().removeAll();
 
                 for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
                 for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
@@ -350,6 +348,7 @@ public class Controller {
                 dataChooser.setDisable(false);
                 tableChooser.setDisable(false);
                 staffNameChooser.setDisable(false);
+
 
                 for (int i = 1; i < 21; i++) tableChooser.getItems().add(i);
                 for (Staff staff : staffList) staffNameChooser.getItems().add(staff.getName());
@@ -579,7 +578,7 @@ public class Controller {
             default:
                 break;
         }
-        editor.fieldsClear(nameField, priceField, amountField, weightField);
+        editor.fieldsClear(nameField, priceField, amountField, weightField, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser,  dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         submitBtn.setDisable(true);
     }

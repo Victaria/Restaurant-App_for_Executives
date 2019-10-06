@@ -9,5 +9,6 @@
 9;Juicy chicken;Cheese;2
 10;Juicy chicken;Egg;1
 11;Chicken Pancakes;Hanchen;3
-12;10;16;2
-13;10;7;1
+12;Chicken Pancakes;Egg;2
+13;Chicken Pancakes;Cheese;1
+14;10;6;2
