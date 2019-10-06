@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import sample.Entities.*;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class EntitiesLoader {
@@ -23,6 +25,7 @@ public class EntitiesLoader {
     private ObservableList<Order> orderList = FXCollections.observableArrayList();
     private ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
     private ObservableList<Staff> staffList = FXCollections.observableArrayList();
+    private DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public ObservableList<Products> loadProductFile(){
         try{
@@ -104,7 +107,7 @@ public class EntitiesLoader {
 
                 while (line != null) {
                     String[] cols = line.split(";");
-                    order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), cols[3], cols[4]);
+                    order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), LocalDate.parse(cols[3]), cols[4]);
                     orderList.add(order);
 
                     line = reader.readLine();

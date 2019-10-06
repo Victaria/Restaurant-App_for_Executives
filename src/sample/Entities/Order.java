@@ -1,5 +1,6 @@
 package sample.Entities;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -8,12 +9,12 @@ public class Order implements Comparator {
     private int id;
     private int table;
     private double sum;
-    private String date;
+    private LocalDate date;
     private String staffName;
 
     private static int lastId = 0;
 
-    public Order(int id, int tbl, double sum, String date, String staffId) {
+    public Order(int id, int tbl, double sum, LocalDate date, String staffId) {
         this.id = id;
         this.table = tbl;
         this.sum = sum;
@@ -47,11 +48,11 @@ public class Order implements Comparator {
         this.sum = sum;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -8,14 +8,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.util.converter.DateStringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
+import javafx.util.converter.LocalDateStringConverter;
 import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Controller {
 
@@ -34,6 +38,7 @@ public class Controller {
     public ChoiceBox productNameChooser;
 
     public EntitiesLoader loader = new EntitiesLoader();
+  //  private DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     private int flag = 0;
     /*
@@ -138,7 +143,7 @@ public class Controller {
         priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         amountCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         weightCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        dateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        dateCol.setCellFactory(TextFieldTableCell.forTableColumn(new LocalDateStringConverter()));
         sumCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         productNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         dishNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -218,7 +223,7 @@ public class Controller {
         idCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
         tableCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("table"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("sum"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<Order, String>("date")); //into Date
+        dateCol.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("date"));
         staffNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("staffName"));
         order2List.clear();
         double sum;
@@ -514,13 +519,13 @@ public class Controller {
                 }
 
                 if (eAFlag == 1) {
-                    Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")), stName.toString());
+                    Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue(), stName.toString());
                     orderList.add(order);
 
                 } else if (eAFlag == 2) {
                     order.setSum(0);
                     order.setStaffName(stName.toString());
-                    order.setDate(dataChooser.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+                    order.setDate(dataChooser.getValue());
                     order.setTable(Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()));
                     orderList.remove(num);
                     orderList.add(order);

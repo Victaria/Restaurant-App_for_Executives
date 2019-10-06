@@ -1,14 +1,15 @@
-1;2;24150.369999999995;01.10.2019;Julia Kostromskaya
-2;1;0.0;01.10.2019;Dzmitry Linnik
-3;3;44984.04;02.10.2019;Dzmitry Linnik
-4;5;0.0;03.10.2019;Lera Rykova
-5;8;0.0;03.10.2019;Julia Kostromskaya
-6;6;0.0;03.10.2019;Lera Rykova
-7;7;0.0;24.09.2019;Dzmitry Linnik
-8;4;0.0;25.09.2019;Lera Rykova
-9;5;0.0;01.10.2019;Julia Kostromskaya
-10;3;28800.039999999994;01.10.2019;Julia Kostromskaya
-11;1;0.0;11.09.2019;Dzmitry Linnik
-13;6;0.0;05.10.2019;Dzmitry Linnik
-14;6;0.0;02.10.2019;Olga Stavrovich
-12;3;0.0;06.10.2019;1
+1;2;24150.369999999995;2019-09-11;Julia Kostromskaya
+2;1;0.0;2019-09-11;Dzmitry Linnik
+3;3;44984.04;2019-09-11;Dzmitry Linnik
+4;5;0.0;2019-09-11;Lera Rykova
+5;8;0.0;2019-09-11;Julia Kostromskaya
+6;6;0.0;2019-09-11;Lera Rykova
+7;7;0.0;2019-09-11;Dzmitry Linnik
+8;4;0.0;2019-09-11;Lera Rykova
+10;3;28800.039999999994;2019-09-11;Julia Kostromskaya
+13;6;0.0;2019-09-11;Dzmitry Linnik
+14;6;0.0;2019-09-11;Olga Stavrovich
+12;3;0.0;2019-09-11;Julia Kostromskaya
+15;8;0.0;2019-10-02;Anna Lesnova
+9;14;0.0;2019-10-05;Anna Lesnova
+11;8;0.0;2019-09-19;2
