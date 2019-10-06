@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ import sample.SCRUD.EntityEditor;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,6 +39,9 @@ public class Controller {
     public DatePicker dataChooser;
     public ChoiceBox dishNameChooser;
     public ChoiceBox orderIdChooser;
+    public ChoiceBox tableChooser;
+    public ChoiceBox staffNameChooser;
+    public ChoiceBox productNameChooser;
 
     private int idEdit;
     public EntitiesLoader loader = new EntitiesLoader();
@@ -139,7 +144,7 @@ public class Controller {
 
     public void initialize() {
 
-        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser);
+        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser);
         submitBtn.setDisable(true);
 
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -346,13 +351,28 @@ public class Controller {
             case 3:
                 amountField.setDisable(false);
                 dishNameChooser.setDisable(false);
+                orderIdChooser.setDisable(false);
+                dishNameChooser.getItems().removeAll();
+                orderIdChooser.getItems().removeAll();
+
                 for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
                 for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
                 break;
             case 4:
                 dataChooser.setDisable(false);
+                tableChooser.setDisable(false);
+                staffNameChooser.setDisable(false);
+
+                for (int i = 1; i < 21; i++) tableChooser.getItems().add(i);
+                for (Staff staff : staffList) staffNameChooser.getItems().add(staff.getName());
                 break;
             case 5:
+                dishNameChooser.setDisable(false);
+                amountField.setDisable(false);
+                productNameChooser.setDisable(false);
+
+                for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
+                for (Products pr : productsList) productNameChooser.getItems().add(pr.getName());
                 break;
             case 6:
                 nameField.setDisable(false);
@@ -365,7 +385,7 @@ public class Controller {
     public void textChange(MouseEvent event) throws IOException {
         editor = new EntityEditor();
         num = table.getSelectionModel().getSelectedIndex();
-        System.out.println(num);
+
         if (num >= 0) {
             eAFlag = 2;
             submitBtn.setDisable(false);
@@ -394,6 +414,11 @@ public class Controller {
                     amountField.setDisable(false);
                     dishNameChooser.setDisable(false);
                     orderIdChooser.setDisable(false);
+
+                    orderDish = (OrderDish) table.getItems().get(num);
+                    dishNameChooser.getItems().removeAll();
+                    orderIdChooser.getItems().removeAll();
+
                     for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
                     for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
 
@@ -403,10 +428,24 @@ public class Controller {
                     orderIdChooser.setValue(((OrderDish) table.getItems().get(num)).getDishName());*/
                     break;
                 case 4:
-                    editor.ordersListChanged();
+                    dataChooser.setDisable(false);
+                    tableChooser.setDisable(false);
+                    staffNameChooser.setDisable(false);
+
+                    order = (Order) table.getItems().get(num);
+
+                    for (int i = 1; i < 21; i++) tableChooser.getItems().add(i);
+                    for (Staff staff : staffList) staffNameChooser.getItems().add(staff.getName());
                     break;
                 case 5:
-                    editor.receiptsListChanged();
+                    dishNameChooser.setDisable(false);
+                    amountField.setDisable(false);
+                    productNameChooser.setDisable(false);
+
+                    recipe = (Recipe) table.getItems().get(num);
+
+                    for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
+                    for (Products pr : productsList) productNameChooser.getItems().add(pr.getName());
                     break;
                 case 6:
                     nameField.setDisable(false);
@@ -469,22 +508,18 @@ public class Controller {
                 break;
             case 3:
                 Integer dName = 0;
+                for (Dishes dish : dishesList){
+                    if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dName = dish.getId();
+                }
                 if (eAFlag == 1) {
                    Integer amount = Integer.valueOf(amountField.getText());
-                   String dishName = dishNameChooser.getSelectionModel().getSelectedItem().toString();
                    Integer orderId = Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString());
                    Integer id = OrderDish.getLastId() + 1;
-                   for (Dishes dish : dishesList){
-                       if (dish.compare(dishName, dish.getName()) == 0) dName = dish.getId();
-                   }
 
                    OrderDish orderDish = new OrderDish(id, amount, dName.toString(), orderId);
                    orderDishList.add(orderDish);
                 }else if (eAFlag == 2) {
                     orderDish.setAmount(Integer.valueOf(amountField.getText()));
-                    for (Dishes dish : dishesList){
-                        if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dName = dish.getId();
-                    }
                     orderDish.setDishName(dName.toString());
                     orderDish.setOrderId(Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString()));
                     orderDishList.remove(num);
@@ -494,8 +529,46 @@ public class Controller {
                 loader.writeOrderDishFile(orderDishList);
                 break;
             case 4:
+                Integer stName = 0;
+                for (Staff staff : staffList){
+                    if (staff.compare(staffNameChooser.getValue(), staff.getName()) == 0) stName = staff.getId();
+                }
+                if (eAFlag == 1) {
+                    Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")), stName.toString());
+                    orderList.add(order);
+                } else if (eAFlag == 2) {
+                    order.setSum(0);
+                    order.setStaffName(stName.toString());
+                    order.setDate(dataChooser.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+                    order.setTable(Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()));
+                    orderList.remove(num);
+                    orderList.add(order);
+                }
+                table.setItems(orderList);
+                loader.writeOrderFile(orderList);
                 break;
             case 5:
+                int prId = 0;
+                int dishId = 0;
+                for (Products product : productsList){
+                    if (product.compare(productNameChooser.getSelectionModel().getSelectedItem().toString(), product.getName()) == 0) prId = product.getId();
+                }
+                for (Dishes dish : dishesList){
+                    if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dishId = dish.getId();
+                }
+
+                if (eAFlag == 1) {
+                    Recipe recipe = new Recipe(Recipe.getLastId() + 1, String.valueOf(dishId), String.valueOf(prId), Integer.valueOf(amountField.getText()));
+                    recipeList.add(recipe);
+                } else if (eAFlag == 2) {
+                    recipe.setAmount(Integer.valueOf(amountField.getText()));
+                    recipe.setProductName(String.valueOf(prId));
+                    recipe.setDishName(String.valueOf(dishId));
+                    recipeList.remove(num);
+                    recipeList.add(recipe);
+                }
+                table.setItems(recipeList);
+                loader.writeRecipeFile(recipeList);
                 break;
             case 6:
                 System.out.println(eAFlag);
@@ -519,7 +592,7 @@ public class Controller {
                 break;
         }
         editor.fieldsClear(nameField, priceField, amountField, weightField);
-        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser);
+        editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser,  dishNameChooser, orderIdChooser);
         submitBtn.setDisable(true);
     }
 

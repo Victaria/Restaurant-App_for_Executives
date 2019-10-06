@@ -1,10 +1,11 @@
-1;1;3;2
-2;1;1;1
-3;5;10;3
-4;5;12;3
-5;5;1;1
-6;6;3;1
-7;6;2;4
-8;6;9;2
-9;6;7;2
-10;6;13;1
+1;Pasta;Hanchen;2
+2;Pasta;Macaroni;1
+3;Pasta1;Beef;3
+4;Pasta1;Cream;3
+5;Pasta1;Macaroni;1
+6;Juicy chicken;Hanchen;1
+7;Juicy chicken;Brokkoli;4
+8;Juicy chicken;Yogurt;2
+9;Juicy chicken;Cheese;2
+10;Juicy chicken;Egg;1
+11;10;3;3

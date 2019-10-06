@@ -10,9 +10,9 @@ public class OrderDish implements Comparator {
 
     private static int lastId = 0;
 
-    public OrderDish(int id, int count, String dishId, int orderId) {
+    public OrderDish(int id, int amount, String dishId, int orderId) {
         this.id = id;
-        this.amount = count;
+        this.amount = amount;
         this.dishName = dishId;
         this.orderId = orderId;
 
@@ -33,8 +33,8 @@ public class OrderDish implements Comparator {
         return amount;
     }
 
-    public void setAmount(int count) {
-        this.amount = count;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getDishName() {
