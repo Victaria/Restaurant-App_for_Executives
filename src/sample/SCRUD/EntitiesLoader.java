@@ -7,7 +7,6 @@ import sample.Entities.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class EntitiesLoader {
     private Products product;
@@ -25,12 +24,10 @@ public class EntitiesLoader {
     private ObservableList<Order> orderList = FXCollections.observableArrayList();
     private ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
     private ObservableList<Staff> staffList = FXCollections.observableArrayList();
-    private DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public ObservableList<Products> loadProductFile(){
         try{
             File file = new File(path + "Products.txt");
-
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
@@ -39,7 +36,6 @@ public class EntitiesLoader {
                 String[] cols = line.split(";");
                 product = new Products(Integer.parseInt(cols[0]),cols[1],Double.parseDouble(cols[2]),Integer.parseInt(cols[3]));
                 productsList.add(product);
-                product.printProduct();
                 line = reader.readLine();
             }
         } catch (
@@ -52,7 +48,6 @@ public class EntitiesLoader {
     }
 
     public ObservableList<Dishes> loadDishesFile(){
-
         try {
             File file = new File(path + "Dishes.txt");
             FileReader fr = new FileReader(file);
@@ -63,7 +58,6 @@ public class EntitiesLoader {
                 String[] cols = line.split(";");
                 dish = new Dishes(Integer.parseInt(cols[0]),cols[1],Double.parseDouble(cols[2]),Double.parseDouble(cols[3]),Double.parseDouble(cols[4]));
                 dishesList.add(dish);
-
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -86,7 +80,6 @@ public class EntitiesLoader {
                 String[] cols = line.split(";");
                 orderDish = new OrderDish(Integer.parseInt(cols[0]),Integer.parseInt(cols[1]), cols[2], Integer.parseInt(cols[3]));
                 orderDishList.add(orderDish);
-
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -109,7 +102,6 @@ public class EntitiesLoader {
                     String[] cols = line.split(";");
                     order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), LocalDate.parse(cols[3]), cols[4]);
                     orderList.add(order);
-
                     line = reader.readLine();
                 }
             } catch (FileNotFoundException e) {
@@ -133,7 +125,6 @@ public class EntitiesLoader {
                 String[] cols = line.split(";");
                 recipe = new Recipe(Integer.parseInt(cols[0]), cols[1], cols[2], Integer.parseInt(cols[3]));
                 recipeList.add(recipe);
-
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -156,7 +147,6 @@ public class EntitiesLoader {
                 String[] cols = line.split(";");
                 staff = new Staff(Integer.parseInt(cols[0]), cols[1]);
                 staffList.add(staff);
-
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {

@@ -1,12 +1,7 @@
 package sample.SCRUD;
 
-import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
-import sample.Entities.Products;
-
-import java.awt.*;
-import java.lang.reflect.Array;
 
 public class EntityEditor {
 

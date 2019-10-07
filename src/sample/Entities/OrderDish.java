@@ -19,8 +19,6 @@ public class OrderDish implements Comparator {
         setLastId(id);
     }
 
-    public OrderDish(){}
-
     public int getId() {
         return id;
     }

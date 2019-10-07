@@ -356,7 +356,6 @@ public class Controller {
                 tableChooser.setDisable(false);
                 staffNameChooser.setDisable(false);
 
-
                 for (int i = 1; i < 21; i++) tableChooser.getItems().add(i);
                 for (Staff staff : staffList) staffNameChooser.getItems().add(staff.getName());
                 break;
@@ -500,7 +499,6 @@ public class Controller {
                     productsList.remove(num);
                     productsList.add(product);
                 }
-               // table.setItems(productsList);
                 productsShow();
                 loader.writeProductsFile(productsList);
                 break;

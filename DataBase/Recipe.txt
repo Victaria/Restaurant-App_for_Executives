@@ -11,4 +11,5 @@
 11;Chicken Pancakes;Hanchen;3
 12;Chicken Pancakes;Egg;2
 13;Chicken Pancakes;Cheese;1
-14;10;6;2
+14;Chicken Pancakes;Butter;2
+15;Chicken Pancakes;Milk;2

@@ -19,8 +19,6 @@ public class Recipe implements Comparator {
         setLastId(id);
     }
 
-    public  Recipe(){}
-
     public int getId() {
         return id;
     }

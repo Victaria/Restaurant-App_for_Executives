@@ -18,10 +18,6 @@ public class Products implements Comparator{
         setLastId(id);
     }
 
-    public static void destroy(Products product) throws Throwable {
-        product.finalize();
-    }
-
     public Products(Object o) {
     }
 
@@ -55,10 +51,6 @@ public class Products implements Comparator{
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public void printProduct(){
-        System.out.println(this.getId() +" "+ this.getName() +" "+ this.getPrice() +" "+ this.getAmount());
     }
 
     public static int getLastId(){
