@@ -11,5 +11,5 @@
 14;6;0.0;2019-09-11;Olga Stavrovich
 12;3;0.0;2019-09-11;Julia Kostromskaya
 15;8;0.0;2019-10-02;Anna Lesnova
-9;14;0.0;2019-10-05;Anna Lesnova
-11;8;0.0;2019-09-19;2
+11;8;0.0;2019-09-19;Dzmitry Linnik
+16;10;0.0;2019-10-02;Andrey Pogorelov

@@ -159,7 +159,7 @@ public class Controller {
         staffList = loader.loadStaffFile();
     }
 
-    public void productsShow(MouseEvent event) {
+    public void productsShow() {
         idCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Products, String>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Products, Double>("price"));
@@ -169,7 +169,7 @@ public class Controller {
         flag = 1;
     }
 
-    public void dishesShow(MouseEvent event) {
+    public void dishesShow() {
         idCol.setCellValueFactory(new PropertyValueFactory<Dishes, Integer>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Dishes, String>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Dishes, Double>("price"));
@@ -201,7 +201,7 @@ public class Controller {
         flag = 2;
     }
 
-    public void orderDishesShow(MouseEvent event) {
+    public void orderDishesShow() {
         idCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("id"));
         amountCol.setCellValueFactory(new PropertyValueFactory<OrderDish, Integer>("amount"));
         dishNameCol.setCellValueFactory(new PropertyValueFactory<OrderDish, String>("dishName"));
@@ -219,7 +219,7 @@ public class Controller {
         flag = 3;
     }
 
-    public void ordersShow(MouseEvent event) {
+    public void ordersShow() {
         idCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
         tableCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("table"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("sum"));
@@ -252,7 +252,7 @@ public class Controller {
         flag = 4;
     }
 
-    public void receiptsShow(MouseEvent event) {
+    public void receiptsShow() {
         idCol.setCellValueFactory(new PropertyValueFactory<Recipe, Integer>("id"));
         dishNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, String>("dishName"));
         productNameCol.setCellValueFactory(new PropertyValueFactory<Recipe, String>("productName"));
@@ -274,7 +274,7 @@ public class Controller {
         flag = 5;
     }
 
-    public void staffShow(MouseEvent event) {
+    public void staffShow() {
         idCol.setCellValueFactory(new PropertyValueFactory<Staff, Integer>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Staff, String>("name"));
 
@@ -290,31 +290,37 @@ public class Controller {
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
                     loader.writeProductsFile(productsList);
+                    table.setItems(productsList);
                     break;
                 case 2:
                     dish = (Dishes) table.getItems().get(num);
                     dishesList.remove(num);
                     loader.writeDishesFile(dishesList);
+                    table.setItems(dishesList);
                     break;
                 case 3:
                     orderDish = (OrderDish) table.getItems().get(num);
                     orderDishList.remove(num);
                     loader.writeOrderDishFile(orderDishList);
+                    table.setItems(orderDishList);
                     break;
                 case 4:
                     order = (Order) table.getItems().get(num);
                     orderList.remove(num);
                     loader.writeOrderFile(orderList);
+                    table.setItems(orderList);
                     break;
                 case 5:
                     recipe = (Recipe) table.getItems().get(num);
                     recipeList.remove(num);
                     loader.writeRecipeFile(recipeList);
+                    table.setItems(recipeList);
                     break;
                 case 6:
                     staff = (Staff) table.getItems().get(num);
                     staffList.remove(num);
                     loader.writeStaffFile(staffList);
+                    table.setItems(staffList);
                     break;
                 default:
                     break;
@@ -494,7 +500,8 @@ public class Controller {
                     productsList.remove(num);
                     productsList.add(product);
                 }
-                table.setItems(productsList);
+               // table.setItems(productsList);
+                productsShow();
                 loader.writeProductsFile(productsList);
                 break;
             case 2:
@@ -516,7 +523,7 @@ public class Controller {
                     dishesList.remove(num);
                     dishesList.add(dish);
                 }
-                table.setItems(dishesList);
+                dishesShow();
                 loader.writeDishesFile(dishesList);
                 break;
             case 3:
@@ -539,7 +546,7 @@ public class Controller {
                     orderDishList.remove(num);
                     orderDishList.add(orderDish);
                 }
-                table.setItems(orderDishList);
+                orderDishesShow();
                 loader.writeOrderDishFile(orderDishList);
                 break;
             case 4:
@@ -560,7 +567,7 @@ public class Controller {
                     orderList.remove(num);
                     orderList.add(order);
                 }
-                table.setItems(orderList);
+                ordersShow();
                 loader.writeOrderFile(orderList);
                 break;
             case 5:
@@ -584,7 +591,7 @@ public class Controller {
                     recipeList.remove(num);
                     recipeList.add(recipe);
                 }
-                table.setItems(recipeList);
+                receiptsShow();
                 loader.writeRecipeFile(recipeList);
                 break;
             case 6:
@@ -603,7 +610,7 @@ public class Controller {
                     staffList.remove(num);
                     staffList.add(staff);
                 }
-                table.setItems(staffList);
+                staffShow();
                 loader.writeStaffFile(staffList);
                 break;
             default:
