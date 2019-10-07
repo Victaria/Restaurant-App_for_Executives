@@ -403,18 +403,18 @@ public class Controller {
 
                     orderDish = (OrderDish) table.getItems().get(num);
 
-                    for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
-                    for (Order ord : orderList) orderIdChooser.getItems().add(ord.getId());
-
                     amountField.setText(Integer.toString(((OrderDish) table.getItems().get(num)).getAmount()));
-                    /* add default-Values
-                    * into Choice Boxes*/
+                    /* adding default-Values
+                     * and filling out
+                     * Choice Boxes*/
                     for (Dishes dish : dishesList){
+                        dishNameChooser.getItems().add(dish.getName());
                         if (dish.compare(((OrderDish) table.getItems().get(num)).getDishName(), dish.getName()) == 0)
                             dishNameChooser.getSelectionModel().select(dish.getName());
                     }
                     int x = 0;
                     for (Order order : orderList){
+                        orderIdChooser.getItems().add(order.getId());
                         if (order.compare(((OrderDish) table.getItems().get(num)).getOrderId(), order.getId()) == 0)
                             orderIdChooser.getSelectionModel().select(x);
                         x++;
@@ -427,8 +427,16 @@ public class Controller {
 
                     order = (Order) table.getItems().get(num);
 
+                    /* adding default-Values
+                     * and filling out
+                     * Choice Boxes*/
+                    for (Staff staff : staffList){
+                        staffNameChooser.getItems().add(staff.getName());
+                        if (staff.compare(((Order) table.getItems().get(num)).getStaffName(), staff.getName()) == 0)
+                            staffNameChooser.getSelectionModel().select(staff.getName());
+                    }
                     for (int i = 1; i < 21; i++) tableChooser.getItems().add(i);
-                    for (Staff staff : staffList) staffNameChooser.getItems().add(staff.getName());
+                    tableChooser.getSelectionModel().select(((Order) table.getItems().get(num)).getTable() - 1);
                     break;
                 case 5:
                     dishNameChooser.setDisable(false);
@@ -437,8 +445,21 @@ public class Controller {
 
                     recipe = (Recipe) table.getItems().get(num);
 
-                    for (Dishes dish : dishesList) dishNameChooser.getItems().add(dish.getName());
-                    for (Products pr : productsList) productNameChooser.getItems().add(pr.getName());
+                    amountField.setText(Integer.toString(((Recipe) table.getItems().get(num)).getAmount()));
+
+                    /* adding default-Values
+                     * and filling out
+                     * Choice Boxes*/
+                    for (Dishes dish : dishesList){
+                        dishNameChooser.getItems().add(dish.getName());
+                        if (dish.compare(((Recipe) table.getItems().get(num)).getDishName(), dish.getName()) == 0)
+                            dishNameChooser.getSelectionModel().select(dish.getName());
+                    }
+                    for (Products product : productsList){
+                        productNameChooser.getItems().add(product.getName());
+                        if (product.compare(((Recipe) table.getItems().get(num)).getProductName(), product.getName()) == 0)
+                            productNameChooser.getSelectionModel().select(product.getName());
+                    }
                     break;
                 case 6:
                     nameField.setDisable(false);
