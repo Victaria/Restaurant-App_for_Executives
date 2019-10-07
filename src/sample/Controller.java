@@ -653,7 +653,6 @@ public class Controller {
         int equ2;
         int equ3;
         String strFromField = searchField.getText();
-        //проблемы с пустым полем
         try {
             intStr = Integer.parseInt(strFromField);
             doublStr = Double.parseDouble(strFromField);
@@ -746,7 +745,6 @@ public class Controller {
                         equ = -1;
                         equ1 = -1;
                         equ2 = -1;
-                        equ3 = -1;
                         switch (i){
                             case 0:
                                 equ = order.compare(order.getId(), intStr);
