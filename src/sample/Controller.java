@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
-import javafx.util.converter.DateStringConverter;
+import javafx.stage.Modality;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
@@ -18,8 +18,6 @@ import sample.SCRUD.EntityEditor;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Controller {
 
@@ -38,7 +36,6 @@ public class Controller {
     public ChoiceBox productNameChooser;
 
     public EntitiesLoader loader = new EntitiesLoader();
-  //  private DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     private int flag = 0;
     /*
@@ -325,6 +322,8 @@ public class Controller {
                 default:
                     break;
             }
+        } else {
+            printAlert("You didn't choose an option");
         }
     }
 
@@ -787,6 +786,15 @@ public class Controller {
                 default:
                     break;
             }
+        }
+
+        public void printAlert(String alertString){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(alertString);
+            alert.setContentText("Please, try again!");
+
+            alert.showAndWait();
         }
     }
 
