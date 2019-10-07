@@ -5,6 +5,15 @@ import javafx.scene.control.TextField;
 
 public class EntityEditor {
 
+    public void printAlert(String alertString){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(alertString);
+        alert.setContentText("Please, try again!");
+
+        alert.showAndWait();
+    }
+
     public void fieldsDisabled(TextField nameField, TextField priceField, TextField amountField, TextField weightField, DatePicker dateChooser, ChoiceBox dishNameChooser, ChoiceBox orderIdChooser, ChoiceBox tableChooser, ChoiceBox staffNameChooser, ChoiceBox productNameChooser){
         nameField.setDisable(true);
         priceField.setDisable(true);

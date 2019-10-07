@@ -6,7 +6,6 @@ import sample.Entities.*;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class EntitiesLoader {
     private Products product;
@@ -24,6 +23,7 @@ public class EntitiesLoader {
     private ObservableList<Order> orderList = FXCollections.observableArrayList();
     private ObservableList<Recipe> recipeList = FXCollections.observableArrayList();
     private ObservableList<Staff> staffList = FXCollections.observableArrayList();
+    private EntityEditor editor = new EntityEditor();
 
     public ObservableList<Products> loadProductFile(){
         try{
@@ -40,9 +40,9 @@ public class EntitiesLoader {
             }
         } catch (
             FileNotFoundException e) {
-            e.printStackTrace();
+            editor.printAlert("File not found.");
         }catch (IOException e) {
-        e.printStackTrace();
+            editor.printAlert("It's smt. wrong with File.");
     }
         return productsList;
     }
@@ -61,9 +61,9 @@ public class EntitiesLoader {
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            editor.printAlert("File not found.");
         }catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("It's smt. wrong with File.");
         }
         return dishesList;
     }
@@ -83,9 +83,9 @@ public class EntitiesLoader {
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            editor.printAlert("File not found.");
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("It's smt. wrong with File.");
         }
 
         return orderDishList;
@@ -105,9 +105,9 @@ public class EntitiesLoader {
                     line = reader.readLine();
                 }
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                editor.printAlert("File not found.");
             } catch (IOException e) {
-                e.printStackTrace();
+                editor.printAlert("It's smt. wrong with File.");
             }
 
         return orderList;
@@ -128,9 +128,9 @@ public class EntitiesLoader {
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            editor.printAlert("File not found.");
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("It's smt. wrong with File.");
         }
         return recipeList;
     }
@@ -150,9 +150,9 @@ public class EntitiesLoader {
                 line = reader.readLine();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            editor.printAlert("File not found.");
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("It's smt. wrong with File.");
         }
         return staffList;
     }
@@ -163,7 +163,7 @@ public class EntitiesLoader {
                 writer.write(products.getId() + ";" + products.getName() + ";" + products.getPrice() + ";" + products.getAmount() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("File writing is not possible.");
         }
     }
 
@@ -173,7 +173,7 @@ public class EntitiesLoader {
                 writer.write(dishes.getId() + ";" + dishes.getName() + ";" + dishes.getPrice() + ";" + dishes.getWeight() + ";"  + dishes.getSum() +"\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("File writing is not possible.");
         }
     }
 
@@ -183,7 +183,7 @@ public class EntitiesLoader {
                 writer.write(orders.getId() + ";" + orders.getTable() + ";" + orders.getSum() + ";" + orders.getDate() + ";" + orders.getStaffName() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("File writing is not possible.");
         }
     }
 
@@ -193,7 +193,7 @@ public class EntitiesLoader {
                 writer.write(orderDish.getId() + ";" + orderDish.getAmount() + ";" + orderDish.getDishName() + ";" + orderDish.getOrderId() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("File writing is not possible.");
         }
     }
 
@@ -203,7 +203,7 @@ public class EntitiesLoader {
                 writer.write(recipe.getId() + ";" + recipe.getDishName() + ";" + recipe.getProductName() + ";" + recipe.getAmount() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("File writing is not possible.");
         }
     }
 
@@ -213,7 +213,7 @@ public class EntitiesLoader {
                 writer.write(staff.getId() + ";" + staff.getName() + "\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            editor.printAlert("File writing is not possible.");
         }
     }
 

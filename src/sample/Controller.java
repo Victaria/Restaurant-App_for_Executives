@@ -323,7 +323,7 @@ public class Controller {
                     break;
             }
         } else {
-            printAlert("You didn't choose an option");
+            editor.printAlert("You didn't choose an option");
         }
     }
 
@@ -474,143 +474,166 @@ public class Controller {
                 default:
                     break;
             }
+        } else {
+            editor.printAlert("You didn't choose an option");
         }
     }
 
-    public void submitAdding(ActionEvent actionEvent) {
-
+    public void submitAdding(ActionEvent actionEvent) throws Exception {
         switch (flag) {
             case 1:
-                if (eAFlag == 1) {
-                    String name = nameField.getText();
-                    Integer amount = Integer.valueOf(amountField.getText());
-                    Double price = Double.valueOf(priceField.getText());
-                    Integer id = Products.getLastId() + 1;
+                try {
+                    if (eAFlag == 1) {
+                        String name = nameField.getText();
+                        Integer amount = Integer.valueOf(amountField.getText());
+                        Double price = Double.valueOf(priceField.getText());
+                        Integer id = Products.getLastId() + 1;
 
-                    productsList.size();
-                    Products pr = new Products(id, name, price, amount);
-                    productsList.add(pr);
+                        productsList.size();
+                        Products pr = new Products(id, name, price, amount);
+                        productsList.add(pr);
 
-                } else if (eAFlag == 2) {
-                    product.setName(nameField.getText());
-                    product.setPrice(Double.valueOf(priceField.getText()));
-                    product.setAmount(Integer.valueOf(amountField.getText()));
-                    productsList.remove(num);
-                    productsList.add(product);
+                    } else if (eAFlag == 2) {
+                        product.setName(nameField.getText());
+                        product.setPrice(Double.valueOf(priceField.getText()));
+                        product.setAmount(Integer.valueOf(amountField.getText()));
+                        productsList.remove(num);
+                        productsList.add(product);
+                    }
+                    productsShow();
+                    loader.writeProductsFile(productsList);
+                } catch (Exception e){
+                    editor.printAlert("Data are incorrect.");
                 }
-                productsShow();
-                loader.writeProductsFile(productsList);
                 break;
             case 2:
-                if (eAFlag == 1) {
-                    String name = nameField.getText();
-                    Integer id = Dishes.getLastId() + 1;
-                    Double weight = Double.valueOf(weightField.getText());
+                try {
+                    if (eAFlag == 1) {
+                        String name = nameField.getText();
+                        Integer id = Dishes.getLastId() + 1;
+                        Double weight = Double.valueOf(weightField.getText());
 
-                    dishesList.size();
-                    Dishes dish = new Dishes(id, name, 0, weight, 0);
-                    dishesList.add(dish);
+                        dishesList.size();
+                        Dishes dish = new Dishes(id, name, 0, weight, 0);
+                        dishesList.add(dish);
 
-                } else if (eAFlag == 2) {
-                    dish.setName(nameField.getText());
-                    dish.setPrice(0);
-                    dish.setWeight(Double.valueOf(weightField.getText()));
-                    dish.setSum(0);
+                    } else if (eAFlag == 2) {
+                        dish.setName(nameField.getText());
+                        dish.setPrice(0);
+                        dish.setWeight(Double.valueOf(weightField.getText()));
+                        dish.setSum(0);
 
-                    dishesList.remove(num);
-                    dishesList.add(dish);
+                        dishesList.remove(num);
+                        dishesList.add(dish);
+                    }
+                    dishesShow();
+                    loader.writeDishesFile(dishesList);
+                } catch (Exception e){
+                    editor.printAlert("Data are incorrect.");
                 }
-                dishesShow();
-                loader.writeDishesFile(dishesList);
                 break;
             case 3:
-                Integer dName = 0;
-                for (Dishes dish : dishesList){
-                    if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dName = dish.getId();
-                }
-                if (eAFlag == 1) {
-                   Integer amount = Integer.valueOf(amountField.getText());
-                   Integer orderId = Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString());
-                   Integer id = OrderDish.getLastId() + 1;
+                try {
+                    Integer dName = 0;
+                    for (Dishes dish : dishesList){
+                        if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dName = dish.getId();
+                    }
+                    if (eAFlag == 1) {
+                        Integer amount = Integer.valueOf(amountField.getText());
+                        Integer orderId = Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString());
+                        Integer id = OrderDish.getLastId() + 1;
 
-                   OrderDish orderDish = new OrderDish(id, amount, dName.toString(), orderId);
-                   orderDishList.add(orderDish);
+                        OrderDish orderDish = new OrderDish(id, amount, dName.toString(), orderId);
+                        orderDishList.add(orderDish);
 
-                }else if (eAFlag == 2) {
-                    orderDish.setAmount(Integer.valueOf(amountField.getText()));
-                    orderDish.setDishName(dName.toString());
-                    orderDish.setOrderId(Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString()));
-                    orderDishList.remove(num);
-                    orderDishList.add(orderDish);
+                    }else if (eAFlag == 2) {
+                        orderDish.setAmount(Integer.valueOf(amountField.getText()));
+                        orderDish.setDishName(dName.toString());
+                        orderDish.setOrderId(Integer.valueOf(orderIdChooser.getSelectionModel().getSelectedItem().toString()));
+                        orderDishList.remove(num);
+                        orderDishList.add(orderDish);
+                    }
+                    orderDishesShow();
+                    loader.writeOrderDishFile(orderDishList);
+                } catch (Exception e){
+                    editor.printAlert("Data are incorrect.");
                 }
-                orderDishesShow();
-                loader.writeOrderDishFile(orderDishList);
                 break;
             case 4:
-                Integer stName = 0;
-                for (Staff staff : staffList){
-                    if (staff.compare(staffNameChooser.getValue(), staff.getName()) == 0) stName = staff.getId();
-                }
+                try{
+                    Integer stName = 0;
+                    for (Staff staff : staffList){
+                        if (staff.compare(staffNameChooser.getValue(), staff.getName()) == 0) stName = staff.getId();
+                    }
 
-                if (eAFlag == 1) {
-                    Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue(), stName.toString());
-                    orderList.add(order);
+                    if (eAFlag == 1) {
+                        Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue(), stName.toString());
+                        orderList.add(order);
 
-                } else if (eAFlag == 2) {
-                    order.setSum(0);
-                    order.setStaffName(stName.toString());
-                    order.setDate(dataChooser.getValue());
-                    order.setTable(Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()));
-                    orderList.remove(num);
-                    orderList.add(order);
+                    } else if (eAFlag == 2) {
+                        order.setSum(0);
+                        order.setStaffName(stName.toString());
+                        order.setDate(dataChooser.getValue());
+                        order.setTable(Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()));
+                        orderList.remove(num);
+                        orderList.add(order);
+                    }
+                    ordersShow();
+                    loader.writeOrderFile(orderList);
+                } catch (Exception e){
+                    editor.printAlert("Data are incorrect.");
                 }
-                ordersShow();
-                loader.writeOrderFile(orderList);
                 break;
             case 5:
-                int prId = 0;
-                int dishId = 0;
-                for (Products product : productsList){
-                    if (product.compare(productNameChooser.getSelectionModel().getSelectedItem().toString(), product.getName()) == 0) prId = product.getId();
-                }
-                for (Dishes dish : dishesList){
-                    if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dishId = dish.getId();
-                }
+                try{
+                    int prId = 0;
+                    int dishId = 0;
+                    for (Products product : productsList){
+                        if (product.compare(productNameChooser.getSelectionModel().getSelectedItem().toString(), product.getName()) == 0) prId = product.getId();
+                    }
+                    for (Dishes dish : dishesList){
+                        if (dish.compare(dishNameChooser.getSelectionModel().getSelectedItem().toString(), dish.getName()) == 0) dishId = dish.getId();
+                    }
 
-                if (eAFlag == 1) {
-                    Recipe recipe = new Recipe(Recipe.getLastId() + 1, String.valueOf(dishId), String.valueOf(prId), Integer.valueOf(amountField.getText()));
-                    recipeList.add(recipe);
+                    if (eAFlag == 1) {
+                        Recipe recipe = new Recipe(Recipe.getLastId() + 1, String.valueOf(dishId), String.valueOf(prId), Integer.valueOf(amountField.getText()));
+                        recipeList.add(recipe);
 
-                } else if (eAFlag == 2) {
-                    recipe.setAmount(Integer.valueOf(amountField.getText()));
-                    recipe.setProductName(String.valueOf(prId));
-                    recipe.setDishName(String.valueOf(dishId));
-                    recipeList.remove(num);
-                    recipeList.add(recipe);
+                    } else if (eAFlag == 2) {
+                        recipe.setAmount(Integer.valueOf(amountField.getText()));
+                        recipe.setProductName(String.valueOf(prId));
+                        recipe.setDishName(String.valueOf(dishId));
+                        recipeList.remove(num);
+                        recipeList.add(recipe);
+                    }
+                    receiptsShow();
+                    loader.writeRecipeFile(recipeList);
+                } catch (Exception e){
+                    editor.printAlert("Data are incorrect.");
                 }
-                receiptsShow();
-                loader.writeRecipeFile(recipeList);
                 break;
             case 6:
-                System.out.println(eAFlag);
-                if (eAFlag == 1) {
-                    String name = nameField.getText();
-                    Integer id = Staff.getLastId() + 1;
+                try{
+                    System.out.println(eAFlag);
+                    if (eAFlag == 1) {
+                        String name = nameField.getText();
+                        Integer id = Staff.getLastId() + 1;
 
-                    staffList.size();
-                    Staff st = new Staff(id, name);
-                    staffList.add(st);
+                        staffList.size();
+                        Staff st = new Staff(id, name);
+                        staffList.add(st);
 
-                } else if (eAFlag == 2) {
-                    staff.setName(nameField.getText());
+                    } else if (eAFlag == 2) {
+                        staff.setName(nameField.getText());
 
-                    staffList.remove(num);
-                    staffList.add(staff);
+                        staffList.remove(num);
+                        staffList.add(staff);
+                    }
+                    staffShow();
+                    loader.writeStaffFile(staffList);
+                } catch (Exception e){
+                    editor.printAlert("Data are incorrect.");
                 }
-                staffShow();
-                loader.writeStaffFile(staffList);
-                break;
-            default:
                 break;
         }
         editor.fieldsClear(nameField, priceField, amountField, weightField, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
@@ -786,15 +809,6 @@ public class Controller {
                 default:
                     break;
             }
-        }
-
-        public void printAlert(String alertString){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(alertString);
-            alert.setContentText("Please, try again!");
-
-            alert.showAndWait();
         }
     }
 
