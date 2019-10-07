@@ -325,6 +325,7 @@ public class Controller {
     public void addProperty(MouseEvent event) throws IOException {
         eAFlag = 1;
         submitBtn.setDisable(false);
+        editor.fieldsClear(nameField, priceField, amountField, weightField, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
 
         switch (flag) {
             case 1:
@@ -370,7 +371,7 @@ public class Controller {
     }
 
     public void textChange(MouseEvent event) throws IOException {
-        editor = new EntityEditor();
+        editor.fieldsClear(nameField, priceField, amountField, weightField, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         num = table.getSelectionModel().getSelectedIndex();
 
         if (num >= 0) {
@@ -407,8 +408,17 @@ public class Controller {
 
                     amountField.setText(Integer.toString(((OrderDish) table.getItems().get(num)).getAmount()));
                     /* add default-Values
-                    dishNameChooser.setValue(((OrderDish) table.getItems().get(num)).getOrderId());
-                    orderIdChooser.setValue(((OrderDish) table.getItems().get(num)).getDishName());*/
+                    * into Choice Boxes*/
+                    for (Dishes dish : dishesList){
+                        if (dish.compare(((OrderDish) table.getItems().get(num)).getDishName(), dish.getName()) == 0)
+                            dishNameChooser.getSelectionModel().select(dish.getName());
+                    }
+                    int x = 0;
+                    for (Order order : orderList){
+                        if (order.compare(((OrderDish) table.getItems().get(num)).getOrderId(), order.getId()) == 0)
+                            orderIdChooser.getSelectionModel().select(x);
+                        x++;
+                    }
                     break;
                 case 4:
                     dataChooser.setDisable(false);

@@ -11,4 +11,4 @@
 8;Carbonara;0.0;380.0;0.0
 14;Brokkoli-Torte;0.0;930.0;0.0
 2;Cherry-Torte;0.0;860.0;0.0
-10;Chicken Pancakes;0.0;320.0;0.0
+10;Chicken Pancakes;25820.500000000004;320.0;43894.850000000006
