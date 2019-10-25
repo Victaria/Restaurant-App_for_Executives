@@ -9,7 +9,7 @@ public class ConnectDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://206.189.102.66:3306/db";
-            con = DriverManager.getConnection(url, "vika", "BaLxECtu2HP6p2nf");
+            con = DriverManager.getConnection(url, "WT", "sk7SszGA2uSL3ZkM");
             String query = "SELECT id, name FROM test";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
