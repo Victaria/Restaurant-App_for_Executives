@@ -13,3 +13,4 @@
 15;8;0.0;2019-10-02;Anna Lesnova
 11;8;0.0;2019-09-19;Dzmitry Linnik
 16;10;0.0;2019-10-02;Andrey Pogorelov
+17;9;0.0;2019-10-17;Andrey Pogorelov

@@ -15,6 +15,7 @@ import javafx.util.converter.LocalDateStringConverter;
 import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
+import sample.SqlConnection.ConnectDB;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -154,6 +155,8 @@ public class Controller {
         orderDishList = loader.loadOrderDishFile();
         recipeList = loader.loadRecipeFile();
         staffList = loader.loadStaffFile();
+
+        ConnectDB.connect();
     }
 
     public void productsShow() {

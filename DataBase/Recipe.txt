@@ -13,3 +13,4 @@
 13;Chicken Pancakes;Cheese;1
 14;Chicken Pancakes;Butter;2
 15;Chicken Pancakes;Milk;2
+16;Potatos fri;Yogurt;2
