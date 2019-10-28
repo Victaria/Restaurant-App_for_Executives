@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<schema noNamespaceSchemaLocation="Product.xsd"
+        xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <element name="product">
+    <complexType>
+        <sequence>
+            <element name="id" type="xs:integer" />
+            <element name="name" type="xs:string" />
+            <element name="price" type="xs:integer" />
+            <element name="amount" type="xs:integer" />
+        </sequence>
+    </complexType>
+    </element>
+</schema>

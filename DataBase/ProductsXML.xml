@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<products schemaLocation="Product.xsd">
+	<product id="1">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+	<product id="2">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+	<product id="3">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+	<product id="4">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+	<product id="5">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+	<product id="6">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+	<product id="7">
+		<name></name>
+		<price></price>
+		<amount></amount>
+	</product>
+</products>
