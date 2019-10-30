@@ -290,7 +290,7 @@ public class Controller {
                 case 1:
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
-                    loader.writeProductsFile(productsList);
+                    loader.writeProductsXMLFile(productsList);
                     table.setItems(productsList);
                     break;
                 case 2:
@@ -320,7 +320,7 @@ public class Controller {
                 case 6:
                     staff = (Staff) table.getItems().get(num);
                     staffList.remove(num);
-                    loader.writeStaffFile(staffList);
+                    loader.writeStaffXMLFile(staffList);
                     table.setItems(staffList);
                     break;
                 default:
@@ -505,7 +505,7 @@ public class Controller {
                         productsList.add(product);
                     }
                     productsShow();
-                    loader.writeProductsFile(productsList);
+                    loader.writeProductsXMLFile(productsList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -634,7 +634,7 @@ public class Controller {
                         staffList.add(staff);
                     }
                     staffShow();
-                    loader.writeStaffFile(staffList);
+                    loader.writeStaffXMLFile(staffList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }

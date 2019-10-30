@@ -38,12 +38,6 @@
         <amount>80</amount>
     </product>
     <product>
-        <id>11</id>
-        <name>Fish</name>
-        <price>240.3</price>
-        <amount>73</amount>
-    </product>
-    <product>
         <id>13</id>
         <name>Egg</name>
         <price>2150.2</price>
@@ -114,5 +108,11 @@
         <name>Milk</name>
         <price>26.0</price>
         <amount>33</amount>
+    </product>
+    <product>
+        <id>11</id>
+        <name>Fish</name>
+        <price>245.3</price>
+        <amount>73</amount>
     </product>
 </products>

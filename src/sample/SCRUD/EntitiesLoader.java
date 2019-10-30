@@ -170,7 +170,7 @@ public class EntitiesLoader {
         return staffList;
     }
 
-    public void writeProductsFile(ObservableList<Products> product) {
+   /* public void writeProductsFile(ObservableList<Products> product) {
         try (FileWriter writer = new FileWriter(path + "Products.txt", false)) {
             for (Products products : product) {
                 writer.write(products.getId() + ";" + products.getName() + ";" + products.getPrice() + ";" + products.getAmount() + "\n");
@@ -178,7 +178,7 @@ public class EntitiesLoader {
         } catch (IOException e) {
             editor.printAlert("File writing is not possible.");
         }
-    }
+    }*/
 
     public void writeDishesFile(ObservableList<Dishes> dish) {
         try (FileWriter writer = new FileWriter(path + "Dishes.txt", false)) {
@@ -220,7 +220,7 @@ public class EntitiesLoader {
         }
     }
 
-    public void writeStaffFile(ObservableList<Staff> staffs) {
+   /* public void writeStaffFile(ObservableList<Staff> staffs) {
         try (FileWriter writer = new FileWriter(path + "Staff.txt", false)) {
             for (Staff staff : staffs) {
                 writer.write(staff.getId() + ";" + staff.getName() + "\n");
@@ -228,7 +228,7 @@ public class EntitiesLoader {
         } catch (IOException e) {
             editor.printAlert("File writing is not possible.");
         }
-    }
+    }*/
 
     public void writeProductsXMLFile(ObservableList<Products> productsList) throws ParserConfigurationException {
         Element e;
@@ -276,6 +276,45 @@ public class EntitiesLoader {
             System.out.println(te.getMessage());
         }
 
+    }
+
+    public void writeStaffXMLFile(ObservableList<Staff> staffList) throws ParserConfigurationException {
+        Element e;
+
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        Document document = documentBuilder.newDocument();
+
+        Element rootElement = document.createElement("staff");
+        document.appendChild(rootElement);
+
+        for (Staff staff : staffList) {
+            e = document.createElement("staff");
+
+            Element stId = document.createElement("id");
+            stId.appendChild(document.createTextNode(String.valueOf(staff.getId())));
+            e.appendChild(stId);
+
+            Element stName = document.createElement("name");
+            stName.appendChild(document.createTextNode(staff.getName()));
+            e.appendChild(stName);
+
+            rootElement.appendChild(e);
+        }
+        try {
+            Transformer tr = TransformerFactory.newInstance().newTransformer();
+            tr.setOutputProperty(OutputKeys.INDENT, "yes");
+            tr.setOutputProperty(OutputKeys.METHOD, "xml");
+            tr.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "Staff.xsd");
+            tr.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+
+            // send DOM to file
+            tr.transform(new DOMSource(document),
+                    new StreamResult(path+"StaffXML.xml"));
+
+        } catch (TransformerException te) {
+            System.out.println(te.getMessage());
+        }
     }
 
 

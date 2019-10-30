@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE staff SYSTEM "Staff.xsd">
+<staff>
+    <staff>
+        <id>1</id>
+        <name>Julia Kostromskaya</name>
+    </staff>
+    <staff>
+        <id>2</id>
+        <name>Dzmitry Linnik</name>
+    </staff>
+    <staff>
+        <id>4</id>
+        <name>Guilerme Velesko</name>
+    </staff>
+    <staff>
+        <id>5</id>
+        <name>Andrey Pogorelov</name>
+    </staff>
+    <staff>
+        <id>6</id>
+        <name>Anna Lesnova</name>
+    </staff>
+    <staff>
+        <id>7</id>
+        <name>Nastya Bobkova</name>
+    </staff>
+    <staff>
+        <id>8</id>
+        <name>Olga Stavrovich</name>
+    </staff>
+    <staff>
+        <id>3</id>
+        <name>Lera Rykova</name>
+    </staff>
+    <staff>
+        <id>9</id>
+        <name>Berg Lionov</name>
+    </staff>
+</staff>
