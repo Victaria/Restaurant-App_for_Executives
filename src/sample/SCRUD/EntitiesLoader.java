@@ -230,7 +230,7 @@ public class EntitiesLoader {
         }
     }
 
-    public void writeProductsXMLFile(ObservableList<Products> productsList) throws IOException, ParserConfigurationException {
+    public void writeProductsXMLFile(ObservableList<Products> productsList) throws ParserConfigurationException {
         Element e;
 
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -241,8 +241,6 @@ public class EntitiesLoader {
         document.appendChild(rootElement);
 
         for (Products product : productsList) {
-            System.out.println("11");
-
             e = document.createElement("product");
 
             Element prId = document.createElement("id");
@@ -264,7 +262,6 @@ public class EntitiesLoader {
             rootElement.appendChild(e);
         }
         try {
-            System.out.println("22");
             Transformer tr = TransformerFactory.newInstance().newTransformer();
             tr.setOutputProperty(OutputKeys.INDENT, "yes");
             tr.setOutputProperty(OutputKeys.METHOD, "xml");
@@ -273,7 +270,7 @@ public class EntitiesLoader {
 
             // send DOM to file
             tr.transform(new DOMSource(document),
-                    new StreamResult(path+"test.xml"));
+                    new StreamResult(path+"ProductsXML.xml"));
 
         } catch (TransformerException te) {
             System.out.println(te.getMessage());

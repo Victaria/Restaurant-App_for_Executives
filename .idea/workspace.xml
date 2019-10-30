@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading optimization">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/XML/Product.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/Product.xsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -127,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="248" column="87" lean-forward="true" selection-start-line="248" selection-start-column="87" selection-end-line="248" selection-end-column="87" />
+            <state relative-caret-position="330">
+              <caret line="275" column="54" selection-start-line="275" selection-start-column="54" selection-end-line="275" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,7 +205,7 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="310" />
     <option name="y" value="5" />
     <option name="width" value="1615" />
@@ -463,12 +458,12 @@
       <workItem from="1572010731075" duration="2308000" />
       <workItem from="1572161945324" duration="7624000" />
       <workItem from="1572266437736" duration="5909000" />
-      <workItem from="1572438805962" duration="4118000" />
+      <workItem from="1572438805962" duration="4361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199619000" />
+    <option name="totallyTimeSpent" value="199862000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -701,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="248" column="87" lean-forward="true" selection-start-line="248" selection-start-column="87" selection-end-line="248" selection-end-column="87" />
+        <state relative-caret-position="330">
+          <caret line="275" column="54" selection-start-line="275" selection-start-column="54" selection-end-line="275" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
