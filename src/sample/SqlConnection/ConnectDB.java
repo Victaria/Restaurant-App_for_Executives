@@ -10,7 +10,7 @@ public class ConnectDB {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://206.189.102.66:3306/db";
             con = DriverManager.getConnection(url, "WT", "sk7SszGA2uSL3ZkM");
-           
+
             String query = "INSERT INTO Products (name, price, amount) VALUES('chili', 225, 5)";
             Statement stmt = con.createStatement();
             stmt.executeUpdate(query);

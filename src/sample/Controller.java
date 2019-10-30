@@ -17,6 +17,7 @@ import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 import sample.SqlConnection.ConnectDB;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -156,7 +157,7 @@ public class Controller {
         recipeList = loader.loadRecipeFile();
         staffList = loader.loadStaffFile();
 
-        ConnectDB.connect();
+      //  ConnectDB.connect();
     }
 
     public void productsShow() {
@@ -811,7 +812,12 @@ public class Controller {
                     break;
             }
         }
+
+    public void loadIntoDB(ActionEvent event) throws IOException, ParserConfigurationException {
+        loader.writeProductsXMLFile(productsList);
+       // ConnectDB.connect();
     }
+}
 
 
 
