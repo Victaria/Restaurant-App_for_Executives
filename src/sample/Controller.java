@@ -1,5 +1,7 @@
 package sample;
 
+import com.oracle.xmlns.internal.webservices.jaxws_databinding.ObjectFactory;
+import com.sun.org.apache.xerces.internal.xs.XSModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,8 +18,14 @@ import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 import sample.SqlConnection.ConnectDB;
+import sample.XML.SaveXML;
+import sample.XML.ValidationXML;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.Marshaller;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -132,6 +140,8 @@ public class Controller {
     private TableColumn productNameCol;
 
     private EntityEditor editor = new EntityEditor();
+
+    private SaveXML parser = new SaveXML();
 
     public void initialize() {
         editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
@@ -290,7 +300,7 @@ public class Controller {
                 case 1:
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
-                    loader.writeProductsXMLFile(productsList);
+                    parser.writeProductsXMLFile(productsList);
                     table.setItems(productsList);
                     break;
                 case 2:
@@ -320,7 +330,7 @@ public class Controller {
                 case 6:
                     staff = (Staff) table.getItems().get(num);
                     staffList.remove(num);
-                    loader.writeStaffXMLFile(staffList);
+                    parser.writeStaffXMLFile(staffList);
                     table.setItems(staffList);
                     break;
                 default:
@@ -505,7 +515,7 @@ public class Controller {
                         productsList.add(product);
                     }
                     productsShow();
-                    loader.writeProductsXMLFile(productsList);
+                    parser.writeProductsXMLFile(productsList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -634,7 +644,7 @@ public class Controller {
                         staffList.add(staff);
                     }
                     staffShow();
-                    loader.writeStaffXMLFile(staffList);
+                    parser.writeStaffXMLFile(staffList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -813,9 +823,8 @@ public class Controller {
             }
         }
 
-    public void loadIntoDB(ActionEvent event) throws IOException, ParserConfigurationException {
-        loader.writeProductsXMLFile(productsList);
-       // ConnectDB.connect();
+    public void loadIntoDB(ActionEvent event) throws Exception {
+
     }
 }
 

@@ -2,27 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading optimization">
-      <change afterPath="$PROJECT_DIR$/DataBase/DishesXML.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataBase/OrderDishXML.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataBase/OrdersXML.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataBase/RecipeXML.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataBase/StaffXML.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/XML/Dish.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/XML/Order.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/XML/OrderDish.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/XML/Recipe.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/XML/Staff.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/XML/ProductHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/XML/SaveXML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/XML/ValidationXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35195bfb-8478-4e3b-8e93-5dab1f08c01a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35195bfb-8478-4e3b-8e93-5dab1f08c01a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataBase/ProductsXML.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/ProductsXML.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBase/StaffXML.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/StaffXML.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VTPart2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VTPart2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/META-INF/VTPart2.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/META-INF/VTPart2.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/SCRUD/EntitiesLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/SCRUD/EntitiesLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Dish.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Dish.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Order.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Order.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/OrderDish.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/OrderDish.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/ParseXML$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/ParseXML.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Product.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Product.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Recipe.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Recipe.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Staff.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/XML/Staff.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/XML/Dish.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/Dish.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/XML/Order.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/Order.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/XML/OrderDish.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/OrderDish.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/XML/ParseXML.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/XML/Product.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/Product.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/XML/Recipe.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/Recipe.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/XML/Staff.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/XML/Staff.xsd" afterDir="false" />
     </list>
-    <ignored path="JavaFxApplication.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,57 +95,8 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="619" column="20" lean-forward="true" selection-start-line="619" selection-start-column="20" selection-end-line="619" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-28">
-              <caret line="230" column="7" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/XML/Product.xsd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="36" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="6" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/XML/Staff.xsd">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -153,122 +115,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/parser.dtd" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/DishesCategory.java" />
-        <option value="$PROJECT_DIR$/src/sample/ModalWind.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/Comparator.java" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/Staff.java" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/Dishes.java" />
-        <option value="$PROJECT_DIR$/src/sample/ModalWindow.java" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/Order.java" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/OrderDish.java" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/Recipe.java" />
-        <option value="$PROJECT_DIR$/src/sample/Entities/Products.java" />
-        <option value="$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java" />
-        <option value="$PROJECT_DIR$/src/sample/XML/XSD.xml" />
-        <option value="$PROJECT_DIR$/src/sample/XML/ParseXML.java" />
-        <option value="$PROJECT_DIR$/DataBase/ProductsXML.xml" />
-        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" />
-        <option value="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/XML/Product.xsd" />
-        <option value="$PROJECT_DIR$/src/sample/XML/Recipe.xsd" />
-        <option value="$PROJECT_DIR$/src/sample/XML/Dish.xsd" />
-        <option value="$PROJECT_DIR$/src/sample/XML/Order.xsd" />
-        <option value="$PROJECT_DIR$/src/sample/XML/OrderDish.xsd" />
-        <option value="$PROJECT_DIR$/src/sample/XML/Staff.xsd" />
-      </list>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Disk_D\VTPart2\.idea" />
+      </set>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="310" />
-    <option name="y" value="5" />
-    <option name="width" value="1615" />
-    <option name="height" value="880" />
-  </component>
+  <component name="ProjectId" id="1T6Gre0wkbD8AAI3WVzZJw2m1LJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="DataBase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="SCRUD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="SqlConnection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VTPart2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="XML" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VTPart2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -288,10 +146,17 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Disk_D\VTPart2\src\sample\XML" />
+      <recent name="D:\Disk_D\VTPart2\DataBase" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -445,56 +310,41 @@
       <workItem from="1572010731075" duration="2308000" />
       <workItem from="1572161945324" duration="7624000" />
       <workItem from="1572266437736" duration="5909000" />
-      <workItem from="1572438805962" duration="7354000" />
+      <workItem from="1572438805962" duration="8910000" />
+      <workItem from="1572767448492" duration="925000" />
+      <workItem from="1572769361288" duration="978000" />
+      <workItem from="1572772960596" duration="1000" />
+      <workItem from="1572773342408" duration="652000" />
+      <workItem from="1572774652862" duration="2381000" />
+      <workItem from="1572777908295" duration="2746000" />
+      <workItem from="1572972447142" duration="674000" />
+      <workItem from="1573031516914" duration="717000" />
+      <workItem from="1573042946384" duration="10146000" />
+      <workItem from="1573140884343" duration="3501000" />
+      <workItem from="1573571492506" duration="644000" />
+      <workItem from="1573925877802" duration="10183000" />
+      <workItem from="1573937532790" duration="747000" />
+      <workItem from="1573938333885" duration="940000" />
+      <workItem from="1573940112323" duration="1111000" />
+      <workItem from="1573979890007" duration="2753000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202855000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.24832214" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="UI Designer" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17705382" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Problems" order="9" />
-      <window_info anchor="bottom" id="Changes" order="10" />
-      <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="Terminal" order="16" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.10939597" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" weight="0.3295302" />
-      <window_info anchor="right" id="Capture Analysis" order="8" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -505,313 +355,5 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/parser.dtd" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/ProductsCategory.java" />
-    <entry file="file://$PROJECT_DIR$/DataBase/TestFile.txt" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/com/sun/javafx/collections/ObservableListWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
-          <folding>
-            <element signature="e#2182#2183#0" expanded="true" />
-            <element signature="e#2227#2228#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/DishesCategory.java" />
-    <entry file="file://$PROJECT_DIR$/DataBase/OrderDish.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/Orders.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/awt/event/ActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/Comparator.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="747" column="19" selection-start-line="747" selection-start-column="19" selection-end-line="747" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/cell/PropertyValueFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ModalWind.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/sample/ModalWindow.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/com/sun/glass/ui/win/WinApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="176" selection-start-line="176" selection-end-line="176" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/35195bfb-8478-4e3b-8e93-5dab1f08c01a/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_18.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/ProductsXML.txt" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/Products.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntityEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/ProductsXML.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="42" selection-start-column="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="64" column="71" selection-start-line="64" selection-start-column="71" selection-end-line="64" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/ParseXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="74" column="126" selection-start-line="74" selection-start-column="76" selection-end-line="74" selection-end-column="126" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/DishesXML.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/OrderDishXML.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/OrdersXML.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/RecipeXML.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataBase/StaffXML.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/Dishes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/OrderDish.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/Staff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Entities/Recipe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="619" column="20" lean-forward="true" selection-start-line="619" selection-start-column="20" selection-end-line="619" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="230" column="7" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/Recipe.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/Dish.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/Order.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/OrderDish.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/Product.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/XML/Staff.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>mysql-connector-java-8.0.18</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

@@ -1,27 +1,23 @@
 package sample.XML;
 
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import com.sun.org.apache.xml.internal.security.utils.XMLUtils;
-import org.xml.sax.XMLReader;
-
-//SAX and external XSD
-import javax.xml.transform.Source;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.SchemaFactory;
-
-import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
 
-public class ParseXML {
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
+import java.io.IOException;
 
-    private ParseXML() {}
+public class ValidationXML {
+    public void validate (String xml, String xsd) throws Exception{
+        System.out.println
+                (ValidationXML.validateWithExtXSDUsingSAX (xml, xsd));
+    }
 
     public static boolean validateWithExtXSDUsingSAX(String xml, String xsd)
             throws ParserConfigurationException, IOException {
@@ -58,7 +54,7 @@ public class ParseXML {
                         }
                     }
             );
-            reader.parse(new InputSource(xml));
+            reader.parse(xml);
             return true;
         } catch (ParserConfigurationException pce) {
             throw pce;
@@ -68,15 +64,4 @@ public class ParseXML {
             return false;
         }
     }
-
-    public static void main (String args[]) throws Exception{
-        System.out.println
-                (ParseXML.validateWithExtXSDUsingSAX
-                        ("D:\\Disk_D\\VTPart2\\DataBase\\ProductsXML.xml", "D:\\Disk_D\\VTPart2\\src\\sample\\XML\\Product.xsd"));
-    /*
-      output :
-               true
-    */
-    }
-    }
-
+}

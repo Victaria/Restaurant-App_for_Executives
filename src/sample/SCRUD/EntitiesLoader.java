@@ -3,10 +3,13 @@ package sample.SCRUD;
 import com.oracle.xmlns.internal.webservices.jaxws_databinding.ObjectFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import jdk.internal.org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import sample.Entities.*;
+import sample.XML.ProductHandler;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,8 +19,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 import java.io.*;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class EntitiesLoader {
     private Products product;
@@ -230,94 +239,7 @@ public class EntitiesLoader {
         }
     }*/
 
-    public void writeProductsXMLFile(ObservableList<Products> productsList) throws ParserConfigurationException {
-        Element e;
-
-        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.newDocument();
-
-        Element rootElement = document.createElement("products");
-        document.appendChild(rootElement);
-
-        for (Products product : productsList) {
-            e = document.createElement("product");
-
-            Element prId = document.createElement("id");
-            prId.appendChild(document.createTextNode(String.valueOf(product.getId())));
-            e.appendChild(prId);
-
-            Element prName = document.createElement("name");
-            prName.appendChild(document.createTextNode(product.getName()));
-            e.appendChild(prName);
-
-            Element prPrice = document.createElement("price");
-            prPrice.appendChild(document.createTextNode(String.valueOf(product.getPrice())));
-            e.appendChild(prPrice);
-
-            Element prAmount = document.createElement("amount");
-            prAmount.appendChild(document.createTextNode(String.valueOf(product.getAmount())));
-            e.appendChild(prAmount);
-
-            rootElement.appendChild(e);
-        }
-        try {
-            Transformer tr = TransformerFactory.newInstance().newTransformer();
-            tr.setOutputProperty(OutputKeys.INDENT, "yes");
-            tr.setOutputProperty(OutputKeys.METHOD, "xml");
-            tr.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "Product.xsd");
-            tr.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-
-            // send DOM to file
-            tr.transform(new DOMSource(document),
-                    new StreamResult(path+"ProductsXML.xml"));
-
-        } catch (TransformerException te) {
-            System.out.println(te.getMessage());
-        }
-
-    }
-
-    public void writeStaffXMLFile(ObservableList<Staff> staffList) throws ParserConfigurationException {
-        Element e;
-
-        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.newDocument();
-
-        Element rootElement = document.createElement("staff");
-        document.appendChild(rootElement);
-
-        for (Staff staff : staffList) {
-            e = document.createElement("staff");
-
-            Element stId = document.createElement("id");
-            stId.appendChild(document.createTextNode(String.valueOf(staff.getId())));
-            e.appendChild(stId);
-
-            Element stName = document.createElement("name");
-            stName.appendChild(document.createTextNode(staff.getName()));
-            e.appendChild(stName);
-
-            rootElement.appendChild(e);
-        }
-        try {
-            Transformer tr = TransformerFactory.newInstance().newTransformer();
-            tr.setOutputProperty(OutputKeys.INDENT, "yes");
-            tr.setOutputProperty(OutputKeys.METHOD, "xml");
-            tr.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "Staff.xsd");
-            tr.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-
-            // send DOM to file
-            tr.transform(new DOMSource(document),
-                    new StreamResult(path+"StaffXML.xml"));
-
-        } catch (TransformerException te) {
-            System.out.println(te.getMessage());
-        }
-    }
-
-
+   
 }
 
 
