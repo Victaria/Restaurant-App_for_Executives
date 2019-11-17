@@ -1,5 +1,8 @@
 package sample.SqlConnection;
 
+import javafx.collections.ObservableList;
+import sample.Entities.Products;
+
 import java.sql.*;
 
 public class ConnectDB {
@@ -11,9 +14,13 @@ public class ConnectDB {
             String url = "jdbc:mysql://206.189.102.66:3306/db";
             con = DriverManager.getConnection(url, "WT", "sk7SszGA2uSL3ZkM");
 
-            String query = "INSERT INTO Products (name, price, amount) VALUES('chili', 225, 5)";
             Statement stmt = con.createStatement();
-            stmt.executeUpdate(query);
+            stmt.executeUpdate("TRUNCATE TABLE Products");
+
+            LoadIntoDB libd = new LoadIntoDB();
+            libd.loadProductsIntoDB(con);
+
+           // stmt.executeUpdate();
 
             stmt.close();
             con.close();

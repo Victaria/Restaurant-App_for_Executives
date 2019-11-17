@@ -9,14 +9,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import sample.Entities.*;
-import sample.XML.ValidationXML;
+import sample.XML.XMLHandler.ValidationXML;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class EntitiesLoader {
     private String path = "D:\\Disk_D\\VTPart2\\DataBase\\";

@@ -1,7 +1,5 @@
 package sample;
 
-import com.oracle.xmlns.internal.webservices.jaxws_databinding.ObjectFactory;
-import com.sun.org.apache.xerces.internal.xs.XSModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
@@ -18,14 +15,8 @@ import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 import sample.SqlConnection.ConnectDB;
-import sample.XML.SaveXML;
-import sample.XML.ValidationXML;
+import sample.XML.XMLHandler.SaveXML;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Marshaller;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -820,7 +811,7 @@ public class Controller {
         }
 
     public void loadIntoDB(ActionEvent event) throws Exception {
-
+        ConnectDB.connect();
     }
 }
 

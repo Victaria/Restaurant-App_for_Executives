@@ -1,4 +1,4 @@
-package sample.XML;
+package sample.XML.XMLHandler;
 
 import javax.xml.parsers.*;
 

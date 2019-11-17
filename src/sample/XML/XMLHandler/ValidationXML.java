@@ -1,4 +1,4 @@
-package sample.XML;
+package sample.XML.XMLHandler;
 
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
