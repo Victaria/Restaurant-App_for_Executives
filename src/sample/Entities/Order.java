@@ -1,8 +1,8 @@
 package sample.Entities;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.Date;
 
 public class Order implements Comparator {
 

@@ -6,10 +6,8 @@ import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDate;
 
 public class LoadIntoDB {
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
@@ -38,5 +36,100 @@ public class LoadIntoDB {
             }
         }
             preparedStmt.close();
+    }
+
+    public void loadDishesIntoDB(Connection con) throws SQLException {
+        dishesList = loader.loadDishesXMLFile();
+        String query = "INSERT INTO Dishes (id, name, price, weight, sum) VALUES(?, ?, ?, ?, ?)";
+        PreparedStatement preparedStmt = null;
+        for (Dishes dish : dishesList){
+            try {
+                preparedStmt = con.prepareStatement(query);
+                preparedStmt.setInt(1, dish.getId());
+                preparedStmt.setString(2, dish.getName());
+                preparedStmt.setDouble(3, dish.getPrice());
+                preparedStmt.setDouble(4, dish.getWeight());
+                preparedStmt.setDouble(5, dish.getSum());
+                preparedStmt.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        preparedStmt.close();
+    }
+
+    public void loadOrderDishesIntoDB(Connection con) throws SQLException {
+        orderDishList = loader.loadOrderDishesXMLFile();
+        String query = "INSERT INTO OrderDish (id, amount, dishName, orderId) VALUES(?, ?, ?, ?)";
+        PreparedStatement preparedStmt = null;
+        for (OrderDish orDish : orderDishList){
+            try {
+                preparedStmt = con.prepareStatement(query);
+                preparedStmt.setInt(1, orDish.getId());
+                preparedStmt.setInt(2, orDish.getAmount());
+                preparedStmt.setString(3, orDish.getDishName());
+                preparedStmt.setInt(4, orDish.getOrderId());
+                preparedStmt.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        preparedStmt.close();
+    }
+
+    public void loadOrdersIntoDB(Connection con) throws SQLException {
+        orderList = loader.loadOrderXMLFile();
+        String query = "INSERT INTO Orders (id, tableOrder, sum, dateOrder, staffName) VALUES(?, ?, ?, ?, ?)";
+        PreparedStatement preparedStmt = null;
+        for (Order order : orderList){
+            try {
+                preparedStmt = con.prepareStatement(query);
+                preparedStmt.setInt(1, order.getId());
+                preparedStmt.setInt(2, order.getTable());
+                preparedStmt.setDouble(3, order.getSum());
+                preparedStmt.setDate(4, Date.valueOf(order.getDate()));
+                preparedStmt.setString(5, order.getStaffName());
+                preparedStmt.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        preparedStmt.close();
+    }
+
+    public void loadRecipeIntoDB(Connection con) throws SQLException {
+        recipeList = loader.loadRecipeXMLFile();
+        String query = "INSERT INTO Recipe (id, DishName, ProductName, amount) VALUES(?, ?, ?, ?)";
+        PreparedStatement preparedStmt = null;
+        for (Recipe recipe : recipeList){
+            try {
+                preparedStmt = con.prepareStatement(query);
+                preparedStmt.setInt(1, recipe.getId());
+                preparedStmt.setString(2, recipe.getDishName());
+                preparedStmt.setString(3, recipe.getProductName());
+                preparedStmt.setInt(4, recipe.getAmount());
+                preparedStmt.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        preparedStmt.close();
+    }
+
+    public void loadStaffIntoDB(Connection con) throws SQLException {
+        staffList = loader.loadStaffXMLFile();
+        String query = "INSERT INTO Staff (id, name) VALUES(?, ?)";
+        PreparedStatement preparedStmt = null;
+        for (Staff staff : staffList){
+            try {
+                preparedStmt = con.prepareStatement(query);
+                preparedStmt.setInt(1, staff.getId());
+                preparedStmt.setString(2, staff.getName());
+                preparedStmt.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        preparedStmt.close();
     }
 }
