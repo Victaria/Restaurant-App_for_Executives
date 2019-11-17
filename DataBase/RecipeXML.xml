@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<recipes>
+    <recipe>
+        <id>1</id>
+        <dishName>Pasta</dishName>
+        <productName>Hanchen</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>2</id>
+        <dishName>Pasta</dishName>
+        <productName>Macaroni</productName>
+        <amount>1</amount>
+    </recipe>
+    <recipe>
+        <id>3</id>
+        <dishName>Pasta1</dishName>
+        <productName>Beef</productName>
+        <amount>3</amount>
+    </recipe>
+    <recipe>
+        <id>4</id>
+        <dishName>Pasta1</dishName>
+        <productName>Cream</productName>
+        <amount>3</amount>
+    </recipe>
+    <recipe>
+        <id>5</id>
+        <dishName>Pasta1</dishName>
+        <productName>Macaroni</productName>
+        <amount>1</amount>
+    </recipe>
+    <recipe>
+        <id>6</id>
+        <dishName>Juicy chicken</dishName>
+        <productName>Hanchen</productName>
+        <amount>1</amount>
+    </recipe>
+    <recipe>
+        <id>7</id>
+        <dishName>Juicy chicken</dishName>
+        <productName>Brokkoli</productName>
+        <amount>4</amount>
+    </recipe>
+    <recipe>
+        <id>8</id>
+        <dishName>Juicy chicken</dishName>
+        <productName>Yogurt</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>9</id>
+        <dishName>Juicy chicken</dishName>
+        <productName>Cheese</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>10</id>
+        <dishName>Juicy chicken</dishName>
+        <productName>Egg</productName>
+        <amount>1</amount>
+    </recipe>
+    <recipe>
+        <id>11</id>
+        <dishName>Chicken Pancakes</dishName>
+        <productName>Hanchen</productName>
+        <amount>3</amount>
+    </recipe>
+    <recipe>
+        <id>12</id>
+        <dishName>Chicken Pancakes</dishName>
+        <productName>Egg</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>13</id>
+        <dishName>Chicken Pancakes</dishName>
+        <productName>Cheese</productName>
+        <amount>1</amount>
+    </recipe>
+    <recipe>
+        <id>14</id>
+        <dishName>Chicken Pancakes</dishName>
+        <productName>Butter</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>15</id>
+        <dishName>Chicken Pancakes</dishName>
+        <productName>Milk</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>16</id>
+        <dishName>Potatos fri</dishName>
+        <productName>Yogurt</productName>
+        <amount>2</amount>
+    </recipe>
+    <recipe>
+        <id>17</id>
+        <dishName>CheeseCake</dishName>
+        <productName>Egg</productName>
+        <amount>3</amount>
+    </recipe>
+</recipes>

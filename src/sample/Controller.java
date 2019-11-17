@@ -160,14 +160,12 @@ public class Controller {
         staffNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
         EntitiesLoader loader = new EntitiesLoader();
-        productsList = loader.loadProductFile();
-        dishesList = loader.loadDishesFile();
-        orderList = loader.loadOrderFile();
-        orderDishList = loader.loadOrderDishFile();
-        recipeList = loader.loadRecipeFile();
-        staffList = loader.loadStaffFile();
-
-      //  ConnectDB.connect();
+        productsList = loader.loadProductXMLFile();
+        dishesList = loader.loadDishesXMLFile();
+        orderList = loader.loadOrderXMLFile();
+        orderDishList = loader.loadOrderDishesXMLFile();
+        recipeList = loader.loadRecipeXMLFile();
+        staffList = loader.loadStaffXMLFile();
     }
 
     public void productsShow() {
@@ -306,25 +304,25 @@ public class Controller {
                 case 2:
                     dish = (Dishes) table.getItems().get(num);
                     dishesList.remove(num);
-                    loader.writeDishesFile(dishesList);
+                    parser.writeDishesXMLFile(dishesList);
                     table.setItems(dishesList);
                     break;
                 case 3:
                     orderDish = (OrderDish) table.getItems().get(num);
                     orderDishList.remove(num);
-                    loader.writeOrderDishFile(orderDishList);
+                    parser.writeOrderDishesXMLFile(orderDishList);
                     table.setItems(orderDishList);
                     break;
                 case 4:
                     order = (Order) table.getItems().get(num);
                     orderList.remove(num);
-                    loader.writeOrderFile(orderList);
+                    parser.writeOrderXMLFile(orderList);
                     table.setItems(orderList);
                     break;
                 case 5:
                     recipe = (Recipe) table.getItems().get(num);
                     recipeList.remove(num);
-                    loader.writeRecipeFile(recipeList);
+                    parser.writeRecipeXMLFile(recipeList);
                     table.setItems(recipeList);
                     break;
                 case 6:
@@ -541,7 +539,7 @@ public class Controller {
                         dishesList.add(dish);
                     }
                     dishesShow();
-                    loader.writeDishesFile(dishesList);
+                    parser.writeDishesXMLFile(dishesList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -568,7 +566,7 @@ public class Controller {
                         orderDishList.add(orderDish);
                     }
                     orderDishesShow();
-                    loader.writeOrderDishFile(orderDishList);
+                    parser.writeOrderDishesXMLFile(orderDishList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -593,7 +591,7 @@ public class Controller {
                         orderList.add(order);
                     }
                     ordersShow();
-                    loader.writeOrderFile(orderList);
+                    parser.writeOrderXMLFile(orderList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -621,7 +619,7 @@ public class Controller {
                         recipeList.add(recipe);
                     }
                     receiptsShow();
-                    loader.writeRecipeFile(recipeList);
+                    parser.writeRecipeXMLFile(recipeList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }

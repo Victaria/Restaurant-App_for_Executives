@@ -1,41 +1,24 @@
 package sample.SCRUD;
 
-import com.oracle.xmlns.internal.webservices.jaxws_databinding.ObjectFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import jdk.internal.org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import sample.Entities.*;
-import sample.XML.ProductHandler;
+import sample.XML.ValidationXML;
 
-import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Validator;
 import java.io.*;
-import java.net.URL;
 import java.time.LocalDate;
-import java.util.Objects;
+import java.util.Date;
 
 public class EntitiesLoader {
-    private Products product;
-    private Dishes dish;
-    private OrderDish orderDish;
-    private Order order;
-    private Recipe recipe;
-    private Staff staff;
-
     private String path = "D:\\Disk_D\\VTPart2\\DataBase\\";
     private String filePath = "D:\\Disk_D\\VTPart2\\src\\sample\\XML\\";
 
@@ -47,199 +30,326 @@ public class EntitiesLoader {
     private ObservableList<Staff> staffList = FXCollections.observableArrayList();
     private EntityEditor editor = new EntityEditor();
 
-    public ObservableList<Products> loadProductFile() {
+    ValidationXML validationXML = new ValidationXML();
+
+    public  ObservableList<Products> loadProductXMLFile() {
         try {
-            File file = new File(path + "Products.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
+            validationXML.validate(path + "ProductsXML.xml", filePath + "Product.xsd");
 
-            while (line != null) {
-                String[] cols = line.split(";");
-                product = new Products(Integer.parseInt(cols[0]), cols[1], Double.parseDouble(cols[2]), Integer.parseInt(cols[3]));
-                productsList.add(product);
-                line = reader.readLine();
-            }
-        } catch (
-                FileNotFoundException e) {
-            editor.printAlert("File not found.");
-        } catch (IOException e) {
-            editor.printAlert("It's smt. wrong with File.");
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringComments(true);
+            factory.setIgnoringElementContentWhitespace(true);
+            factory.setValidating(false);
+
+            DocumentBuilder builder = null;
+            try {
+                builder = factory.newDocumentBuilder();
+
+                FileInputStream fis = new FileInputStream(path + "ProductsXML.xml");
+                InputSource is = new InputSource(fis);
+
+                Document doc = builder.parse(is);
+                NodeList productNodes = doc.getElementsByTagName("product");
+
+                for (int i = 0; i < productNodes.getLength(); i++) {
+                    Node productNode = productNodes.item(i);
+
+                    if (productNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element productElement = (Element) productNode;
+
+                        String id = productElement.getElementsByTagName("id").item(0).getTextContent();
+                        String name = productElement.getElementsByTagName("name").item(0).getTextContent();
+                        String price = productElement.getElementsByTagName("price").item(0).getTextContent();
+                        String amount = productElement.getElementsByTagName("amount").item(0).getTextContent();
+
+                        Products product = new Products(Integer.valueOf(id), name, Double.valueOf(price), Integer.valueOf(amount));
+
+                        productsList.add(product);
+                    }
+
+                }
+                return productsList;
+                } catch (ParserConfigurationException | FileNotFoundException e) {
+                    e.printStackTrace();
+                    return null;
+                } catch (SAXException e) {
+                    e.printStackTrace();
+                    return null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return productsList;
+
     }
 
-    public ObservableList<Dishes> loadDishesFile() {
+    public  ObservableList<Dishes> loadDishesXMLFile() {
         try {
-            File file = new File(path + "Dishes.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
+            validationXML.validate(path + "DishesXML.xml", filePath + "Dish.xsd");
 
-            while (line != null) {
-                String[] cols = line.split(";");
-                dish = new Dishes(Integer.parseInt(cols[0]), cols[1], Double.parseDouble(cols[2]), Double.parseDouble(cols[3]), Double.parseDouble(cols[4]));
-                dishesList.add(dish);
-                line = reader.readLine();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringComments(true);
+            factory.setIgnoringElementContentWhitespace(true);
+            factory.setValidating(false);
+
+            DocumentBuilder builder = null;
+            try {
+                builder = factory.newDocumentBuilder();
+
+                FileInputStream fis = new FileInputStream(path + "DishesXML.xml");
+                InputSource is = new InputSource(fis);
+
+                Document doc = builder.parse(is);
+                NodeList dishNodes = doc.getElementsByTagName("dish");
+
+                for (int i = 0; i < dishNodes.getLength(); i++) {
+                    Node dishNode = dishNodes.item(i);
+
+                    if (dishNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element dishElement = (Element) dishNode;
+
+                        String id = dishElement.getElementsByTagName("id").item(0).getTextContent();
+                        String name = dishElement.getElementsByTagName("name").item(0).getTextContent();
+                        String price = dishElement.getElementsByTagName("price").item(0).getTextContent();
+                        String weight = dishElement.getElementsByTagName("weight").item(0).getTextContent();
+                        String sum = dishElement.getElementsByTagName("sum").item(0).getTextContent();
+
+                        Dishes dish = new Dishes(Integer.valueOf(id), name, Double.valueOf(price), Double.valueOf(weight), Double.valueOf(sum));
+
+                        dishesList.add(dish);
+                    }
+
+                }
+                return dishesList;
+            } catch (ParserConfigurationException | FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } catch (SAXException e) {
+                e.printStackTrace();
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
             }
-        } catch (FileNotFoundException e) {
-            editor.printAlert("File not found.");
-        } catch (IOException e) {
-            editor.printAlert("It's smt. wrong with File.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return dishesList;
     }
 
-
-    public ObservableList<OrderDish> loadOrderDishFile() {
+    public ObservableList<OrderDish> loadOrderDishesXMLFile() {
         try {
-            File file = new File(path + "OrderDish.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
+            validationXML.validate(path + "OrderDishXML.xml", filePath + "OrderDish.xsd");
 
-            while (line != null) {
-                String[] cols = line.split(";");
-                orderDish = new OrderDish(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), cols[2], Integer.parseInt(cols[3]));
-                orderDishList.add(orderDish);
-                line = reader.readLine();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringComments(true);
+            factory.setIgnoringElementContentWhitespace(true);
+            factory.setValidating(false);
+
+            DocumentBuilder builder = null;
+            try {
+                builder = factory.newDocumentBuilder();
+
+                FileInputStream fis = new FileInputStream(path + "OrderDishXML.xml");
+                InputSource is = new InputSource(fis);
+
+                Document doc = builder.parse(is);
+                NodeList orderDishNodes = doc.getElementsByTagName("orderDish");
+
+                for (int i = 0; i < orderDishNodes.getLength(); i++) {
+                    Node orderDishNode = orderDishNodes.item(i);
+
+                    if (orderDishNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element orderDishElement = (Element) orderDishNode;
+
+                        String id = orderDishElement.getElementsByTagName("id").item(0).getTextContent();
+                        String amount = orderDishElement.getElementsByTagName("amount").item(0).getTextContent();
+                        String dishName = orderDishElement.getElementsByTagName("dishName").item(0).getTextContent();
+                        String orderId = orderDishElement.getElementsByTagName("orderId").item(0).getTextContent();
+
+                        OrderDish orderDish = new OrderDish(Integer.valueOf(id), Integer.valueOf(amount), dishName, Integer.valueOf(orderId));
+
+                        orderDishList.add(orderDish);
+                    }
+
+                }
+                return orderDishList;
+            } catch (ParserConfigurationException | FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } catch (SAXException e) {
+                e.printStackTrace();
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
             }
-        } catch (FileNotFoundException e) {
-            editor.printAlert("File not found.");
-        } catch (IOException e) {
-            editor.printAlert("It's smt. wrong with File.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-
-        return orderDishList;
     }
 
-    public ObservableList<Order> loadOrderFile() {
+    public ObservableList<Order> loadOrderXMLFile() {
         try {
-            File file = new File(path + "Orders.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
+            validationXML.validate(path + "OrdersXML.xml", filePath + "Order.xsd");
 
-            while (line != null) {
-                String[] cols = line.split(";");
-                order = new Order(Integer.parseInt(cols[0]), Integer.parseInt(cols[1]), Double.parseDouble(cols[2]), LocalDate.parse(cols[3]), cols[4]);
-                orderList.add(order);
-                line = reader.readLine();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringComments(true);
+            factory.setIgnoringElementContentWhitespace(true);
+            factory.setValidating(false);
+
+            DocumentBuilder builder = null;
+            try {
+                builder = factory.newDocumentBuilder();
+
+                FileInputStream fis = new FileInputStream(path + "OrdersXML.xml");
+                InputSource is = new InputSource(fis);
+
+                Document doc = builder.parse(is);
+                NodeList orderNodes = doc.getElementsByTagName("order");
+
+                for (int i = 0; i < orderNodes.getLength(); i++) {
+                    Node orderNode = orderNodes.item(i);
+
+                    if (orderNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element orderElement = (Element) orderNode;
+
+                        String id = orderElement.getElementsByTagName("id").item(0).getTextContent();
+                        String table = orderElement.getElementsByTagName("table").item(0).getTextContent();
+                        String sum = orderElement.getElementsByTagName("sum").item(0).getTextContent();
+                        String date = orderElement.getElementsByTagName("date").item(0).getTextContent();
+                        String staffName = orderElement.getElementsByTagName("staffName").item(0).getTextContent();
+
+                        Order order = new Order(Integer.valueOf(id), Integer.valueOf(table), Double.valueOf(sum), LocalDate.parse(date), staffName);
+
+                        orderList.add(order);
+                    }
+
+                }
+                return orderList;
+            } catch (ParserConfigurationException | FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } catch (SAXException e) {
+                e.printStackTrace();
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
             }
-        } catch (FileNotFoundException e) {
-            editor.printAlert("File not found.");
-        } catch (IOException e) {
-            editor.printAlert("It's smt. wrong with File.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-
-        return orderList;
     }
 
-
-    public ObservableList<Recipe> loadRecipeFile() {
+    public ObservableList<Recipe> loadRecipeXMLFile() {
         try {
-            File file = new File(path + "Recipe.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
+            validationXML.validate(path + "RecipeXML.xml", filePath + "Recipe.xsd");
 
-            while (line != null) {
-                String[] cols = line.split(";");
-                recipe = new Recipe(Integer.parseInt(cols[0]), cols[1], cols[2], Integer.parseInt(cols[3]));
-                recipeList.add(recipe);
-                line = reader.readLine();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringComments(true);
+            factory.setIgnoringElementContentWhitespace(true);
+            factory.setValidating(false);
+
+            DocumentBuilder builder = null;
+            try {
+                builder = factory.newDocumentBuilder();
+
+                FileInputStream fis = new FileInputStream(path + "RecipeXML.xml");
+                InputSource is = new InputSource(fis);
+
+                Document doc = builder.parse(is);
+                NodeList recipeNodes = doc.getElementsByTagName("recipe");
+
+                for (int i = 0; i < recipeNodes.getLength(); i++) {
+                    Node recipeNode = recipeNodes.item(i);
+
+                    if (recipeNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element recipeElement = (Element) recipeNode;
+
+                        String id = recipeElement.getElementsByTagName("id").item(0).getTextContent();
+                        String dishName = recipeElement.getElementsByTagName("dishName").item(0).getTextContent();
+                        String productName = recipeElement.getElementsByTagName("productName").item(0).getTextContent();
+                        String amount = recipeElement.getElementsByTagName("amount").item(0).getTextContent();
+
+                        Recipe recipe = new Recipe(Integer.valueOf(id), dishName, productName, Integer.valueOf(amount));
+
+                        recipeList.add(recipe);
+                    }
+
+                }
+                return recipeList;
+            } catch (ParserConfigurationException | FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } catch (SAXException e) {
+                e.printStackTrace();
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
             }
-        } catch (FileNotFoundException e) {
-            editor.printAlert("File not found.");
-        } catch (IOException e) {
-            editor.printAlert("It's smt. wrong with File.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return recipeList;
     }
 
-
-    public ObservableList<Staff> loadStaffFile() {
+    public ObservableList<Staff> loadStaffXMLFile() {
         try {
-            File file = new File(path + "Staff.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader reader = new BufferedReader(fr);
-            String line = reader.readLine();
+          validationXML.validate(path + "StaffXML.xml", filePath + "Staff.xsd");
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringComments(true);
+            factory.setIgnoringElementContentWhitespace(true);
+            factory.setValidating(false);
 
-            while (line != null) {
-                String[] cols = line.split(";");
-                staff = new Staff(Integer.parseInt(cols[0]), cols[1]);
-                staffList.add(staff);
-                line = reader.readLine();
-            }
-        } catch (FileNotFoundException e) {
-            editor.printAlert("File not found.");
-        } catch (IOException e) {
-            editor.printAlert("It's smt. wrong with File.");
-        }
-        return staffList;
-    }
+            DocumentBuilder builder = null;
+            try {
+                builder = factory.newDocumentBuilder();
 
-   /* public void writeProductsFile(ObservableList<Products> product) {
-        try (FileWriter writer = new FileWriter(path + "Products.txt", false)) {
-            for (Products products : product) {
-                writer.write(products.getId() + ";" + products.getName() + ";" + products.getPrice() + ";" + products.getAmount() + "\n");
-            }
-        } catch (IOException e) {
-            editor.printAlert("File writing is not possible.");
-        }
-    }*/
+                FileInputStream fis = new FileInputStream(path + "StaffXML.xml");
+                InputSource is = new InputSource(fis);
 
-    public void writeDishesFile(ObservableList<Dishes> dish) {
-        try (FileWriter writer = new FileWriter(path + "Dishes.txt", false)) {
-            for (Dishes dishes : dish) {
-                writer.write(dishes.getId() + ";" + dishes.getName() + ";" + dishes.getPrice() + ";" + dishes.getWeight() + ";" + dishes.getSum() + "\n");
-            }
-        } catch (IOException e) {
-            editor.printAlert("File writing is not possible.");
-        }
-    }
+                Document doc = builder.parse(is);
+                NodeList staffNodes = doc.getElementsByTagName("person");
 
-    public void writeOrderFile(ObservableList<Order> order) {
-        try (FileWriter writer = new FileWriter(path + "Orders.txt", false)) {
-            for (Order orders : order) {
-                writer.write(orders.getId() + ";" + orders.getTable() + ";" + orders.getSum() + ";" + orders.getDate() + ";" + orders.getStaffName() + "\n");
-            }
-        } catch (IOException e) {
-            editor.printAlert("File writing is not possible.");
-        }
-    }
+                for (int i = 0; i < staffNodes.getLength(); i++) {
+                    Node staffNode = staffNodes.item(i);
 
-    public void writeOrderDishFile(ObservableList<OrderDish> orderDishes) {
-        try (FileWriter writer = new FileWriter(path + "OrderDish.txt", false)) {
-            for (OrderDish orderDish : orderDishes) {
-                writer.write(orderDish.getId() + ";" + orderDish.getAmount() + ";" + orderDish.getDishName() + ";" + orderDish.getOrderId() + "\n");
+                    if (staffNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element staffElement = (Element) staffNode;
+
+                        String id = staffElement.getElementsByTagName("id").item(0).getTextContent();
+                        String name = staffElement.getElementsByTagName("name").item(0).getTextContent();
+
+                        Staff staff = new Staff(Integer.valueOf(id), name);
+
+                        staffList.add(staff);
+                    }
+
+                }
+                return staffList;
+            } catch (ParserConfigurationException | FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } catch (SAXException e) {
+                e.printStackTrace();
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
             }
-        } catch (IOException e) {
-            editor.printAlert("File writing is not possible.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
-    public void writeRecipeFile(ObservableList<Recipe> recipes) {
-        try (FileWriter writer = new FileWriter(path + "Recipe.txt", false)) {
-            for (Recipe recipe : recipes) {
-                writer.write(recipe.getId() + ";" + recipe.getDishName() + ";" + recipe.getProductName() + ";" + recipe.getAmount() + "\n");
-            }
-        } catch (IOException e) {
-            editor.printAlert("File writing is not possible.");
-        }
-    }
-
-   /* public void writeStaffFile(ObservableList<Staff> staffs) {
-        try (FileWriter writer = new FileWriter(path + "Staff.txt", false)) {
-            for (Staff staff : staffs) {
-                writer.write(staff.getId() + ";" + staff.getName() + "\n");
-            }
-        } catch (IOException e) {
-            editor.printAlert("File writing is not possible.");
-        }
-    }*/
-
-   
 }
 
 

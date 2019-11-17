@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<orders>
+    <order>
+        <id>1</id>
+        <table>2</table>
+        <sum>24150.369999999995</sum>
+        <date>2019-09-11</date>
+        <staffName>Julia Kostromskaya</staffName>
+    </order>
+    <order>
+        <id>2</id>
+        <table>1</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Dzmitry Linnik</staffName>
+    </order>
+    <order>
+        <id>3</id>
+        <table>3</table>
+        <sum>48248.04</sum>
+        <date>2019-09-11</date>
+        <staffName>Dzmitry Linnik</staffName>
+    </order>
+    <order>
+        <id>4</id>
+        <table>5</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Lera Rykova</staffName>
+    </order>
+    <order>
+        <id>5</id>
+        <table>8</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Julia Kostromskaya</staffName>
+    </order>
+    <order>
+        <id>6</id>
+        <table>6</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Lera Rykova</staffName>
+    </order>
+    <order>
+        <id>7</id>
+        <table>7</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Dzmitry Linnik</staffName>
+    </order>
+    <order>
+        <id>8</id>
+        <table>4</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Lera Rykova</staffName>
+    </order>
+    <order>
+        <id>10</id>
+        <table>3</table>
+        <sum>28800.039999999994</sum>
+        <date>2019-09-11</date>
+        <staffName>Julia Kostromskaya</staffName>
+    </order>
+    <order>
+        <id>13</id>
+        <table>6</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Dzmitry Linnik</staffName>
+    </order>
+    <order>
+        <id>14</id>
+        <table>6</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Olga Stavrovich</staffName>
+    </order>
+    <order>
+        <id>12</id>
+        <table>3</table>
+        <sum>0.0</sum>
+        <date>2019-09-11</date>
+        <staffName>Julia Kostromskaya</staffName>
+    </order>
+    <order>
+        <id>15</id>
+        <table>8</table>
+        <sum>0.0</sum>
+        <date>2019-10-02</date>
+        <staffName>Anna Lesnova</staffName>
+    </order>
+    <order>
+        <id>11</id>
+        <table>8</table>
+        <sum>0.0</sum>
+        <date>2019-09-19</date>
+        <staffName>Dzmitry Linnik</staffName>
+    </order>
+    <order>
+        <id>16</id>
+        <table>10</table>
+        <sum>0.0</sum>
+        <date>2019-10-02</date>
+        <staffName>Andrey Pogorelov</staffName>
+    </order>
+    <order>
+        <id>17</id>
+        <table>9</table>
+        <sum>0.0</sum>
+        <date>2019-10-17</date>
+        <staffName>Andrey Pogorelov</staffName>
+    </order>
+    <order>
+        <id>18</id>
+        <table>9</table>
+        <sum>0.0</sum>
+        <date>2019-11-15</date>
+        <staffName>Olga Stavrovich</staffName>
+    </order>
+</orders>
