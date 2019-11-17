@@ -45,8 +45,6 @@ public class Controller {
     public ChoiceBox staffNameChooser;
     public ChoiceBox productNameChooser;
 
-    public EntitiesLoader loader = new EntitiesLoader();
-
     private int flag = 0;
     /*
      * 1 - products
@@ -141,7 +139,7 @@ public class Controller {
 
     private EntityEditor editor = new EntityEditor();
 
-    private SaveXML parser = new SaveXML();
+    private SaveXML saver = new SaveXML();
 
     public void initialize() {
         editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
@@ -298,37 +296,37 @@ public class Controller {
                 case 1:
                     product = (Products) table.getItems().get(num);
                     productsList.remove(num);
-                    parser.writeProductsXMLFile(productsList);
+                    saver.writeProductsXMLFile(productsList);
                     table.setItems(productsList);
                     break;
                 case 2:
                     dish = (Dishes) table.getItems().get(num);
                     dishesList.remove(num);
-                    parser.writeDishesXMLFile(dishesList);
+                    saver.writeDishesXMLFile(dishesList);
                     table.setItems(dishesList);
                     break;
                 case 3:
                     orderDish = (OrderDish) table.getItems().get(num);
                     orderDishList.remove(num);
-                    parser.writeOrderDishesXMLFile(orderDishList);
+                    saver.writeOrderDishesXMLFile(orderDishList);
                     table.setItems(orderDishList);
                     break;
                 case 4:
                     order = (Order) table.getItems().get(num);
                     orderList.remove(num);
-                    parser.writeOrderXMLFile(orderList);
+                    saver.writeOrderXMLFile(orderList);
                     table.setItems(orderList);
                     break;
                 case 5:
                     recipe = (Recipe) table.getItems().get(num);
                     recipeList.remove(num);
-                    parser.writeRecipeXMLFile(recipeList);
+                    saver.writeRecipeXMLFile(recipeList);
                     table.setItems(recipeList);
                     break;
                 case 6:
                     staff = (Staff) table.getItems().get(num);
                     staffList.remove(num);
-                    parser.writeStaffXMLFile(staffList);
+                    saver.writeStaffXMLFile(staffList);
                     table.setItems(staffList);
                     break;
                 default:
@@ -513,7 +511,7 @@ public class Controller {
                         productsList.add(product);
                     }
                     productsShow();
-                    parser.writeProductsXMLFile(productsList);
+                    saver.writeProductsXMLFile(productsList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -539,7 +537,7 @@ public class Controller {
                         dishesList.add(dish);
                     }
                     dishesShow();
-                    parser.writeDishesXMLFile(dishesList);
+                    saver.writeDishesXMLFile(dishesList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -566,7 +564,7 @@ public class Controller {
                         orderDishList.add(orderDish);
                     }
                     orderDishesShow();
-                    parser.writeOrderDishesXMLFile(orderDishList);
+                    saver.writeOrderDishesXMLFile(orderDishList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -591,7 +589,7 @@ public class Controller {
                         orderList.add(order);
                     }
                     ordersShow();
-                    parser.writeOrderXMLFile(orderList);
+                    saver.writeOrderXMLFile(orderList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -619,7 +617,7 @@ public class Controller {
                         recipeList.add(recipe);
                     }
                     receiptsShow();
-                    parser.writeRecipeXMLFile(recipeList);
+                    saver.writeRecipeXMLFile(recipeList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
@@ -642,7 +640,7 @@ public class Controller {
                         staffList.add(staff);
                     }
                     staffShow();
-                    parser.writeStaffXMLFile(staffList);
+                    saver.writeStaffXMLFile(staffList);
                 } catch (Exception e){
                     editor.printAlert("Data are incorrect.");
                 }
