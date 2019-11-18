@@ -1,11 +1,17 @@
 package sample.SqlConnection;
 
 import javafx.collections.ObservableList;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import sample.Entities.Products;
+import sample.SCRUD.EntityEditor;
 
 import java.sql.*;
 
 public class ConnectDB {
+    private static Logger log = LogManager.getLogger();
+    private static EntityEditor editor = new EntityEditor();
 
     public static void connect() {
         Connection con;
@@ -30,13 +36,17 @@ public class ConnectDB {
             libd.loadRecipeIntoDB(con);
             libd.loadStaffIntoDB(con);
 
+            log.log(Level.INFO,"Connection to DB is successfully");
+
             stmt.close();
             con.close();
+            log.log(Level.INFO,"Connection closed successfully");
         } catch (SQLException sqlEx) {
-            sqlEx.printStackTrace();
-            System.out.println("Can't connect");
+            log.log(Level.ERROR,"Can't Connect to DB", sqlEx);
+            editor.printAlert("Can't connect to DB");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            log.log(Level.ERROR,"Can't find Class", e);
+            editor.printAlert("Can't connect to DB");
         }
     }
 }

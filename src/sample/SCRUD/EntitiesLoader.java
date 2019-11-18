@@ -2,6 +2,9 @@ package sample.SCRUD;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -9,6 +12,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import sample.Entities.*;
+import sample.Loggers.LogMain;
 import sample.XML.XMLHandler.ValidationXML;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,6 +22,8 @@ import java.io.*;
 import java.time.LocalDate;
 
 public class EntitiesLoader {
+    private static Logger log = LogManager.getLogger();
+
     private String path = "D:\\Disk_D\\VTPart2\\DataBase\\";
     private String filePath = "D:\\Disk_D\\VTPart2\\src\\sample\\XML\\";
 
@@ -67,19 +73,20 @@ public class EntitiesLoader {
                     }
 
                 }
+                log.log(Level.INFO, "Product File loaded");
                 return productsList;
                 } catch (ParserConfigurationException | FileNotFoundException e) {
-                    e.printStackTrace();
+                    log.log(Level.ERROR, "Parse/FileNotFound Exception", e);
                     return null;
                 } catch (SAXException e) {
-                    e.printStackTrace();
+                   log.log(Level.ERROR, "SAX Exception", e);
                     return null;
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.log(Level.ERROR, "IO Exception", e);
                     return null;
                 }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.ERROR, "Exception", e);
             return null;
         }
 
@@ -122,19 +129,21 @@ public class EntitiesLoader {
                     }
 
                 }
+                log.log(Level.INFO, "Dishes File loaded");
                 return dishesList;
             } catch (ParserConfigurationException | FileNotFoundException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "Parse/FileNotFound Exception", e);
+               // e.printStackTrace();
                 return null;
             } catch (SAXException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SAX Exception", e);
                 return null;
             } catch (IOException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "IO Exception", e);
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.ERROR, "Exception", e);
             return null;
         }
     }
@@ -175,19 +184,20 @@ public class EntitiesLoader {
                     }
 
                 }
+                log.log(Level.INFO, "OrderDishes File loaded");
                 return orderDishList;
             } catch (ParserConfigurationException | FileNotFoundException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "Parse/FileNotFound Exception", e);
                 return null;
             } catch (SAXException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SAX Exception", e);
                 return null;
             } catch (IOException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "IO Exception", e);
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.ERROR, "Exception", e);
             return null;
         }
     }
@@ -229,19 +239,20 @@ public class EntitiesLoader {
                     }
 
                 }
+                log.log(Level.INFO, "Orders File loaded");
                 return orderList;
             } catch (ParserConfigurationException | FileNotFoundException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "Parse/FileNotFound Exception", e);
                 return null;
             } catch (SAXException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SAX Exception", e);
                 return null;
             } catch (IOException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "IO Exception", e);
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.ERROR, "Exception", e);
             return null;
         }
     }
@@ -282,19 +293,20 @@ public class EntitiesLoader {
                     }
 
                 }
+                log.log(Level.INFO, "Recipe File loaded");
                 return recipeList;
             } catch (ParserConfigurationException | FileNotFoundException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "Parse/FileNotFound Exception", e);
                 return null;
             } catch (SAXException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SAX Exception", e);
                 return null;
             } catch (IOException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "IO Exception", e);
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.ERROR, "Exception", e);
             return null;
         }
     }
@@ -332,19 +344,20 @@ public class EntitiesLoader {
                     }
 
                 }
+                log.log(Level.INFO, "Staff File loaded");
                 return staffList;
             } catch (ParserConfigurationException | FileNotFoundException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "Parse/FileNotFound Exception", e);
                 return null;
             } catch (SAXException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SAX Exception", e);
                 return null;
             } catch (IOException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "IO Exception", e);
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.ERROR, "Exception", e);
             return null;
         }
     }

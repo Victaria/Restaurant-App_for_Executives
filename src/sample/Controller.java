@@ -11,6 +11,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import sample.Entities.*;
 import sample.Loggers.LogMain;
 import sample.SCRUD.EntitiesLoader;
@@ -22,6 +25,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class Controller {
+    private static Logger log = LogManager.getLogger();
 
     public Button deleteBtn;
     public Button addBtn;
@@ -156,8 +160,6 @@ public class Controller {
         orderDishList = loader.loadOrderDishesXMLFile();
         recipeList = loader.loadRecipeXMLFile();
         staffList = loader.loadStaffXMLFile();
-
-        LogMain.printLog();
     }
 
     public void productsShow() {
@@ -328,6 +330,7 @@ public class Controller {
             }
         } else {
             editor.printAlert("You didn't choose an option");
+            log.log(Level.INFO, "Option is not choosed");
         }
     }
 
@@ -480,6 +483,7 @@ public class Controller {
             }
         } else {
             editor.printAlert("You didn't choose an option");
+            log.log(Level.INFO, "Option is not choosed");
         }
     }
 
@@ -507,6 +511,7 @@ public class Controller {
                     productsShow();
                     saver.writeProductsXMLFile(productsList);
                 } catch (Exception e){
+                    log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
                 }
                 break;
@@ -533,6 +538,7 @@ public class Controller {
                     dishesShow();
                     saver.writeDishesXMLFile(dishesList);
                 } catch (Exception e){
+                    log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
                 }
                 break;
@@ -560,6 +566,7 @@ public class Controller {
                     orderDishesShow();
                     saver.writeOrderDishesXMLFile(orderDishList);
                 } catch (Exception e){
+                    log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
                 }
                 break;
@@ -585,6 +592,7 @@ public class Controller {
                     ordersShow();
                     saver.writeOrderXMLFile(orderList);
                 } catch (Exception e){
+                    log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
                 }
                 break;
@@ -613,6 +621,7 @@ public class Controller {
                     receiptsShow();
                     saver.writeRecipeXMLFile(recipeList);
                 } catch (Exception e){
+                    log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
                 }
                 break;
@@ -636,6 +645,7 @@ public class Controller {
                     staffShow();
                     saver.writeStaffXMLFile(staffList);
                 } catch (Exception e){
+                    log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
                 }
                 break;

@@ -2,6 +2,9 @@ package sample.SqlConnection;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
@@ -10,6 +13,8 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class LoadIntoDB {
+    private static Logger log = LogManager.getLogger();
+
     private ObservableList<Products> productsList = FXCollections.observableArrayList();
     private ObservableList<Dishes> dishesList = FXCollections.observableArrayList();
     private ObservableList<OrderDish> orderDishList = FXCollections.observableArrayList();
@@ -32,10 +37,11 @@ public class LoadIntoDB {
                 preparedStmt.setInt(4, product.getAmount());
                 preparedStmt.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SQL Error", e);
             }
         }
             preparedStmt.close();
+      //  log.log(Level.INFO, "Loading Products is successfully");
     }
 
     public void loadDishesIntoDB(Connection con) throws SQLException {
@@ -52,10 +58,11 @@ public class LoadIntoDB {
                 preparedStmt.setDouble(5, dish.getSum());
                 preparedStmt.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SQL Error", e);
             }
         }
         preparedStmt.close();
+      //  log.log(Level.INFO, "Loading Dishes is successfully");
     }
 
     public void loadOrderDishesIntoDB(Connection con) throws SQLException {
@@ -71,10 +78,11 @@ public class LoadIntoDB {
                 preparedStmt.setInt(4, orDish.getOrderId());
                 preparedStmt.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SQL Error", e);
             }
         }
         preparedStmt.close();
+       // log.log(Level.INFO, "Loading OrderDishes is successfully");
     }
 
     public void loadOrdersIntoDB(Connection con) throws SQLException {
@@ -91,10 +99,11 @@ public class LoadIntoDB {
                 preparedStmt.setString(5, order.getStaffName());
                 preparedStmt.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SQL Error", e);
             }
         }
         preparedStmt.close();
+       // log.log(Level.INFO, "Loading Orders is successfully");
     }
 
     public void loadRecipeIntoDB(Connection con) throws SQLException {
@@ -110,10 +119,11 @@ public class LoadIntoDB {
                 preparedStmt.setInt(4, recipe.getAmount());
                 preparedStmt.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SQL Error", e);
             }
         }
         preparedStmt.close();
+       // log.log(Level.INFO, "Loading Recipe is successfully");
     }
 
     public void loadStaffIntoDB(Connection con) throws SQLException {
@@ -127,9 +137,10 @@ public class LoadIntoDB {
                 preparedStmt.setString(2, staff.getName());
                 preparedStmt.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.log(Level.ERROR, "SQL Error", e);
             }
         }
         preparedStmt.close();
+       // log.log(Level.INFO, "Loading Staff is successfully");
     }
 }
