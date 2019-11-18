@@ -12,6 +12,7 @@ import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
 import sample.Entities.*;
+import sample.Loggers.LogMain;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 import sample.SqlConnection.ConnectDB;
@@ -155,6 +156,8 @@ public class Controller {
         orderDishList = loader.loadOrderDishesXMLFile();
         recipeList = loader.loadRecipeXMLFile();
         staffList = loader.loadStaffXMLFile();
+
+        LogMain.printLog();
     }
 
     public void productsShow() {

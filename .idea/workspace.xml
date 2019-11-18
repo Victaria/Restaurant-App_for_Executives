@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading optimization">
+      <change afterPath="$PROJECT_DIR$/logs/text.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/text_log.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/Loggers/LogMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Entities/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VTPart2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VTPart2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,11 +102,14 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1T6Gre0wkbD8AAI3WVzZJw2m1LJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
@@ -122,8 +130,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/CampingProj/campingverwaltung" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="C:/apache-log4j-2.12.1-bin/log4j-core-2.12.1.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -172,7 +180,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="sample.Loggers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -304,7 +312,9 @@
       <workItem from="1573938333885" duration="940000" />
       <workItem from="1573940112323" duration="1111000" />
       <workItem from="1573979890007" duration="17548000" />
-      <workItem from="1574006528868" duration="3320000" />
+      <workItem from="1574006528868" duration="3934000" />
+      <workItem from="1574013462920" duration="4126000" />
+      <workItem from="1574064645057" duration="8942000" />
     </task>
     <servers />
   </component>
@@ -326,6 +336,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Loading optimization" />
     <option name="LAST_COMMIT_MESSAGE" value="Loading optimization" />
