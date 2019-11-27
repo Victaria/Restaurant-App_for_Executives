@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading optimization">
+      <change afterPath="$PROJECT_DIR$/logs/app-11-25-2019-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/SqlConnection/LoadAllIntoDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/login/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/login/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/login/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/logout.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBase/ProductsXML.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/ProductsXML.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/text_log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/text_log.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Loggers/LogMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Loggers/LogMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/SqlConnection/ConnectDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/SqlConnection/ConnectDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Loggers/LogMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Loggers/LogMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SqlConnection/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +87,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -130,7 +138,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/campingverwaltung" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/sample" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -139,8 +147,15 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Disk_D\VTPart2\src\sample\login" />
+      <recent name="D:\Disk_D\VTPart2\src\sample" />
+      <recent name="D:\Disk_D\VTPart2\src" />
+      <recent name="D:\Disk_D\VTPart2\src\login" />
       <recent name="D:\Disk_D\VTPart2\src\sample\XML" />
-      <recent name="D:\Disk_D\VTPart2\DataBase" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Disk_D\VTPart2\src\sample" />
+      <recent name="D:\Disk_D\VTPart2\src\login" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -314,7 +329,14 @@
       <workItem from="1573979890007" duration="17548000" />
       <workItem from="1574006528868" duration="3934000" />
       <workItem from="1574013462920" duration="4126000" />
-      <workItem from="1574064645057" duration="12818000" />
+      <workItem from="1574064645057" duration="13166000" />
+      <workItem from="1574094099296" duration="1827000" />
+      <workItem from="1574185565663" duration="667000" />
+      <workItem from="1574683793571" duration="464000" />
+      <workItem from="1574692461561" duration="6075000" />
+      <workItem from="1574766313019" duration="953000" />
+      <workItem from="1574787935578" duration="1937000" />
+      <workItem from="1574885228148" duration="3721000" />
     </task>
     <servers />
   </component>

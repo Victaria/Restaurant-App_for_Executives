@@ -4,10 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.LocalDateStringConverter;
@@ -19,9 +22,11 @@ import sample.Loggers.LogMain;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
 import sample.SqlConnection.ConnectDB;
+import sample.SqlConnection.LoadAllIntoDB;
 import sample.XML.XMLHandler.SaveXML;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 
 public class Controller {
@@ -824,8 +829,9 @@ public class Controller {
         }
 
     public void loadIntoDB(ActionEvent event) throws Exception {
-        ConnectDB.connect();
+        LoadAllIntoDB.loadAll();
     }
+
 }
 
 

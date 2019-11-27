@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<AnchorPane onKeyPressed="#keyPressed" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.LoginController">
+    <Text layoutX="320.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Text>
+
+    <HBox alignment="CENTER" layoutX="525.0" layoutY="353.0" prefHeight="40.0" prefWidth="230.0">
+        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@user.png" />
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </ImageView>
+        <TextField fx:id="email_tf" prefHeight="40.0" prefWidth="200.0" promptText="   E-mail">
+            <font>
+                <Font size="14.0" />
+            </font></TextField>
+    </HBox>
+
+    <HBox alignment="CENTER" layoutX="525.0" layoutY="422.0" prefHeight="40.0" prefWidth="230.0">
+        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@lock.png" />
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </ImageView>
+        <PasswordField fx:id="password_tf" prefHeight="40.0" prefWidth="200.0" promptText="   Password">
+            <font>
+                <Font size="14.0" />
+            </font></PasswordField>
+    </HBox>
+
+    <Text fx:id="failure_txt" fill="RED" layoutX="544.0" layoutY="491.0" text="E-mail or Password are incorrect!" visible="false">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Text>
+
+    <Button fx:id="login_btn" layoutX="570.0" layoutY="530.0" onAction="#getCredentials" prefHeight="40.0" prefWidth="150.0" text="Login">
+        <font>
+            <Font size="14.0" />
+        </font></Button>
+
+</AnchorPane>

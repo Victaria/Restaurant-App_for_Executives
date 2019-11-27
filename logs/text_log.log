@@ -1,15 +1,9 @@
-15:19:08 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-15:19:08 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-15:19:09 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
-15:19:09 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
-15:19:09 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-15:19:09 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-15:19:33 [JavaFX Application Thread] ERROR sample.SqlConnection.ConnectDB - Can't Connect to DB
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+21:53:17 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+21:53:33 [JavaFX Application Thread] ERROR sample.SqlConnection.ConnectDB - Can't Connect to DB
+java.sql.SQLException: Access denied for user 'WT'@'141.55.116.78' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.18.jar:8.0.18]
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.18.jar:8.0.18]
 	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.18.jar:8.0.18]
 	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.18.jar:8.0.18]
@@ -76,62 +70,67 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
 	at com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177) ~[jfxrt.jar:?]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_201]
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_201]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_201]
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_201]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_201]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	... 65 more
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_201]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_201]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_201]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_201]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_201]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_201]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_201]
-	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_201]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.18.jar:8.0.18]
-	... 65 more
-15:20:37 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-15:20:37 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-15:20:37 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
-15:20:37 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
-15:20:37 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-15:20:37 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-15:20:46 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-15:20:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-15:20:48 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
-15:20:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
-15:20:50 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-15:20:51 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-15:20:52 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
-15:20:52 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
-15:21:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-15:21:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-15:21:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
-15:21:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
-15:21:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-15:21:49 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-15:21:53 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-15:21:55 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-15:21:55 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
-15:21:56 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
-15:21:57 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-15:21:58 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-15:21:59 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
-15:21:59 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+21:55:25 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+21:55:25 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+21:55:25 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+21:55:25 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+21:55:25 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+21:55:25 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+21:55:42 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+21:55:46 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+21:55:50 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+21:55:55 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+21:55:59 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+21:56:04 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+21:56:06 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+21:56:06 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+22:14:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+22:14:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+22:14:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+22:14:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+22:14:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+22:14:47 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+22:14:56 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+22:14:56 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+22:14:58 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+22:14:59 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+22:14:59 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+22:15:01 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+22:15:02 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+22:15:02 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+23:40:45 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+23:40:45 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+23:40:45 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+23:40:45 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+23:40:45 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+23:40:45 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+23:43:00 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+23:43:00 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+23:43:00 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+23:43:00 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+23:43:00 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+23:43:00 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+23:54:32 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+23:54:32 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+23:54:32 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+23:54:32 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+23:54:32 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+23:54:32 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+23:56:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+23:56:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+23:56:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+23:56:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+23:56:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+23:56:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+23:57:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+23:57:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+23:57:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+23:57:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+23:57:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+23:57:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+00:06:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+00:06:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+00:06:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Orders File loaded
+00:06:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - OrderDishes File loaded
+00:06:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+00:06:41 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded

@@ -120,4 +120,10 @@
         <price>234.0</price>
         <amount>480</amount>
     </product>
+    <product>
+        <id>22</id>
+        <name>Sugar</name>
+        <price>26.0</price>
+        <amount>26</amount>
+    </product>
 </products>
