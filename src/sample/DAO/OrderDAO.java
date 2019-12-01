@@ -9,6 +9,7 @@ import sample.SqlConnection.ConnectDB;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class OrderDAO {
     private static ObservableList<Order> orderList = FXCollections.observableArrayList();
@@ -18,7 +19,7 @@ public class OrderDAO {
         int id;
         int table;
         double sum;
-        LocalDate date;
+        String date;
         String staffName;
         int userID;
 
@@ -33,7 +34,7 @@ public class OrderDAO {
             id = Integer.parseInt(resultSet.getString("id"));
             table = Integer.parseInt(resultSet.getString("tableOrder"));
             sum = Double.parseDouble(resultSet.getString("sum"));
-            date = LocalDate.parse(String.valueOf(resultSet.getString("dateOrder")));
+            date = resultSet.getString("dateOrder");
             if (resultSet.getString("staffName") != null)staffName = resultSet.getString("staffName"); else staffName = "NULL";
             if(resultSet.getString("userID") != null) userID = Integer.parseInt(resultSet.getString("userID"));
             else userID = 0;
@@ -75,6 +76,13 @@ public class OrderDAO {
     }
 
     public static void loadOrderIntoDB(ObservableList<Order> orderList) throws SQLException {
+        int id;
+        int table;
+        double sum;
+        String date;
+        String staffName;
+        int userID;
+
         Connection con = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -82,7 +90,32 @@ public class OrderDAO {
         con = ConnectDB.connect();
         Statement stmt = null;
 
-        stmt = con.createStatement();
+        stmt = con.createStatement(); //Statement is used to write queries. Read more about it.
+        resultSet = stmt.executeQuery("select MAX(id) from Orders");
+        int maxId = 0;
+        while (resultSet.next())
+            maxId = Integer.parseInt(resultSet.getString(1));
+
+        String query1;
+        if (Order.getLastId() < maxId) {
+            query1 = "SELECT * from Orders WHERE id>'"+Order.getLastId()+ 1 +"'";
+            resultSet = stmt.executeQuery(query1);
+            while (resultSet.next()){
+                id = Integer.parseInt(resultSet.getString("id"));
+                table = Integer.parseInt(resultSet.getString("tableOrder"));
+                sum = Double.parseDouble(resultSet.getString("sum"));
+                date = resultSet.getString("dateOrder");
+                if (resultSet.getString("staffName") != null)staffName = resultSet.getString("staffName"); else staffName = "NULL";
+                if (resultSet.getString("userID") != null) userID = Integer.parseInt(resultSet.getString("userID"));
+                else userID = 0;
+
+                Order order = new Order(id, table, sum, date, staffName);
+                order.setUserID(userID);
+
+                orderList.add(order);
+            }
+        }
+       // stmt = con.createStatement();
         stmt.executeUpdate("TRUNCATE TABLE Orders");
 
         String query = "INSERT INTO Orders(id, tableOrder , sum, dateOrder, staffName, userID) VALUES (?,?,?,?,?,? )"; //Insert user details into the table 'USERS'
@@ -91,7 +124,7 @@ public class OrderDAO {
             preparedStatement.setInt(1, order.getId());
             preparedStatement.setInt(2, order.getTable());
             preparedStatement.setDouble(3, order.getSum());
-            preparedStatement.setDate(4, java.sql.Date.valueOf(String.valueOf(order.getDate())));
+            preparedStatement.setString(4, order.getDate());
             preparedStatement.setString(5, order.getStaffName());
             preparedStatement.setInt(6, order.getUserID());
 
@@ -102,12 +135,40 @@ public class OrderDAO {
     }
 
     public static void loadOrderDishesIntoDB(ObservableList<OrderDish> orderDishesList) throws SQLException {
+        int id;
+        int amount;
+        String dishName;
+        int orderId;
+
         Connection con = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         con = ConnectDB.connect();
         Statement stmt = null;
+
+        stmt = con.createStatement(); //Statement is used to write queries. Read more about it.
+        resultSet = stmt.executeQuery("select MAX(id) from OrderDish");
+        int maxId = 0;
+        while (resultSet.next())
+            maxId = Integer.parseInt(resultSet.getString(1));
+
+        String query1;
+        if (OrderDish.getLastId() < maxId) {
+            query1 = "SELECT * from OrderDish WHERE id>'"+OrderDish.getLastId()+1+"'";
+            resultSet = stmt.executeQuery(query1);
+            while (resultSet.next()){
+                id = Integer.parseInt(resultSet.getString("id"));
+                amount = Integer.parseInt(resultSet.getString("amount"));
+                dishName = resultSet.getString("dishName");
+                orderId = Integer.parseInt(resultSet.getString("orderId"));
+
+                OrderDish orderDish = new OrderDish(id, amount, dishName, orderId);
+
+                orderDishesList.add(orderDish);
+            }
+        }
+
 
         stmt = con.createStatement();
         stmt.executeUpdate("TRUNCATE TABLE OrderDish");

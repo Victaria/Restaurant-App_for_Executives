@@ -9,7 +9,7 @@ public class Order implements Comparator {
     private int id;
     private int table;
     private double sum;
-    private LocalDate date;
+    private String date;
     private String staffName;
     private int userID;
 
@@ -24,7 +24,7 @@ public class Order implements Comparator {
 
     private static int lastId = 0;
 
-    public Order(int id, int tbl, double sum, LocalDate date, String staffId) {
+    public Order(int id, int tbl, double sum, String date, String staffId) {
         this.id = id;
         this.table = tbl;
         this.sum = sum;
@@ -58,11 +58,11 @@ public class Order implements Comparator {
         this.sum = sum;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

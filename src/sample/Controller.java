@@ -26,6 +26,7 @@ import sample.SqlConnection.ConnectDB;
 import sample.SqlConnection.LoadAllIntoDB;
 import sample.XML.XMLHandler.SaveXML;
 
+import javax.swing.text.DateFormatter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
@@ -144,6 +145,8 @@ public class Controller {
 
     private SaveXML saver = new SaveXML();
 
+    private DateFormatter dtf = new DateFormatter();
+
     public void initialize() throws SQLException {
         editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         submitBtn.setDisable(true);
@@ -153,7 +156,7 @@ public class Controller {
         priceCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         amountCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         weightCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        dateCol.setCellFactory(TextFieldTableCell.forTableColumn(new LocalDateStringConverter()));
+        dateCol.setCellFactory(TextFieldTableCell.forTableColumn());
         sumCol.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         productNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
         dishNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -231,11 +234,14 @@ public class Controller {
         flag = 3;
     }
 
-    public void ordersShow() {
+    public void ordersShow() throws SQLException {
+        orderList.clear();
+        orderList = OrderDAO.loadOrdersFromDB();
+
         idCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
         tableCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("table"));
         sumCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("sum"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("date"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<Order, String>("date"));
         staffNameCol.setCellValueFactory(new PropertyValueFactory<Order, String>("staffName"));
         order2List.clear();
         double sum;
@@ -590,19 +596,19 @@ public class Controller {
                     }
 
                     if (eAFlag == 1) {
-                        Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, dataChooser.getValue(), stName.toString());
+                        Order order = new Order(Order.getLastId() + 1, Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()), 0, String.valueOf(dataChooser.getValue()), stName.toString());
                         orderList.add(order);
 
                     } else if (eAFlag == 2) {
                         order.setSum(0);
                         order.setStaffName(stName.toString());
-                        order.setDate(dataChooser.getValue());
+                        order.setDate(String.valueOf(dataChooser.getValue()));
                         order.setTable(Integer.valueOf(tableChooser.getSelectionModel().getSelectedItem().toString()));
                         orderList.remove(num);
                         orderList.add(order);
                     }
-                    ordersShow();
                     OrderDAO.loadOrderIntoDB(orderList);
+                    ordersShow();
                    // saver.writeOrderXMLFile(orderList);
                 } catch (Exception e){
                     log.log(Level.ERROR, "Incorrect added Data", e);

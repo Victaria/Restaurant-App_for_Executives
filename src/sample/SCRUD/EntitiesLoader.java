@@ -202,7 +202,7 @@ public class EntitiesLoader {
         }
     }*/
 
-    public ObservableList<Order> loadOrderXMLFile() {
+   /* public ObservableList<Order> loadOrderXMLFile() {
         try {
             validationXML.validate(path + "OrdersXML.xml", filePath + "Order.xsd");
 
@@ -255,7 +255,7 @@ public class EntitiesLoader {
             log.log(Level.ERROR, "Exception", e);
             return null;
         }
-    }
+    }*/
 
     public ObservableList<Recipe> loadRecipeXMLFile() {
         try {

@@ -87,7 +87,7 @@ public class LoadIntoDB {
        // log.log(Level.INFO, "Loading OrderDishes is successfully");
     }
 
-    public void loadOrdersIntoDB(Connection con) throws SQLException {
+   /* public void loadOrdersIntoDB(Connection con) throws SQLException {
         orderList = loader.loadOrderXMLFile();
         String query = "INSERT INTO Orders (id, tableOrder, sum, dateOrder, staffName) VALUES(?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = null;
@@ -106,7 +106,7 @@ public class LoadIntoDB {
         }
         preparedStmt.close();
        // log.log(Level.INFO, "Loading Orders is successfully");
-    }
+    }*/
 
     public void loadRecipeIntoDB(Connection con) throws SQLException {
         recipeList = loader.loadRecipeXMLFile();

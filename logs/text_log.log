@@ -1,17 +1,72 @@
-13:14:20 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
-13:23:48 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-13:23:48 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-13:23:49 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
-13:23:49 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
-13:23:50 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
-13:23:50 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
-13:23:50 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-13:23:50 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-13:24:29 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
-13:24:29 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
-13:25:03 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
-13:25:03 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
-13:25:04 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
-13:25:05 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
-13:25:07 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
-13:25:07 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:40:57 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+15:40:57 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+15:41:01 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:41:01 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:42:40 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:42:40 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:49:16 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+15:49:16 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+15:49:17 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:49:17 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:49:17 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:49:17 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:49:17 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+15:49:17 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+15:49:32 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:49:32 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:49:49 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:49:50 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:49:50 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:49:50 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:53:54 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+15:53:54 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+15:53:55 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:53:55 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:53:55 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:53:56 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:53:56 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+15:53:56 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+15:53:58 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:53:58 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:54:15 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:54:16 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:54:16 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:54:16 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:56:11 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+15:56:11 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+15:56:12 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:56:12 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:56:12 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:56:12 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:56:12 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+15:56:12 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+15:56:15 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:56:15 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:56:28 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:56:29 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+15:56:29 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+15:56:29 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:03:43 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+16:03:43 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+16:03:44 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:03:44 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:03:44 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:03:44 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:03:44 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+16:03:44 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+16:03:47 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:03:47 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:06:38 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Product File loaded
+16:06:38 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Dishes File loaded
+16:06:39 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:06:39 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:06:39 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:06:39 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:06:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Recipe File loaded
+16:06:39 [JavaFX Application Thread] INFO  sample.SCRUD.EntitiesLoader - Staff File loaded
+16:06:43 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:06:43 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:07:00 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:07:01 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
+16:07:01 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection to DB is successfully
+16:07:01 [JavaFX Application Thread] INFO  sample.SqlConnection.ConnectDB - Connection closed successfully
