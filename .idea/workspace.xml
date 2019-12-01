@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading from and into DB Orders and OrderDishes, without sync">
-      <change afterPath="$PROJECT_DIR$/logs/app-12-01-2019-3.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/app-12-01-2019-4.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/app-12-01-2019-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/text_log.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/text_log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/SCRUD/EntitiesLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/SCRUD/EntitiesLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VTPart2/sample/SqlConnection/LoadIntoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VTPart2/sample/SqlConnection/LoadIntoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DAO/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DAO/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Entities/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SCRUD/EntitiesLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SqlConnection/LoadIntoDB.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Loading from and into DB Orders and OrderDishes, with sync" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +321,7 @@
       <workItem from="1574885228148" duration="3721000" />
       <workItem from="1575125543965" duration="200000" />
       <workItem from="1575151857567" duration="2073000" />
-      <workItem from="1575189667815" duration="13637000" />
+      <workItem from="1575189667815" duration="13879000" />
     </task>
     <task id="LOCAL-00001" summary="Loading from and into DB Orders and OrderDishes, without sync">
       <created>1575195993907</created>
@@ -344,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575195993907</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Loading from and into DB Orders and OrderDishes, with sync">
+      <created>1575205649023</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575205649023</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +362,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Loading optimization" />
     <MESSAGE value="Loading from and into DB Orders and OrderDishes, without sync" />
-    <option name="LAST_COMMIT_MESSAGE" value="Loading from and into DB Orders and OrderDishes, without sync" />
+    <MESSAGE value="Loading from and into DB Orders and OrderDishes, with sync" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loading from and into DB Orders and OrderDishes, with sync" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
