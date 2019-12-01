@@ -17,6 +17,7 @@ import javafx.util.converter.LocalDateStringConverter;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sample.DAO.OrderDAO;
 import sample.Entities.*;
 import sample.Loggers.LogMain;
 import sample.SCRUD.EntitiesLoader;
@@ -27,6 +28,7 @@ import sample.XML.XMLHandler.SaveXML;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Controller {
@@ -142,7 +144,7 @@ public class Controller {
 
     private SaveXML saver = new SaveXML();
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         editor.fieldsDisabled(nameField, priceField, amountField, weightField, dataChooser, dishNameChooser, orderIdChooser, tableChooser, staffNameChooser, productNameChooser);
         submitBtn.setDisable(true);
 
@@ -161,8 +163,10 @@ public class Controller {
         EntitiesLoader loader = new EntitiesLoader();
         productsList = loader.loadProductXMLFile();
         dishesList = loader.loadDishesXMLFile();
-        orderList = loader.loadOrderXMLFile();
-        orderDishList = loader.loadOrderDishesXMLFile();
+       // orderList = loader.loadOrderXMLFile();
+        orderList = OrderDAO.loadOrdersFromDB();
+        orderDishList = OrderDAO.loadOrderDishesFromDB();
+       // orderDishList = loader.loadOrderDishesXMLFile();
         recipeList = loader.loadRecipeXMLFile();
         staffList = loader.loadStaffXMLFile();
     }
@@ -309,13 +313,15 @@ public class Controller {
                 case 3:
                     orderDish = (OrderDish) table.getItems().get(num);
                     orderDishList.remove(num);
-                    saver.writeOrderDishesXMLFile(orderDishList);
+                    OrderDAO.loadOrderDishesIntoDB(orderDishList);
+                   // saver.writeOrderDishesXMLFile(orderDishList);
                     table.setItems(orderDishList);
                     break;
                 case 4:
                     order = (Order) table.getItems().get(num);
                     orderList.remove(num);
-                    saver.writeOrderXMLFile(orderList);
+                  //  saver.writeOrderXMLFile(orderList);
+                    OrderDAO.loadOrderIntoDB(orderList);
                     table.setItems(orderList);
                     break;
                 case 5:
@@ -569,7 +575,8 @@ public class Controller {
                         orderDishList.add(orderDish);
                     }
                     orderDishesShow();
-                    saver.writeOrderDishesXMLFile(orderDishList);
+                    OrderDAO.loadOrderDishesIntoDB(orderDishList);
+                   // saver.writeOrderDishesXMLFile(orderDishList);
                 } catch (Exception e){
                     log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");
@@ -595,7 +602,8 @@ public class Controller {
                         orderList.add(order);
                     }
                     ordersShow();
-                    saver.writeOrderXMLFile(orderList);
+                    OrderDAO.loadOrderIntoDB(orderList);
+                   // saver.writeOrderXMLFile(orderList);
                 } catch (Exception e){
                     log.log(Level.ERROR, "Incorrect added Data", e);
                     editor.printAlert("Data are incorrect.");

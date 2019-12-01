@@ -132,7 +132,7 @@ public class SaveXML {
         }
     }
 
-    public void writeOrderDishesXMLFile(ObservableList<OrderDish> orderDishesList) {
+   /* public void writeOrderDishesXMLFile(ObservableList<OrderDish> orderDishesList) {
         try {
             Element e;
 
@@ -185,9 +185,9 @@ public class SaveXML {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    public void writeOrderXMLFile(ObservableList<Order> ordersList) {
+  /*  public void writeOrderXMLFile(ObservableList<Order> ordersList) {
         try {
             Element e;
 
@@ -244,7 +244,7 @@ public class SaveXML {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void writeRecipeXMLFile(ObservableList<Recipe> recipes) {
         try {

@@ -11,6 +11,16 @@ public class Order implements Comparator {
     private double sum;
     private LocalDate date;
     private String staffName;
+    private int userID;
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
 
     private static int lastId = 0;
 

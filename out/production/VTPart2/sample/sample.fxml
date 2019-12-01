@@ -55,7 +55,7 @@
             </Button>
          </children>
       </VBox>
-       <Label layoutX="1114.0" layoutY="12.0" onMousePressed="#logOut" prefHeight="28.0" prefWidth="55.0" text="Logout">
+       <Label layoutX="1114.0" layoutY="12.0" prefHeight="28.0" prefWidth="55.0" text="Logout">
            <font>
                <Font size="14.0" />
            </font>

@@ -22,16 +22,16 @@ public class LoadAllIntoDB {
 
         stmt.executeUpdate("TRUNCATE TABLE Products");
         stmt.executeUpdate("TRUNCATE TABLE Dishes");
-        stmt.executeUpdate("TRUNCATE TABLE OrderDish");
-        stmt.executeUpdate("TRUNCATE TABLE Orders");
+       // stmt.executeUpdate("TRUNCATE TABLE OrderDish");
+       // stmt.executeUpdate("TRUNCATE TABLE Orders");
         stmt.executeUpdate("TRUNCATE TABLE Recipe");
         stmt.executeUpdate("TRUNCATE TABLE Staff");
 
         LoadIntoDB libd = new LoadIntoDB();
         libd.loadProductsIntoDB(con);
         libd.loadDishesIntoDB(con);
-        libd.loadOrderDishesIntoDB(con);
-        libd.loadOrdersIntoDB(con);
+      //  libd.loadOrderDishesIntoDB(con);
+      //  libd.loadOrdersIntoDB(con);
         libd.loadRecipeIntoDB(con);
         libd.loadStaffIntoDB(con);
 

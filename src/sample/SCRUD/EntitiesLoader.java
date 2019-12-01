@@ -148,7 +148,7 @@ public class EntitiesLoader {
         }
     }
 
-    public ObservableList<OrderDish> loadOrderDishesXMLFile() {
+   /* public ObservableList<OrderDish> loadOrderDishesXMLFile() {
         try {
             validationXML.validate(path + "OrderDishXML.xml", filePath + "OrderDish.xsd");
 
@@ -200,7 +200,7 @@ public class EntitiesLoader {
             log.log(Level.ERROR, "Exception", e);
             return null;
         }
-    }
+    }*/
 
     public ObservableList<Order> loadOrderXMLFile() {
         try {

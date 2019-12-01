@@ -84,4 +84,34 @@
         <dishName>CheeseCake</dishName>
         <orderId>12</orderId>
     </orderDish>
+    <orderDish>
+        <id>17</id>
+        <amount>1</amount>
+        <dishName>Cherry-Torte</dishName>
+        <orderId>6</orderId>
+    </orderDish>
+    <orderDish>
+        <id>18</id>
+        <amount>3</amount>
+        <dishName>Juicy chicken</dishName>
+        <orderId>20</orderId>
+    </orderDish>
+    <orderDish>
+        <id>19</id>
+        <amount>2</amount>
+        <dishName>Pasta1</dishName>
+        <orderId>20</orderId>
+    </orderDish>
+    <orderDish>
+        <id>20</id>
+        <amount>1</amount>
+        <dishName>Brokkoli-Torte</dishName>
+        <orderId>20</orderId>
+    </orderDish>
+    <orderDish>
+        <id>21</id>
+        <amount>3</amount>
+        <dishName>Potatos fri</dishName>
+        <orderId>19</orderId>
+    </orderDish>
 </orderDishes>

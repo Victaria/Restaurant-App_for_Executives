@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sample.DAO.OrderDAO;
 import sample.Entities.*;
 import sample.SCRUD.EntitiesLoader;
 import sample.SCRUD.EntityEditor;
@@ -66,7 +67,8 @@ public class LoadIntoDB {
     }
 
     public void loadOrderDishesIntoDB(Connection con) throws SQLException {
-        orderDishList = loader.loadOrderDishesXMLFile();
+        orderDishList = OrderDAO.loadOrderDishesFromDB();
+       // orderDishList = loader.loadOrderDishesXMLFile();
         String query = "INSERT INTO OrderDish (id, amount, dishName, orderId) VALUES(?, ?, ?, ?)";
         PreparedStatement preparedStmt = null;
         for (OrderDish orDish : orderDishList){
