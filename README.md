@@ -21,8 +21,11 @@ Used Technologies:
 4) Java Code Convention
 5) log4j
 6) In first versions :
+  
   6.1) XSD - file (Checking XML document for XSD compliance)
+  
   6.2) data migration from xml to database
+  
 7) JDBC
 8) MySQL ← SQL
 9) DAO pattern
